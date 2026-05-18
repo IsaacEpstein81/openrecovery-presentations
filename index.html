@@ -40,7 +40,7 @@
     .app-shell {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 270px minmax(620px, 1fr) 410px;
+      grid-template-columns: 270px minmax(720px, 1fr) 410px;
       grid-template-rows: 56px 1fr;
     }
 
@@ -190,11 +190,11 @@
       grid-column: 2;
       background: var(--or-bg);
       overflow-y: auto;
-      padding: 30px 8vw 28px;
+      padding: 30px 4.5vw 28px;
     }
 
     .content-wrap {
-      max-width: 880px;
+      max-width: 1040px;
       margin: 0 auto;
     }
 
@@ -206,6 +206,33 @@
       letter-spacing: -0.03em;
     }
 
+    .deck-toolbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: -8px 0 10px;
+    }
+
+    .fullscreen-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(11, 111, 120, 0.18);
+      background: white;
+      color: var(--or-teal);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(7, 63, 70, 0.06);
+    }
+
+    .fullscreen-button:hover {
+      background: var(--or-mint);
+    }
+
     .deck-frame {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -214,6 +241,18 @@
       overflow: hidden;
       box-shadow: 0 18px 40px rgba(19, 25, 27, 0.10);
       border: 1px solid rgba(7, 63, 70, 0.10);
+    }
+
+    .deck-frame:fullscreen {
+      border-radius: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    .deck-frame:fullscreen iframe {
+      width: 100vw;
+      height: 100vh;
     }
 
     .deck-frame iframe {
@@ -482,10 +521,17 @@
       <div class="content-wrap">
         <h1>Understanding Professional Boundaries</h1>
 
-        <div class="deck-frame">
+        <div class="deck-toolbar">
+          <button class="fullscreen-button" id="fullscreenDeck" type="button">
+            ⛶ Expand presentation
+          </button>
+        </div>
+
+        <div class="deck-frame" id="deckFrame">
           <iframe
             title="Understanding Professional Boundaries slide deck"
-            src="./presentations/ethics-boundaries-recovery-counseling/lesson-01-understanding-professional-boundaries/"
+            src="./presentations/ethics-boundaries-recovery-counseling/lesson-01-understanding-professional-boundaries/index.html"
+            allow="fullscreen"
             allowfullscreen
           ></iframe>
         </div>
@@ -560,5 +606,23 @@
       </div>
     </aside>
   </div>
+
+  <script>
+    const deckFrame = document.getElementById("deckFrame");
+    const fullscreenButton = document.getElementById("fullscreenDeck");
+
+    fullscreenButton.addEventListener("click", async () => {
+      if (!document.fullscreenElement) {
+        await deckFrame.requestFullscreen();
+        fullscreenButton.textContent = "Esc to exit full screen";
+      }
+    });
+
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement) {
+        fullscreenButton.textContent = "⛶ Expand presentation";
+      }
+    });
+  </script>
 </body>
 </html>

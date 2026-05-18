@@ -439,6 +439,6 @@ table.clean-table td:last-child {
   background: rgba(7, 63, 70, 0.85);
   color: white;
   border-radius: 999px;
-  padding: 5px 10px;
-  font-size: 13px;
+  padding: 4px 8px;
+  font-size: 11px;
 }
