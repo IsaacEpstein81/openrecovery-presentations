@@ -1,0 +1,444 @@
+:root {
+  --or-navy: #073f46;
+  --or-deep: #07515a;
+  --or-teal: #0b6f78;
+  --or-aqua: #37c7bd;
+  --or-mint: #7ce3d4;
+  --or-soft: #e9fbf8;
+  --or-cream: #f8fbfa;
+  --or-charcoal: #102326;
+  --or-muted: #5e7377;
+  --or-warning: #f2a93b;
+  --or-danger: #c94b4b;
+  --or-good: #24a889;
+  --or-card-border: rgba(11, 111, 120, 0.16);
+  --or-shadow: rgba(7, 63, 70, 0.08);
+}
+
+.reveal {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--or-charcoal);
+  background:
+    radial-gradient(circle at top left, rgba(55, 199, 189, 0.18), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(7, 81, 90, 0.14), transparent 35%),
+    linear-gradient(135deg, #ffffff 0%, var(--or-cream) 100%);
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: var(--or-navy);
+  letter-spacing: -0.035em;
+  text-transform: none;
+  line-height: 1.12;
+}
+
+.reveal h1 {
+  font-size: 2.15em;
+  font-weight: 800;
+}
+
+.reveal h2 {
+  font-size: 1.55em;
+  font-weight: 800;
+}
+
+.reveal h3 {
+  font-size: 1em;
+  font-weight: 750;
+}
+
+.reveal p,
+.reveal li {
+  font-size: 0.72em;
+  line-height: 1.35;
+  color: var(--or-charcoal);
+}
+
+.slide-shell {
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 28px;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.title-slide .slide-shell {
+  align-content: center;
+  padding-bottom: 34px;
+}
+
+.title-content {
+  width: min(1080px, 94vw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lesson-title {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(3.2rem, 6.3vw, 5.4rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.title-subtitle {
+  max-width: 860px;
+  text-align: center;
+  margin: 26px auto 0 !important;
+  line-height: 1.28 !important;
+}
+
+.pill-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.clean-title {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 1.16 !important;
+  text-wrap: balance;
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+.brand-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.38em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--or-teal);
+  margin-bottom: 14px;
+}
+
+.centered-kicker {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.brand-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--or-aqua), var(--or-deep));
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: 0.68em !important;
+  color: var(--or-muted) !important;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 22px;
+  width: 100%;
+}
+
+.card-grid.two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--or-card-border);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 18px 45px var(--or-shadow);
+  text-align: left;
+}
+
+.card strong {
+  color: var(--or-deep);
+}
+
+.material-symbols-outlined.icon {
+  font-size: 44px;
+  color: var(--or-teal);
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.large-icon {
+  font-size: 84px;
+  color: var(--or-aqua);
+  margin-bottom: 12px;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 8px 15px;
+  background: var(--or-soft);
+  color: var(--or-deep);
+  font-size: 0.42em;
+  font-weight: 700;
+  margin: 0;
+  border: 1px solid rgba(11, 111, 120, 0.15);
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: center;
+  width: 100%;
+}
+
+.quote-box {
+  background: linear-gradient(135deg, rgba(7, 81, 90, 0.96), rgba(11, 111, 120, 0.92));
+  color: white;
+  border-radius: 30px;
+  padding: 42px;
+  box-shadow: 0 24px 60px rgba(7, 63, 70, 0.22);
+}
+
+.quote-box h2,
+.quote-box p,
+.quote-box li {
+  color: white;
+}
+
+.quote-box .muted {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.boundary-spectrum {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 26px;
+  width: 100%;
+}
+
+.spectrum-card {
+  min-height: 250px;
+  border-radius: 24px;
+  padding: 22px;
+  text-align: left;
+  background: white;
+  border: 1px solid rgba(11, 111, 120, 0.18);
+  box-shadow: 0 12px 34px rgba(7, 63, 70, 0.07);
+}
+
+.spectrum-card.safe {
+  border-top: 8px solid var(--or-good);
+}
+
+.spectrum-card.watch {
+  border-top: 8px solid var(--or-warning);
+}
+
+.spectrum-card.danger {
+  border-top: 8px solid var(--or-danger);
+}
+
+table.clean-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  font-size: 0.52em;
+}
+
+table.clean-table th {
+  color: var(--or-deep);
+  text-align: left;
+  font-weight: 800;
+  padding: 12px 16px;
+}
+
+table.clean-table td {
+  background: white;
+  padding: 16px;
+  border-top: 1px solid rgba(11, 111, 120, 0.12);
+  border-bottom: 1px solid rgba(11, 111, 120, 0.12);
+}
+
+table.clean-table td:first-child {
+  border-left: 1px solid rgba(11, 111, 120, 0.12);
+  border-radius: 16px 0 0 16px;
+  font-weight: 700;
+  color: var(--or-deep);
+}
+
+table.clean-table td:last-child {
+  border-right: 1px solid rgba(11, 111, 120, 0.12);
+  border-radius: 0 16px 16px 0;
+}
+
+.scenario {
+  background: white;
+  border-radius: 30px;
+  padding: 34px;
+  text-align: left;
+  border: 1px solid rgba(11, 111, 120, 0.16);
+  box-shadow: 0 20px 50px rgba(7, 63, 70, 0.08);
+  width: 100%;
+}
+
+.scenario-label {
+  color: var(--or-teal);
+  font-size: 0.45em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.script-box {
+  background: var(--or-soft);
+  border-left: 8px solid var(--or-aqua);
+  border-radius: 18px;
+  padding: 24px 28px;
+  text-align: left;
+  margin-top: 18px;
+}
+
+.script-box p {
+  font-size: 0.62em;
+}
+
+.reflection-slide .slide-shell {
+  justify-items: center;
+  text-align: center;
+}
+
+.reflection-content {
+  width: min(1120px, 94vw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reflection-title {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto 28px !important;
+  text-align: center !important;
+  line-height: 1.14 !important;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.65rem, 5.5vw, 4.25rem) !important;
+}
+
+.reflection-title span {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-note {
+  position: absolute;
+  bottom: 24px;
+  left: 54px;
+  right: 54px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.28em;
+  color: var(--or-muted);
+  opacity: 0.78;
+}
+
+.muted {
+  color: var(--or-muted) !important;
+}
+
+/* Dark slide treatment */
+.dark-slide h2,
+.dark-slide .brand-kicker {
+  color: white;
+}
+
+.dark-slide .brand-dot {
+  background: var(--or-aqua);
+}
+
+.dark-slide .takeaway-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.dark-slide .takeaway-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 16px 0;
+  background: rgba(233, 251, 248, 0.94);
+  border-radius: 18px;
+  padding: 18px 22px;
+  border: 1px solid rgba(124, 227, 212, 0.35);
+  color: var(--or-navy);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
+}
+
+.dark-slide .takeaway-list li span:last-child {
+  color: var(--or-navy);
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.dark-slide .takeaway-list .material-symbols-outlined {
+  color: var(--or-aqua);
+  font-size: 32px;
+  flex: 0 0 auto;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 48;
+}
+
+.reveal .progress {
+  color: var(--or-aqua);
+}
+
+.reveal .controls {
+  color: var(--or-teal);
+}
+
+.reveal .slide-number {
+  background: rgba(7, 63, 70, 0.85);
+  color: white;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 13px;
+}
