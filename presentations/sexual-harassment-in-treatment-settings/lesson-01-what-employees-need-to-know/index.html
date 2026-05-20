@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sexual Harassment: What Employees Need to Know | OpenRecovery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../../core-assets/dist/reveal.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/theme/white.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/plugin/highlight/monokai.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../shared-styles/master.css?v=20260520-0800">
+
+  <style>
+    .key-takeaways-slide .takeaway-content {
+      width: 92%;
+      max-width: 1320px;
+    }
+
+    .key-takeaways-slide h2 {
+      max-width: none;
+      margin-bottom: 8px;
+    }
+
+    .key-takeaways-slide .takeaway-list {
+      display: block;
+      width: 100%;
+      max-width: none;
+      margin-top: 18px;
+      padding: 0;
+    }
+
+    .key-takeaways-slide .takeaway-list li {
+      width: 100%;
+      box-sizing: border-box;
+      gap: 12px;
+      margin: 12px 0;
+      padding: 14px 18px;
+    }
+
+    .slide-jump-button {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 32;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(7, 63, 70, 0.36);
+      border-radius: 999px;
+      width: 46px;
+      height: 46px;
+      padding: 0 13px;
+      background: transparent;
+      color: #ffffff;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: none;
+      backdrop-filter: none;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+      justify-content: flex-start;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: width 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .slide-jump-button:hover,
+    .slide-jump-button:focus-visible,
+    .slide-jump-button[aria-expanded="true"] {
+      width: 156px;
+    }
+
+    .slide-jump-button:hover,
+    .slide-jump-button:focus-visible {
+      background: rgba(10, 89, 99, 0.92);
+      border-color: rgba(124, 227, 212, 0.46);
+      transform: translateY(-1px);
+    }
+
+    .slide-jump-button .material-symbols-outlined {
+      font-size: 18px;
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 20;
+    }
+
+    .slide-jump-label {
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-width 180ms ease, opacity 150ms ease;
+    }
+
+    .slide-jump-button:hover .slide-jump-label,
+    .slide-jump-button:focus-visible .slide-jump-label,
+    .slide-jump-button[aria-expanded="true"] .slide-jump-label {
+      max-width: 96px;
+      opacity: 1;
+    }
+
+    .slide-jump-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 33;
+      background: rgba(5, 20, 24, 0.18);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease;
+    }
+
+    .slide-jump-panel {
+      position: absolute;
+      left: 18px;
+      bottom: 72px;
+      z-index: 34;
+      width: min(420px, calc(100% - 36px));
+      max-height: min(72vh, 620px);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      border: 1px solid rgba(124, 227, 212, 0.24);
+      border-radius: 22px;
+      background: rgba(7, 42, 47, 0.94);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(18px);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .slide-jump-panel.is-open,
+    .slide-jump-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-jump-panel.is-open {
+      transform: translateY(0) scale(1);
+    }
+
+    .slide-jump-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px 14px;
+      border-bottom: 1px solid rgba(124, 227, 212, 0.16);
+      color: #ffffff;
+    }
+
+    .slide-jump-title {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .slide-jump-subtitle {
+      margin-top: 2px;
+      color: rgba(233, 251, 248, 0.74);
+      font-size: 12px;
+    }
+
+    .slide-jump-close {
+      margin-left: auto;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .slide-jump-close:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .slide-jump-list {
+      padding: 12px;
+      overflow: auto;
+      display: grid;
+      gap: 8px;
+    }
+
+    .slide-jump-item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(124, 227, 212, 0.14);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .slide-jump-item:hover {
+      transform: translateX(2px);
+      background: rgba(255, 255, 255, 0.10);
+      border-color: rgba(124, 227, 212, 0.3);
+    }
+
+    .slide-jump-item.is-active {
+      background: rgba(55, 199, 189, 0.18);
+      border-color: rgba(124, 227, 212, 0.52);
+    }
+
+    .slide-jump-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.10);
+      color: #c9f7f1;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .slide-jump-item.is-active .slide-jump-number {
+      background: rgba(55, 199, 189, 0.24);
+      color: #ffffff;
+    }
+
+    .slide-jump-item-title {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .slide-jump-hint {
+      margin-top: 3px;
+      color: rgba(233, 251, 248, 0.68);
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section
+        class="title-slide"
+        data-title="Lesson Title"
+        data-transition="fade"
+        data-background-gradient="linear-gradient(135deg, #ffffff 0%, #edf9f7 58%, #daf5ef 100%)"
+      >
+        <div class="slide-shell center">
+          <div class="title-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              OpenRecovery Training
+            </div>
+
+            <h1 class="lesson-title">
+              Sexual Harassment:<br>
+              What Employees Need to Know
+            </h1>
+
+            <p class="subtitle title-subtitle">
+              Sexual Harassment in Treatment Settings &middot; Lesson 1 &middot; 30 minutes
+            </p>
+
+            <div class="pill-row">
+              <span class="pill"><span class="material-symbols-outlined">shield_person</span> Compliance</span>
+              <span class="pill"><span class="material-symbols-outlined">groups</span> Treatment Settings</span>
+              <span class="pill"><span class="material-symbols-outlined">assignment</span> Reporting</span>
+            </div>
+          </div>
+
+          <div class="footer-note">
+            <span>Audience: Licensed clinical providers at treatment centers</span>
+            <span>Interactive microlearning with 4 activities and a short post-test</span>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Learning Goals" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                By the end of this lesson
+              </div>
+
+              <h2>Recognize concerns, respond early, and report with clarity.</h2>
+
+              <p class="subtitle" style="margin-left: 0;">
+                This lesson is built for clinical workplaces where staff safety, patient trust, and employment obligations all matter at the same time.
+              </p>
+
+              <p class="fragment fade-up"><strong>Recognize</strong> what sexual harassment can look like in treatment settings.</p>
+              <p class="fragment fade-up"><strong>Document</strong> facts, preserve evidence, and separate observation from opinion.</p>
+              <p class="fragment fade-up"><strong>Report</strong> through the right pathways while protecting safety and continuity of care.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/01-respectful-clinical-team-culture.webp" alt="Clinical staff collaborating in a respectful treatment-center setting.">
+              </div>
+              <p class="media-caption">
+                A safe workplace culture protects both the team and the therapeutic environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Why It Matters" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Why this matters
+            </div>
+
+            <h2>Sexual harassment can disrupt safety, trust, and care delivery.</h2>
+
+            <p class="subtitle">
+              In treatment settings, the impact is rarely limited to one awkward moment. It can affect staff wellbeing, patient experience, workflow, and the credibility of the care environment.
+            </p>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">health_and_safety</span>
+                <h3>Staff safety</h3>
+                <p>Unwelcome conduct can create fear, distraction, and reduced psychological safety at work.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">volunteer_activism</span>
+                <h3>Patient trust</h3>
+                <p>When boundaries break down, the therapeutic environment can feel less safe for everyone involved.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">gavel</span>
+                <h3>Organizational response</h3>
+                <p>Early reporting helps the organization investigate objectively and act before harm expands.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Core Definition" data-transition="fade">
+        <div class="slide-shell">
+          <div class="quote-box">
+            <div class="brand-kicker" style="color: var(--or-mint);">
+              <span class="brand-dot"></span>
+              Core definition
+            </div>
+
+            <h2>
+              Sexual harassment includes unwelcome sexual advances, requests for sexual favors, or other verbal or physical conduct of a sexual nature that affects employment, safety, or the work environment.
+            </h2>
+
+            <p class="muted fragment fade-up">
+              In clinical practice, it becomes actionable when it interferes with job performance, creates a hostile environment, or undermines the therapeutic setting.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Where It Can Show Up" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Where it can show up
+            </div>
+
+            <h2>Harassment in treatment settings is not limited to one relationship.</h2>
+
+            <p class="subtitle">
+              The source content highlights four common directions of concern. Each can affect safety, workflow, and the therapeutic environment in different ways.
+            </p>
+
+            <div class="boundary-spectrum">
+              <div class="spectrum-card fragment fade-up">
+                <h3>Staff to staff</h3>
+                <p>Comments, jokes, touching, or repeated personal attention between coworkers.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Supervisor to staff</h3>
+                <p>Power-based pressure, favoritism, or employment decisions tied to sexual attention.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Patient to staff</h3>
+                <p>Sexual comments, propositions, touching, stalking, or repeated violations of stated boundaries.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Patient to patient</h3>
+                <p>Conduct that threatens safety on the unit or undermines a respectful treatment space.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Two Patterns To Recognize" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Two common patterns
+            </div>
+
+            <h2>Recognize both quid pro quo and hostile-environment concerns.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">balance</span>
+                <h3>Quid pro quo</h3>
+                <p>Someone with power ties scheduling, evaluations, assignments, or other job-related decisions to sexual attention or favors.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">warning</span>
+                <h3>Hostile environment</h3>
+                <p>Conduct becomes severe, repeated, or intimidating enough that the workplace feels hostile, offensive, or unsafe.</p>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top: 22px; font-size: 0.5em;">
+              The labels matter less than the impact: if conduct is unwelcome and it changes work conditions or safety, it deserves attention.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Activity 1: Spot The Concern" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/02-spot-the-concern-scenario.webp" alt="Clinical workplace scene suggesting unwanted attention between coworkers.">
+              </div>
+              <p class="media-caption">
+                Activity 1: Notice the power, setting, and effect on the employee trying to keep working.
+              </p>
+            </div>
+
+            <div class="scenario">
+              <div class="scenario-label">Activity 1</div>
+              <h2 style="margin-top: 10px;">Spot the concern before it escalates.</h2>
+              <p>
+                A counselor has told a coworker twice that she is not interested in personal comments about her body. The comments continue during shift handoff, and the coworker now waits near her office door at the end of the day.
+              </p>
+              <div class="script-box">
+                <p class="fragment fade-up"><strong>What signals tell you this is not harmless banter?</strong></p>
+                <p class="fragment fade-up"><strong>What immediate safety or workflow concerns could develop?</strong></p>
+                <p class="fragment fade-up"><strong>What should happen next besides “just ignore it”?</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="First Response Priorities" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              First response priorities
+            </div>
+
+            <h2>When something happens, steady the situation first.</h2>
+
+            <p class="subtitle">
+              Best practice is not to solve everything in the moment. Start by protecting safety, preserving facts, and activating the right people.
+            </p>
+
+            <div class="boundary-spectrum">
+              <div class="spectrum-card safe fragment fade-up">
+                <h3>1. Protect safety</h3>
+                <p>Leave the situation, call for support, or get a supervisor involved if risk is rising.</p>
+              </div>
+
+              <div class="spectrum-card safe fragment fade-up">
+                <h3>2. Set a boundary</h3>
+                <p>If it is safe to do so, use brief, clear language that the conduct is not appropriate.</p>
+              </div>
+
+              <div class="spectrum-card watch fragment fade-up">
+                <h3>3. Preserve facts</h3>
+                <p>Record who, what, when, where, and who else was present while details are still fresh.</p>
+              </div>
+
+              <div class="spectrum-card danger fragment fade-up">
+                <h3>4. Report promptly</h3>
+                <p>Use HR, compliance, supervision, or emergency channels based on urgency and policy.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Document Facts And Preserve Evidence" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Documentation
+              </div>
+
+              <h2>Document facts, preserve evidence, and keep the record usable.</h2>
+
+              <p class="fragment fade-up"><strong>Capture the basics:</strong> who was involved, what was said or done, when it happened, where it happened, and who witnessed it.</p>
+              <p class="fragment fade-up"><strong>Keep the language factual:</strong> describe behavior and impact without adding diagnosis, motive, or speculation.</p>
+              <p class="fragment fade-up"><strong>Preserve supporting evidence:</strong> messages, voicemails, notes, screenshots, schedules, or other materials that help reconstruct the event.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/03-document-facts-and-preserve-evidence.webp" alt="Clinician documenting facts and preserving evidence in an organized workspace.">
+              </div>
+              <p class="media-caption">
+                Factual records support investigation, follow-up, and continuity across supervisors or reporting channels.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Reporting Workflow" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Reporting workflow
+            </div>
+
+            <h2>Use a prompt, structured pathway instead of carrying the concern alone.</h2>
+
+            <div class="boundary-spectrum">
+              <div class="spectrum-card fragment fade-up">
+                <h3>Follow policy</h3>
+                <p>Start with your organization’s reporting procedure and designated contacts.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Notify the right role</h3>
+                <p>HR, compliance, and supervision may each need the information for different reasons.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Keep support active</h3>
+                <p>If a patient is involved, maintain care coverage and safety planning while the concern is addressed.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Escalate urgent risk</h3>
+                <p>Do not wait on routine workflow when there is an imminent safety concern.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Activity 2: Documentation Practice" data-transition="fade">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Activity 2
+            </div>
+
+            <h2>Which note will help the next reviewer act?</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <h3>Less useful note</h3>
+                <p>
+                  “He was being creepy again and clearly trying to get with me. Everyone knows he has a problem.”
+                </p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>More useful note</h3>
+                <p>
+                  “At 4:10 p.m. near the medication room, he said, ‘You look amazing in those scrubs,’ stepped close enough to block the doorway, and stayed there after I asked him to move.”
+                </p>
+              </div>
+            </div>
+
+            <div class="script-box">
+              <p class="fragment fade-up"><strong>Practice:</strong> underline the second note’s concrete details.</p>
+              <p class="fragment fade-up"><strong>Notice:</strong> it names time, location, exact words, behavior, and the response.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Workplace Reporting Vs Mandatory Reporting" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Know the pathways
+            </div>
+
+            <h2>Workplace reporting and mandatory reporting are related, but they are not the same thing.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">assignment</span>
+                <h3>Workplace / HR / compliance report</h3>
+                <p>Used to address employee conduct, retaliation risk, and organizational response inside the workplace.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">gavel</span>
+                <h3>Mandatory report</h3>
+                <p>May apply when abuse, neglect, exploitation, or harm to a vulnerable person is involved under law or policy.</p>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top: 24px; font-size: 0.5em;">
+              If both could apply, consult policy and supervision quickly. One pathway does not automatically replace the other.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Employer Duties And Anti-Retaliation" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Organizational response
+              </div>
+
+              <h2>Employees should be able to report without fear of retaliation.</h2>
+
+              <p class="fragment fade-up"><strong>Investigate objectively:</strong> complaints should be reviewed consistently and based on facts.</p>
+              <p class="fragment fade-up"><strong>Protect the reporter:</strong> follow-up should not create punishment for speaking up in good faith.</p>
+              <p class="fragment fade-up"><strong>Act when warranted:</strong> corrective steps, safety planning, and post-incident support help rebuild trust.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/04-protected-reporting-and-employer-response.webp" alt="Professional reporting meeting between a clinician and a supervisor or HR representative.">
+              </div>
+              <p class="media-caption">
+                A strong response culture listens, protects, investigates, and follows through.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Activity 3: Choose The Next Step" data-transition="fade">
+        <div class="slide-shell">
+          <div class="scenario">
+            <div class="scenario-label">Activity 3</div>
+            <h2 style="margin-top: 10px;">Choose the next step, not the perfect speech.</h2>
+            <p>
+              A patient begins sending sexual messages to a clinician through an unofficial channel after hours. The clinician has screenshots, feels uneasy, and worries that reporting it will disrupt the patient relationship.
+            </p>
+
+            <div class="card-grid two" style="margin-top: 20px;">
+              <div class="card fragment fade-up">
+                <h3>Common but risky response</h3>
+                <p>Handle it privately, hope it stops, and avoid documenting because the patient is “already struggling.”</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>Safer response</h3>
+                <p>Preserve the messages, notify the right supervisor or reporting channel, and plan how patient care will continue safely.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Patient-Involved Incidents" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                When a patient is involved
+              </div>
+
+              <h2>Protect care and safety together.</h2>
+
+              <p class="fragment fade-up"><strong>Support the people involved:</strong> make sure staff and patients get appropriate follow-up, supervision, and safety planning.</p>
+              <p class="fragment fade-up"><strong>Keep boundaries clear:</strong> use approved channels, clarify expectations, and avoid private side arrangements.</p>
+              <p class="fragment fade-up"><strong>Coordinate the team:</strong> treatment, supervision, and reporting responses should work together instead of competing.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/05-patient-safety-and-clinical-support.webp" alt="Clinical team coordinating patient support and safety after an incident.">
+              </div>
+              <p class="media-caption">
+                Patient-related incidents often require both a clinical response and a workplace response.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reflection-slide" data-title="Activity 4: Build A Script" data-transition="fade">
+        <div class="slide-shell">
+          <div class="reflection-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Activity 4
+            </div>
+
+            <h2 class="reflection-title">
+              <span>What would you say to set a clear boundary</span>
+              <span>without arguing or overexplaining?</span>
+            </h2>
+
+            <div class="script-box" style="max-width: 960px; margin: 0 auto;">
+              <p class="fragment fade-up"><strong>Direct option:</strong> “That comment is not appropriate for work. I need you to stop.”</p>
+              <p class="fragment fade-up"><strong>Patient-facing option:</strong> “I’m here to support your treatment, and I need us to keep this interaction professional.”</p>
+              <p class="fragment fade-up"><strong>Remember:</strong> you do not need the perfect wording before you document and report.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Short Post-Test" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Short post-test
+            </div>
+
+            <h2>Check your understanding.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <h3>1. True or false?</h3>
+                <p>Harassment only counts if it happens between employees.</p>
+                <p class="muted"><strong>Answer:</strong> False. Patient-to-staff and patient-to-patient incidents can also require action.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>2. Best documentation habit?</h3>
+                <p>A factual description with time, place, exact behavior, and witnesses.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>3. If a report feels uncertain...</h3>
+                <p>Use policy, supervision, HR, compliance, or legal guidance instead of staying silent.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>4. If a vulnerable person may be harmed...</h3>
+                <p>Check whether mandatory reporting obligations apply in addition to workplace reporting.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-title="Resources" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Resources
+            </div>
+
+            <h2>Keep these reference points close.</h2>
+
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Use it for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fragment fade-up">
+                  <td>EEOC &mdash; Harassment</td>
+                  <td><a href="https://www.eeoc.gov/harassment" target="_blank" rel="noopener noreferrer">https://www.eeoc.gov/harassment</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>EEOC &mdash; Enforcement Guidance on Harassment in the Workplace</td>
+                  <td><a href="https://www.eeoc.gov/laws/guidance/enforcement-guidance-harassment-workplace" target="_blank" rel="noopener noreferrer">https://www.eeoc.gov/laws/guidance/enforcement-guidance-harassment-workplace</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>OSHA &mdash; Workplace Violence</td>
+                  <td><a href="https://www.osha.gov/workplace-violence" target="_blank" rel="noopener noreferrer">https://www.osha.gov/workplace-violence</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>CDC / NIOSH &mdash; About Workplace Violence</td>
+                  <td><a href="https://www.cdc.gov/niosh/violence/about/" target="_blank" rel="noopener noreferrer">https://www.cdc.gov/niosh/violence/about/</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>SAMHSA &mdash; Behavioral health guidance and support resources</td>
+                  <td><a href="https://www.samhsa.gov/" target="_blank" rel="noopener noreferrer">https://www.samhsa.gov/</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="dark-slide key-takeaways-slide"
+        data-title="Key Takeaways"
+        data-transition="slide"
+        data-background-gradient="linear-gradient(145deg, #073f46 0%, #0a5963 52%, #0b6f78 100%)"
+      >
+        <div class="slide-shell left">
+          <div class="takeaway-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Key takeaways
+            </div>
+
+            <h2>Respond early, document clearly, and protect safety.</h2>
+
+            <ul class="takeaway-list">
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">check_circle</span>
+                <span>Harassment in treatment settings can involve coworkers, supervisors, patients, or patient-to-patient conduct.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">edit_note</span>
+                <span>Factual documentation and preserved evidence make the next step easier for supervisors, HR, compliance, and investigators.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">report</span>
+                <span>Prompt reporting protects staff, supports patients, and helps the organization respond before risk grows.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">shield_person</span>
+                <span>If a vulnerable person may be harmed, check mandatory-reporting obligations in addition to workplace pathways.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <button class="slide-jump-button" id="slideJumpToggle" type="button" aria-haspopup="dialog" aria-expanded="false">
+      <span class="material-symbols-outlined">menu</span>
+      <span class="slide-jump-label">Jump to slide</span>
+    </button>
+
+    <div class="slide-jump-backdrop" id="slideJumpBackdrop"></div>
+
+    <aside class="slide-jump-panel" id="slideJumpPanel" aria-hidden="true">
+      <div class="slide-jump-header">
+        <div>
+          <div class="slide-jump-title">Slide Navigator</div>
+          <div class="slide-jump-subtitle">Jump directly to any section</div>
+        </div>
+
+        <button class="slide-jump-close" id="slideJumpClose" type="button" aria-label="Close slide navigator">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+
+      <div class="slide-jump-list" id="slideJumpList"></div>
+    </aside>
+  </div>
+
+  <script src="../../../core-assets/dist/reveal.js"></script>
+  <script src="../../../core-assets/dist/plugin/notes.js"></script>
+  <script src="../../../core-assets/dist/plugin/search.js"></script>
+  <script src="../../../core-assets/dist/plugin/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      center: true,
+      slideNumber: "c/t",
+      width: 1440,
+      height: 810,
+      margin: 0.04,
+      transition: "slide",
+      backgroundTransition: "fade",
+      overview: true,
+      touch: true,
+      keyboard: true,
+      plugins: [RevealNotes, RevealSearch, RevealZoom]
+    });
+
+    const slideJumpToggle = document.getElementById("slideJumpToggle");
+    const slideJumpPanel = document.getElementById("slideJumpPanel");
+    const slideJumpBackdrop = document.getElementById("slideJumpBackdrop");
+    const slideJumpClose = document.getElementById("slideJumpClose");
+    const slideJumpList = document.getElementById("slideJumpList");
+    const slideSections = Array.from(document.querySelectorAll(".reveal .slides > section"));
+
+    const slideEntries = slideSections.map((section, index) => {
+      const rawTitle = section.getAttribute("data-title") || `Slide ${index + 1}`;
+      const title = rawTitle === "Lesson Title" ? "Title Slide" : rawTitle;
+      return { index, title };
+    });
+
+    function renderSlideJumpList() {
+      const currentSlide = Reveal.getIndices().h;
+
+      slideJumpList.innerHTML = slideEntries.map((entry) => `
+        <button class="slide-jump-item${entry.index === currentSlide ? " is-active" : ""}" type="button" data-slide-index="${entry.index}">
+          <span class="slide-jump-number">${entry.index + 1}</span>
+          <span>
+            <span class="slide-jump-item-title">${entry.title}</span>
+            <span class="slide-jump-hint">Go to slide ${entry.index + 1}</span>
+          </span>
+        </button>
+      `).join("");
+
+      slideJumpList.querySelectorAll(".slide-jump-item").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          closeSlideJump();
+          Reveal.slide(Number(button.dataset.slideIndex));
+        });
+      });
+    }
+
+    function openSlideJump() {
+      renderSlideJumpList();
+      slideJumpPanel.classList.add("is-open");
+      slideJumpBackdrop.classList.add("is-open");
+      slideJumpPanel.setAttribute("aria-hidden", "false");
+      slideJumpToggle.setAttribute("aria-expanded", "true");
+    }
+
+    function closeSlideJump() {
+      slideJumpPanel.classList.remove("is-open");
+      slideJumpBackdrop.classList.remove("is-open");
+      slideJumpPanel.setAttribute("aria-hidden", "true");
+      slideJumpToggle.setAttribute("aria-expanded", "false");
+    }
+
+    slideJumpToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+
+      if (slideJumpPanel.classList.contains("is-open")) {
+        closeSlideJump();
+      } else {
+        openSlideJump();
+      }
+    });
+
+    slideJumpClose.addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeSlideJump();
+    });
+
+    slideJumpBackdrop.addEventListener("click", closeSlideJump);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && slideJumpPanel.classList.contains("is-open")) {
+        closeSlideJump();
+      }
+
+      if (event.key.toLowerCase() === "j" && !event.metaKey && !event.ctrlKey && !event.altKey) {
+        event.preventDefault();
+
+        if (slideJumpPanel.classList.contains("is-open")) {
+          closeSlideJump();
+        } else {
+          openSlideJump();
+        }
+      }
+    });
+
+    Reveal.on("slidechanged", () => {
+      if (slideJumpPanel.classList.contains("is-open")) {
+        renderSlideJumpList();
+      }
+    });
+
+    document.querySelector(".reveal .slides").addEventListener("click", (event) => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      if (event.target.closest("a, button, input, textarea, select")) {
+        return;
+      }
+
+      Reveal.next();
+    });
+  </script>
+</body>
+</html>

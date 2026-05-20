@@ -39,7 +39,7 @@
 }
 
 .reveal h2 {
-  font-size: 1.55em;
+  font-size: 1.48em;
   font-weight: 800;
 }
 
@@ -50,18 +50,19 @@
 
 .reveal p,
 .reveal li {
-  font-size: 0.72em;
-  line-height: 1.35;
+  font-size: 0.68em;
+  line-height: 1.32;
   color: var(--or-charcoal);
 }
 
 .slide-shell {
   width: 100%;
   min-height: 100%;
+  box-sizing: border-box;
   display: grid;
   align-content: center;
   justify-items: center;
-  gap: 28px;
+  gap: 22px;
 }
 
 .center {
@@ -174,7 +175,7 @@
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid var(--or-card-border);
   border-radius: 24px;
-  padding: 26px;
+  padding: 22px;
   box-shadow: 0 18px 45px var(--or-shadow);
   text-align: left;
 }
@@ -220,10 +221,91 @@
 
 .two-column {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 26px;
   align-items: center;
   width: 100%;
+}
+
+.two-column > * {
+  min-width: 0;
+}
+
+.media-panel {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(233, 251, 248, 0.86));
+  border: 1px solid rgba(11, 111, 120, 0.16);
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 18px 45px var(--or-shadow);
+}
+
+.media-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(55, 199, 189, 0.16), transparent 36%),
+    linear-gradient(135deg, #ffffff 0%, #eefaf8 100%);
+  border: 1px solid rgba(11, 111, 120, 0.14);
+}
+
+.media-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.media-frame img,
+.media-frame video,
+.media-frame iframe {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  display: block;
+  object-fit: cover;
+}
+
+.media-frame.contain img,
+.media-frame.contain video,
+.media-frame.contain iframe {
+  object-fit: contain;
+  padding: 22px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  width: 100%;
+}
+
+.media-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.media-caption {
+  margin-top: 14px !important;
+  font-size: 0.48em !important;
+  line-height: 1.45 !important;
+  color: var(--or-muted) !important;
+  text-align: left;
+}
+
+.media-credit {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.4em;
+  color: var(--or-muted);
+  opacity: 0.9;
 }
 
 .quote-box {
@@ -248,14 +330,14 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
-  margin-top: 26px;
+  margin-top: 22px;
   width: 100%;
 }
 
 .spectrum-card {
-  min-height: 250px;
+  min-height: 225px;
   border-radius: 24px;
-  padding: 22px;
+  padding: 18px;
   text-align: left;
   background: white;
   border: 1px solid rgba(11, 111, 120, 0.18);
@@ -310,7 +392,7 @@ table.clean-table td:last-child {
 .scenario {
   background: white;
   border-radius: 30px;
-  padding: 34px;
+  padding: 28px;
   text-align: left;
   border: 1px solid rgba(11, 111, 120, 0.16);
   box-shadow: 0 20px 50px rgba(7, 63, 70, 0.08);
@@ -329,13 +411,13 @@ table.clean-table td:last-child {
   background: var(--or-soft);
   border-left: 8px solid var(--or-aqua);
   border-radius: 18px;
-  padding: 24px 28px;
+  padding: 18px 22px;
   text-align: left;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .script-box p {
-  font-size: 0.62em;
+  font-size: 0.58em;
 }
 
 .reflection-slide .slide-shell {
@@ -393,12 +475,17 @@ table.clean-table td:last-child {
 
 .dark-slide .takeaway-list {
   list-style: none;
+  display: block;
+  width: 100%;
+  max-width: none;
   margin: 24px 0 0;
   padding: 0;
 }
 
 .dark-slide .takeaway-list li {
   display: flex;
+  width: 100%;
+  box-sizing: border-box;
   gap: 14px;
   align-items: flex-start;
   margin: 16px 0;
@@ -425,6 +512,25 @@ table.clean-table td:last-child {
     "wght" 500,
     "GRAD" 0,
     "opsz" 48;
+}
+
+.key-takeaways-slide .takeaway-content {
+  width: min(1180px, 97vw);
+}
+
+.key-takeaways-slide h2 {
+  max-width: 1180px;
+  margin-bottom: 8px;
+}
+
+.key-takeaways-slide .takeaway-list {
+  margin-top: 18px;
+}
+
+.key-takeaways-slide .takeaway-list li {
+  gap: 12px;
+  margin: 12px 0;
+  padding: 14px 18px;
 }
 
 .reveal .progress {
