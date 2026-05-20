@@ -46,6 +46,7 @@
 - [ ] If narration is enabled, expected audio files exist in the lesson `voiceover/` folder for each declared voice profile
 - [ ] The narration toggle loads, starts, and stops cleanly
 - [ ] If narration controls auto-collapse, reopening or closing them does not interrupt playback unless the explicit stop action is used
+- [ ] If a dock-level pause/resume control exists, it appears only during an active narration session and resumes the current slide audio without restarting it
 - [ ] If multiple voice profiles exist, the in-browser voice selector changes playback to the chosen voice
 - [ ] Slide changes play the intended local audio file
 - [ ] If narration is intended to feel like guided playback, remaining slide fragments reveal during the MP3 before the deck advances

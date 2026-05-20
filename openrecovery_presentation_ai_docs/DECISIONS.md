@@ -325,3 +325,11 @@ When narration is enabled and a slide only has `slide-enter` audio, use that MP3
 
 Reason:
 This makes the deck feel like a lightweight narrated video while still respecting manual control instead of fighting the learner's navigation choices.
+
+### Surface Pause And Resume In The Bottom Dock
+
+Decision:
+When a narrated lesson is actively playing, show a compact pause/resume button in the same bottom dock as the horn launcher, and hide that quick control when narration is inactive.
+
+Reason:
+Learners should be able to pause and continue the current slide audio without reopening the expanded narration controls or restarting the slide from the beginning.

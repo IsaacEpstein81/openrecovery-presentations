@@ -75,6 +75,12 @@
       gap: 0;
     }
 
+    .voiceover-dock {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .voiceover-button,
     .voiceover-profile {
       display: inline-flex;
@@ -248,6 +254,49 @@
     }
 
     .voiceover-launcher .material-symbols-outlined {
+      font-size: 18px;
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 20;
+    }
+
+    .voiceover-quick-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      border: 1px solid rgba(124, 227, 212, 0.38);
+      border-radius: 999px;
+      background: rgba(10, 89, 99, 0.92);
+      color: #ffffff;
+      font: inherit;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(7, 63, 70, 0.16);
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, opacity 180ms ease;
+    }
+
+    .voiceover-quick-toggle:hover,
+    .voiceover-quick-toggle:focus-visible {
+      background: rgba(11, 111, 120, 0.96);
+      border-color: rgba(124, 227, 212, 0.52);
+      transform: translateY(-1px);
+    }
+
+    .voiceover-quick-toggle.is-paused {
+      background: rgba(255, 255, 255, 0.84);
+      border-color: rgba(7, 63, 70, 0.24);
+      color: #073f46;
+    }
+
+    .voiceover-quick-toggle[hidden] {
+      display: none;
+    }
+
+    .voiceover-quick-toggle .material-symbols-outlined {
       font-size: 18px;
       font-variation-settings:
         "FILL" 0,
@@ -1144,17 +1193,31 @@
         <span class="voiceover-label">Load narration</span>
       </button>
 
-      <button
-        class="voiceover-launcher"
-        id="voiceoverLauncher"
-        type="button"
-        aria-expanded="false"
-        aria-label="Show narration controls"
-        title="Narration controls"
-        disabled
-      >
-        <span class="material-symbols-outlined">volume_up</span>
-      </button>
+      <div class="voiceover-dock">
+        <button
+          class="voiceover-launcher"
+          id="voiceoverLauncher"
+          type="button"
+          aria-expanded="false"
+          aria-label="Show narration controls"
+          title="Narration controls"
+          disabled
+        >
+          <span class="material-symbols-outlined">volume_up</span>
+        </button>
+
+        <button
+          class="voiceover-quick-toggle"
+          id="voiceoverQuickToggle"
+          type="button"
+          aria-label="Pause narration"
+          title="Pause narration"
+          aria-pressed="true"
+          hidden
+        >
+          <span class="material-symbols-outlined">pause</span>
+        </button>
+      </div>
     </div>
 
     <div class="slide-jump-backdrop" id="slideJumpBackdrop"></div>
@@ -1208,6 +1271,8 @@
     const voiceoverControls = document.getElementById("voiceoverControls");
     const voiceoverProfileWrap = document.getElementById("voiceoverProfileWrap");
     const voiceoverProfile = document.getElementById("voiceoverProfile");
+    const voiceoverQuickToggle = document.getElementById("voiceoverQuickToggle");
+    const voiceoverQuickIcon = voiceoverQuickToggle.querySelector(".material-symbols-outlined");
     const voiceoverAudio = new Audio();
     const VOICEOVER_PROFILE_STORAGE_KEY = "openrecovery.voiceoverProfile";
     const NAVIGATION_KEYS = new Set([
@@ -1226,10 +1291,12 @@
       expanded: false,
       collapseTimer: null,
       currentKey: null,
+      currentSegment: null,
       currentCueToken: 0,
       autoAdvanceSuspendedKey: null,
       metadataHandler: null,
       fragmentTimerIds: [],
+      isPaused: false,
       defaultProfileId: "default",
       selectedProfileId: "default",
       profiles: [],
@@ -1305,6 +1372,24 @@
       return voiceoverState.selectedProfileId || voiceoverState.defaultProfileId || "default";
     }
 
+    function updateVoiceoverQuickToggle() {
+      const shouldShow = voiceoverState.enabled && (Boolean(voiceoverState.currentKey) || voiceoverState.isPaused);
+      voiceoverQuickToggle.hidden = !shouldShow;
+
+      if (!shouldShow) {
+        return;
+      }
+
+      const paused = voiceoverState.isPaused;
+      const label = paused ? "Resume narration" : "Pause narration";
+
+      voiceoverQuickToggle.classList.toggle("is-paused", paused);
+      voiceoverQuickToggle.setAttribute("aria-label", label);
+      voiceoverQuickToggle.setAttribute("title", label);
+      voiceoverQuickToggle.setAttribute("aria-pressed", String(!paused));
+      voiceoverQuickIcon.textContent = paused ? "play_arrow" : "pause";
+    }
+
     function clearGuidedPlaybackTimers() {
       voiceoverState.fragmentTimerIds.forEach((timerId) => window.clearTimeout(timerId));
       voiceoverState.fragmentTimerIds = [];
@@ -1373,7 +1458,10 @@
         clearVoiceoverCollapseTimer();
         clearGuidedPlaybackTimers();
         voiceoverState.autoAdvanceSuspendedKey = null;
+        voiceoverState.isPaused = false;
       }
+
+      updateVoiceoverQuickToggle();
     }
 
     function stopVoiceover() {
@@ -1383,8 +1471,11 @@
       voiceoverAudio.removeAttribute("src");
       voiceoverAudio.load();
       voiceoverState.currentKey = null;
+      voiceoverState.currentSegment = null;
       voiceoverState.currentCueToken += 1;
       voiceoverState.autoAdvanceSuspendedKey = null;
+      voiceoverState.isPaused = false;
+      updateVoiceoverQuickToggle();
     }
 
     function setVoiceoverProfile(profileId, { replayCurrentCue = false } = {}) {
@@ -1484,19 +1575,22 @@
         }
 
         const durationMs = Number.isFinite(voiceoverAudio.duration) ? voiceoverAudio.duration * 1000 : 0;
-        if (durationMs <= 0) {
+        const elapsedMs = Math.max(0, Math.min(durationMs, voiceoverAudio.currentTime * 1000));
+        const remainingMs = Math.max(0, durationMs - elapsedMs);
+
+        if (remainingMs <= 0) {
           return;
         }
 
-        const leadIn = Math.min(1100, Math.max(450, durationMs * 0.22));
-        const tailBuffer = Math.min(1200, Math.max(550, durationMs * 0.18));
-        const usableWindow = Math.max(durationMs - leadIn - tailBuffer, durationMs * 0.2);
+        const leadIn = Math.min(900, Math.max(180, remainingMs * 0.16));
+        const tailBuffer = Math.min(900, Math.max(280, remainingMs * 0.14));
+        const usableWindow = Math.max(remainingMs - leadIn - tailBuffer, remainingMs * 0.22);
 
         hiddenFragments.forEach((_, index) => {
           const ratio = (index + 1) / (hiddenFragments.length + 1);
           const delay = Math.max(
-            250,
-            Math.round(Math.min(durationMs - 180, leadIn + usableWindow * ratio))
+            150,
+            Math.round(Math.min(Math.max(remainingMs - 120, 150), leadIn + usableWindow * ratio))
           );
 
           const timerId = window.setTimeout(() => {
@@ -1565,8 +1659,11 @@
       voiceoverAudio.currentTime = 0;
       voiceoverAudio.src = audioFile;
       voiceoverState.currentKey = playbackKey;
+      voiceoverState.currentSegment = segment;
       voiceoverState.currentCueToken += 1;
       voiceoverState.autoAdvanceSuspendedKey = null;
+      voiceoverState.isPaused = false;
+      updateVoiceoverQuickToggle();
 
       scheduleGuidedFragments(segment, playbackKey, voiceoverState.currentCueToken);
 
@@ -1607,6 +1704,45 @@
       Reveal.slide(nextHorizontalIndex, 0);
     }
 
+    function pauseVoiceover() {
+      if (!voiceoverState.enabled || voiceoverState.isPaused || !voiceoverState.currentKey) {
+        return;
+      }
+
+      clearGuidedPlaybackTimers();
+      voiceoverAudio.pause();
+      voiceoverState.isPaused = true;
+      updateVoiceoverQuickToggle();
+    }
+
+    function resumeVoiceover() {
+      if (
+        !voiceoverState.enabled ||
+        !voiceoverState.isPaused ||
+        !voiceoverState.currentKey ||
+        !voiceoverState.currentSegment
+      ) {
+        return;
+      }
+
+      voiceoverState.isPaused = false;
+      updateVoiceoverQuickToggle();
+      scheduleGuidedFragments(
+        voiceoverState.currentSegment,
+        voiceoverState.currentKey,
+        voiceoverState.currentCueToken
+      );
+
+      const playPromise = voiceoverAudio.play();
+      if (playPromise) {
+        playPromise.catch((error) => {
+          console.warn("Voiceover resume was blocked or failed.", error);
+          voiceoverState.isPaused = true;
+          updateVoiceoverQuickToggle();
+        });
+      }
+    }
+
     function isFormControl(target) {
       return target instanceof HTMLElement && (
         target.isContentEditable ||
@@ -1618,6 +1754,9 @@
       const completedKey = voiceoverState.currentKey;
       clearGuidedPlaybackTimers();
       voiceoverState.currentKey = null;
+      voiceoverState.currentSegment = null;
+      voiceoverState.isPaused = false;
+      updateVoiceoverQuickToggle();
 
       if (!voiceoverState.enabled || !completedKey) {
         return;
@@ -1681,6 +1820,18 @@
 
       setVoiceoverEnabled(true);
       playCurrentVoiceoverCue();
+    });
+
+    voiceoverQuickToggle.addEventListener("click", () => {
+      if (!voiceoverState.enabled) {
+        return;
+      }
+
+      if (voiceoverState.isPaused) {
+        resumeVoiceover();
+      } else {
+        pauseVoiceover();
+      }
     });
 
     document.addEventListener("pointerdown", (event) => {

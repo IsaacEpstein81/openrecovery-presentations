@@ -29,11 +29,12 @@ Finalize the sexual-harassment lesson as the primary OpenRecovery preview lesson
 - Polished the narration controls into a compact launcher plus action-button pattern with auto-collapse after playback starts
 - Docked the narration horn beside the slide navigator launcher and added bottom-safe slide spacing so framed-view content clears the compact control row
 - Upgraded narration into guided playback that reveals fragments gradually and advances to the next slide when each slide-enter MP3 finishes unless the learner takes over manually
+- Added a dock-level pause/resume control that appears only during an active narration session so learners can pause and continue the current slide audio without restarting it
 - Added an always-visible custom scroll rail to the slide navigator so the list still advertises itself on macOS systems that hide overlay scrollbars until gesture
 
 ## Added Worklist
 
-- In progress: run the QA checklist against the sexual-harassment lesson in both direct and embedded preview modes, including guided narration playback, manual takeover behavior, and navigator interactions
+- In progress: run the QA checklist against the sexual-harassment lesson in both direct and embedded preview modes, including guided narration playback, pause/resume behavior, manual takeover behavior, and navigator interactions
 - In progress: verify the rendered ElevenLabs MP3 assets behave correctly after commit/push in both local preview and deployed preview
 - Queued: decide whether the slide navigator should become a shared reusable pattern in `shared-styles/master.css` instead of lesson-specific inline CSS
 - Queued: decide whether the narration launcher/action pattern should become a reusable shared lesson pattern instead of staying lesson-specific
@@ -43,4 +44,4 @@ Finalize the sexual-harassment lesson as the primary OpenRecovery preview lesson
 
 ## Next Best Step
 
-Open the sexual-harassment lesson directly and through the root preview shell side by side, confirm the guided narration flow, manual-arrow takeover behavior, docked horn-plus-hamburger layout, voice-profile switching, and custom slide-navigator scroll rail in both views, then decide which of those interaction patterns should move into the shared system before pushing the next deck build.
+Open the sexual-harassment lesson directly and through the root preview shell side by side, confirm the guided narration flow, dock-level pause/resume behavior, manual-arrow takeover behavior, docked horn-plus-hamburger layout, voice-profile switching, and custom slide-navigator scroll rail in both views, then decide which of those interaction patterns should move into the shared system before pushing the next deck build.

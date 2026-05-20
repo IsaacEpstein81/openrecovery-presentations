@@ -158,3 +158,10 @@ Suggested format:
 - changed: moved the horn launcher beside the hamburger navigator, added bottom-safe slide spacing so content clears the compact dock, made slide-enter narration reveal fragments gradually and auto-advance to the next slide, and cancel that auto-advance when the learner manually takes over navigation
 - next: manually QA the guided narration sequence in the direct lesson and the LMS preview shell, especially the handoff between automatic playback and manual arrow/navigation control
 - blockers: interactive browser QA was intentionally deferred so the user can review the updated behavior directly
+
+## 2026-05-20 16:05
+
+- worked on: quick playback controls for the narrated sexual-harassment lesson
+- changed: added a bottom-dock pause/resume button that appears only during an active narration session and resumes the current MP3 from its paused position instead of restarting the slide
+- next: manually QA pause/resume together with guided fragments and end-of-slide auto-advance in both direct and embedded preview modes
+- blockers: still need a browser pass to confirm the resumed fragment timing feels natural during real playback
