@@ -150,35 +150,12 @@
     }
 
     .voiceover-controls.is-collapsed .voiceover-button,
-    .voiceover-controls.is-collapsed .voiceover-button[aria-pressed="true"] {
-      width: 46px;
-      min-width: 46px;
-      height: 46px;
-      padding: 0 13px;
-      background: transparent;
-      color: rgba(110, 129, 136, 0.98);
-      border-color: rgba(7, 63, 70, 0.36);
-      box-shadow: none;
-      backdrop-filter: none;
-      text-shadow: none;
-    }
-
-    .voiceover-controls.is-collapsed .voiceover-button:hover,
-    .voiceover-controls.is-collapsed .voiceover-button:focus-visible,
-    .voiceover-controls.is-collapsed .voiceover-button[aria-pressed="true"]:hover,
-    .voiceover-controls.is-collapsed .voiceover-button[aria-pressed="true"]:focus-visible {
-      background: rgba(10, 89, 99, 0.92);
-      border-color: rgba(124, 227, 212, 0.46);
-    }
-
-    .voiceover-controls.is-collapsed .voiceover-label {
-      max-width: 0;
-      opacity: 0;
-    }
-
     .voiceover-controls.is-collapsed .voiceover-profile:not([hidden]) {
       max-height: 0;
       margin: 0;
+      min-width: 0;
+      padding-left: 0;
+      padding-right: 0;
       padding-top: 0;
       padding-bottom: 0;
       opacity: 0;
@@ -186,6 +163,11 @@
       transform: translateY(6px);
       border-color: transparent;
       box-shadow: none;
+    }
+
+    .voiceover-controls.is-collapsed .voiceover-label {
+      max-width: 0;
+      opacity: 0;
     }
 
     .voiceover-profile .material-symbols-outlined {
@@ -212,6 +194,50 @@
     .voiceover-select:disabled {
       cursor: default;
       opacity: 0.8;
+    }
+
+    .voiceover-launcher {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 46px;
+      height: 46px;
+      padding: 0 13px;
+      border: 1px solid rgba(7, 63, 70, 0.36);
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(110, 129, 136, 0.98);
+      font: inherit;
+      cursor: pointer;
+      box-shadow: none;
+      backdrop-filter: none;
+      text-shadow: none;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, opacity 180ms ease;
+    }
+
+    .voiceover-launcher:hover,
+    .voiceover-launcher:focus-visible,
+    .voiceover-launcher[aria-expanded="true"] {
+      background: rgba(10, 89, 99, 0.92);
+      color: #ffffff;
+      border-color: rgba(124, 227, 212, 0.46);
+      transform: translateY(-1px);
+    }
+
+    .voiceover-launcher:disabled {
+      opacity: 0.72;
+      cursor: not-allowed;
+      transform: none;
+      border-color: rgba(7, 63, 70, 0.18);
+    }
+
+    .voiceover-launcher .material-symbols-outlined {
+      font-size: 18px;
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 20;
     }
 
     .slide-jump-button {
@@ -1048,9 +1074,13 @@
         <select class="voiceover-select" id="voiceoverProfile" aria-label="Select narration voice" disabled></select>
       </label>
 
-      <button class="voiceover-button" id="voiceoverToggle" type="button" aria-pressed="false" disabled>
+      <button class="voiceover-button" id="voiceoverAction" type="button" aria-pressed="false" disabled>
         <span class="material-symbols-outlined">volume_up</span>
         <span class="voiceover-label">Load narration</span>
+      </button>
+
+      <button class="voiceover-launcher" id="voiceoverLauncher" type="button" aria-expanded="false" disabled>
+        <span class="material-symbols-outlined">volume_up</span>
       </button>
     </div>
 
@@ -1094,8 +1124,9 @@
       plugins: [RevealNotes, RevealSearch, RevealZoom]
     });
 
-    const voiceoverToggle = document.getElementById("voiceoverToggle");
-    const voiceoverLabel = voiceoverToggle.querySelector(".voiceover-label");
+    const voiceoverLauncher = document.getElementById("voiceoverLauncher");
+    const voiceoverAction = document.getElementById("voiceoverAction");
+    const voiceoverLabel = voiceoverAction.querySelector(".voiceover-label");
     const voiceoverControls = document.getElementById("voiceoverControls");
     const voiceoverProfileWrap = document.getElementById("voiceoverProfileWrap");
     const voiceoverProfile = document.getElementById("voiceoverProfile");
@@ -1201,6 +1232,7 @@
     function setVoiceoverExpanded(expanded) {
       voiceoverState.expanded = expanded;
       voiceoverControls.classList.toggle("is-collapsed", !expanded);
+      voiceoverLauncher.setAttribute("aria-expanded", String(expanded));
 
       if (!expanded) {
         clearVoiceoverCollapseTimer();
@@ -1217,7 +1249,7 @@
 
     function setVoiceoverEnabled(enabled) {
       voiceoverState.enabled = enabled;
-      voiceoverToggle.setAttribute("aria-pressed", String(enabled));
+      voiceoverAction.setAttribute("aria-pressed", String(enabled));
       voiceoverLabel.textContent = enabled ? "Stop narration" : "Start narration";
 
       if (enabled) {
@@ -1377,7 +1409,8 @@
           voiceoverState.segments.set(key, segment);
         });
 
-        voiceoverToggle.disabled = false;
+        voiceoverLauncher.disabled = false;
+        voiceoverAction.disabled = false;
         voiceoverLabel.textContent = "Start narration";
         setVoiceoverExpanded(false);
       })
@@ -1390,26 +1423,22 @@
       setVoiceoverProfile(voiceoverProfile.value, { replayCurrentCue: true });
     });
 
-    voiceoverToggle.addEventListener("click", () => {
-      if (voiceoverToggle.disabled) {
+    voiceoverLauncher.addEventListener("click", () => {
+      if (voiceoverLauncher.disabled) {
         return;
       }
 
-      if (voiceoverState.enabled && !voiceoverState.expanded) {
-        stopVoiceover();
-        setVoiceoverEnabled(false);
-        setVoiceoverExpanded(false);
-        return;
-      }
+      setVoiceoverExpanded(!voiceoverState.expanded);
+    });
 
-      if (!voiceoverState.expanded) {
-        setVoiceoverExpanded(true);
+    voiceoverAction.addEventListener("click", () => {
+      if (voiceoverAction.disabled) {
+        return;
       }
 
       if (voiceoverState.enabled) {
         stopVoiceover();
         setVoiceoverEnabled(false);
-        setVoiceoverExpanded(false);
         return;
       }
 
@@ -1418,11 +1447,7 @@
     });
 
     document.addEventListener("pointerdown", (event) => {
-      if (
-        voiceoverState.enabled ||
-        !voiceoverState.expanded ||
-        voiceoverControls.contains(event.target)
-      ) {
+      if (!voiceoverState.expanded || voiceoverControls.contains(event.target)) {
         return;
       }
 
@@ -1430,7 +1455,7 @@
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && voiceoverState.expanded && !voiceoverState.enabled) {
+      if (event.key === "Escape" && voiceoverState.expanded) {
         setVoiceoverExpanded(false);
       }
     });
