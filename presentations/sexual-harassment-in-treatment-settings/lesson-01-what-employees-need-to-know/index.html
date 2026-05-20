@@ -385,9 +385,32 @@
 
     .slide-jump-list {
       padding: 12px;
-      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scrollbar-gutter: stable;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(124, 227, 212, 0.42) rgba(255, 255, 255, 0.06);
       display: grid;
       gap: 8px;
+    }
+
+    .slide-jump-list::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    .slide-jump-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.06);
+      border-left: 1px solid rgba(124, 227, 212, 0.08);
+    }
+
+    .slide-jump-list::-webkit-scrollbar-thumb {
+      background: rgba(124, 227, 212, 0.42);
+      border: 2px solid rgba(7, 42, 47, 0.94);
+      border-radius: 999px;
+    }
+
+    .slide-jump-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(124, 227, 212, 0.58);
     }
 
     .slide-jump-item {
