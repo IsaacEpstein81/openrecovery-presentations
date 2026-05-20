@@ -23,6 +23,7 @@
 - [ ] Two-column slides do not overlap in embedded iframe view
 - [ ] Arrows are small enough and not distracting
 - [ ] If an in-deck navigator exists, its launcher does not block important slide content in framed view
+- [ ] If compact in-deck launchers share a bottom dock, they sit cleanly side by side and the slide content clears them in framed view
 - [ ] Transitions feel subtle and consistent; avoid aggressive depth effects
 - [ ] If images or diagrams are used, they follow the shared media/image treatment
 
@@ -37,14 +38,18 @@
 - [ ] Search plugin does not break the deck
 - [ ] If click-to-advance is enabled, it does not hijack links or custom controls
 - [ ] If a custom slide navigator exists, it opens, closes, and jumps to the intended slide
+- [ ] If a custom slide navigator exists, its scroll affordance is visible without requiring a trackpad gesture or mouse wheel
 
 ## Voiceover Checks
 
 - [ ] If narration is enabled, `voiceover.json` exists in the lesson folder
 - [ ] If narration is enabled, expected audio files exist in the lesson `voiceover/` folder for each declared voice profile
 - [ ] The narration toggle loads, starts, and stops cleanly
+- [ ] If narration controls auto-collapse, reopening or closing them does not interrupt playback unless the explicit stop action is used
 - [ ] If multiple voice profiles exist, the in-browser voice selector changes playback to the chosen voice
 - [ ] Slide changes play the intended local audio file
+- [ ] If narration is intended to feel like guided playback, remaining slide fragments reveal during the MP3 before the deck advances
+- [ ] If the learner manually navigates during narration, the current audio can continue without forcing one extra automatic slide advance at the end of that cue
 - [ ] Narration does not require a browser API key or live text-to-speech call
 
 ## Content Checks

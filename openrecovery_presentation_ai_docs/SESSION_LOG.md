@@ -144,3 +144,17 @@ Suggested format:
 - changed: updated the lesson manifest to render separate `female` and `male` voice packs; upgraded the deck UI to let learners switch voices in-browser; fixed the generator's multi-profile manifest validation; updated the workflow and generation prompts so future lessons render both voice sets by default
 - next: configure the two ElevenLabs voice ids locally, render both audio packs, and QA profile switching in the direct lesson and the LMS preview shell
 - blockers: actual audio generation still depends on a local ElevenLabs API key plus both selected voice ids
+
+## 2026-05-20 13:10
+
+- worked on: final interaction polish for the narrated sexual-harassment lesson
+- changed: rendered the female and male ElevenLabs MP3 packs for the lesson; refined narration controls into a compact launcher plus explicit start/stop action; added auto-collapse behavior that does not interrupt playback; added a persistent custom scroll rail to the slide navigator so macOS overlay-scrollbar behavior does not hide the list affordance
+- next: run a final direct-vs-embedded QA pass, then commit and push the updated lesson, audio assets, and docs
+- blockers: no technical blockers at the moment; still need one final human QA pass after the latest interaction tweaks
+
+## 2026-05-20 15:35
+
+- worked on: making the narrated lesson behave more like a guided video in framed view
+- changed: moved the horn launcher beside the hamburger navigator, added bottom-safe slide spacing so content clears the compact dock, made slide-enter narration reveal fragments gradually and auto-advance to the next slide, and cancel that auto-advance when the learner manually takes over navigation
+- next: manually QA the guided narration sequence in the direct lesson and the LMS preview shell, especially the handoff between automatic playback and manual arrow/navigation control
+- blockers: interactive browser QA was intentionally deferred so the user can review the updated behavior directly

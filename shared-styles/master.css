@@ -539,6 +539,10 @@ table.clean-table td:last-child {
 
 .reveal .controls {
   color: var(--or-teal);
+  transform: scale(0.62);
+  transform-origin: bottom right;
+  right: 18px;
+  bottom: 18px;
 }
 
 .reveal .slide-number {

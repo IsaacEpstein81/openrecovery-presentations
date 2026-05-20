@@ -259,6 +259,9 @@ Embedded iframe widths exposed text/image overlap on dense two-column slides, es
 Decision:
 If a lesson adds a custom in-deck slide navigator, keep the launcher compact in framed view and let it expand on hover/open rather than occupying a full labeled button all the time.
 
+Reason:
+The root LMS preview has less visible space than fullscreen, so persistent labeled controls can block slide content even when they look fine fullscreen.
+
 ### Use ElevenLabs With Pre-Generated Lesson Audio
 
 Decision:
@@ -283,5 +286,42 @@ When narration is included, define one female voice profile and one male voice p
 Reason:
 This preserves consistent playback quality, keeps the pipeline fully automatable, and gives learners a simple voice preference control without introducing runtime synthesis latency or API-key exposure.
 
+### Separate The Narration Launcher From The Playback Action
+
+Decision:
+Use a dedicated compact horn launcher to expand or collapse the narration controls, and keep start/stop playback on a separate action button inside the expanded controls.
+
 Reason:
-The root LMS preview has less visible space than fullscreen, so persistent labeled controls can block slide content even when they look fine fullscreen.
+Users may want to reopen or dismiss the narration UI while audio keeps playing. Separating visibility control from playback control avoids accidental stops and makes the compact state less risky to click.
+
+### Auto-Collapse Narration Controls After Playback Starts
+
+Decision:
+When narration starts, briefly show the expanded controls and then auto-collapse them while leaving playback running.
+
+Reason:
+The lesson needs narration controls to stay discoverable, but persistent expanded pills take up too much visual space on framed slides. Auto-collapse preserves both clarity and unobtrusiveness.
+
+### Give Custom Slide Navigators A Persistent Scroll Affordance
+
+Decision:
+If a custom in-deck slide navigator contains a scrollable list, provide a visible in-panel scroll affordance instead of relying only on the operating system's overlay scrollbar behavior.
+
+Reason:
+On macOS, overlay scrollbars can remain hidden until the user gestures on a trackpad, which makes a long navigator look static or truncated and leaves mouse users with poor discoverability.
+
+### Dock Compact Launchers On One Bottom Row
+
+Decision:
+If a lesson uses both a slide navigator launcher and a narration launcher, keep them as compact icon buttons on one bottom row and let any expanded narration controls open upward from that dock.
+
+Reason:
+One shared dock reads more cleanly in framed view and prevents the stacked bottom-left overlap that can happen when each launcher claims its own vertical lane.
+
+### Treat Narration As Guided Playback
+
+Decision:
+When narration is enabled and a slide only has `slide-enter` audio, use that MP3 to reveal remaining fragments gradually and advance to the next slide after the audio ends. If the learner manually navigates during that cue, let the audio continue but cancel the automatic advance for that slide.
+
+Reason:
+This makes the deck feel like a lightweight narrated video while still respecting manual control instead of fighting the learner's navigation choices.

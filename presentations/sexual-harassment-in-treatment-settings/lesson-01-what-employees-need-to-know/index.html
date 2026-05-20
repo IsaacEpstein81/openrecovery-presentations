@@ -14,9 +14,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-  <link rel="stylesheet" href="../../../shared-styles/master.css?v=20260520-0800">
+  <link rel="stylesheet" href="../../../shared-styles/master.css?v=20260520-1730">
 
   <style>
+    .reveal {
+      --lesson-control-safe-bottom: 82px;
+    }
+
+    .reveal .slides > section .slide-shell {
+      padding-bottom: var(--lesson-control-safe-bottom);
+    }
+
+    .reveal .slides > section.title-slide .slide-shell {
+      padding-bottom: calc(var(--lesson-control-safe-bottom) + 34px);
+    }
+
+    .reveal .slides > section .footer-note {
+      bottom: calc(var(--lesson-control-safe-bottom) - 8px);
+    }
+
     .key-takeaways-slide .takeaway-content {
       width: 92%;
       max-width: 1320px;
@@ -45,8 +61,8 @@
 
     .voiceover-controls {
       position: absolute;
-      left: 14px;
-      bottom: 68px;
+      left: 68px;
+      bottom: 14px;
       z-index: 32;
       display: flex;
       flex-direction: column;
@@ -199,10 +215,10 @@
     .voiceover-launcher {
       display: inline-flex;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
       width: 46px;
       height: 46px;
-      padding: 0 13px;
+      padding: 0;
       border: 1px solid rgba(7, 63, 70, 0.36);
       border-radius: 999px;
       background: transparent;
@@ -247,12 +263,12 @@
       z-index: 32;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
       border: 1px solid rgba(7, 63, 70, 0.36);
       border-radius: 999px;
       width: 46px;
       height: 46px;
-      padding: 0 13px;
+      padding: 0;
       background: transparent;
       color: rgba(110, 129, 136, 0.98);
       font: inherit;
@@ -262,16 +278,9 @@
       box-shadow: none;
       backdrop-filter: none;
       text-shadow: none;
-      justify-content: flex-start;
       overflow: hidden;
       white-space: nowrap;
-      transition: width 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .slide-jump-button:hover,
-    .slide-jump-button:focus-visible,
-    .slide-jump-button[aria-expanded="true"] {
-      width: 156px;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
     }
 
     .slide-jump-button:hover,
@@ -291,17 +300,7 @@
     }
 
     .slide-jump-label {
-      max-width: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-width 180ms ease, opacity 150ms ease;
-    }
-
-    .slide-jump-button:hover .slide-jump-label,
-    .slide-jump-button:focus-visible .slide-jump-label,
-    .slide-jump-button[aria-expanded="true"] .slide-jump-label {
-      max-width: 96px;
-      opacity: 1;
+      display: none;
     }
 
     .slide-jump-backdrop {
@@ -1121,7 +1120,15 @@
 
     </div>
 
-    <button class="slide-jump-button" id="slideJumpToggle" type="button" aria-haspopup="dialog" aria-expanded="false">
+    <button
+      class="slide-jump-button"
+      id="slideJumpToggle"
+      type="button"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+      aria-label="Open slide navigator"
+      title="Slide navigator"
+    >
       <span class="material-symbols-outlined">menu</span>
       <span class="slide-jump-label">Jump to slide</span>
     </button>
@@ -1137,7 +1144,15 @@
         <span class="voiceover-label">Load narration</span>
       </button>
 
-      <button class="voiceover-launcher" id="voiceoverLauncher" type="button" aria-expanded="false" disabled>
+      <button
+        class="voiceover-launcher"
+        id="voiceoverLauncher"
+        type="button"
+        aria-expanded="false"
+        aria-label="Show narration controls"
+        title="Narration controls"
+        disabled
+      >
         <span class="material-symbols-outlined">volume_up</span>
       </button>
     </div>
@@ -1195,11 +1210,26 @@
     const voiceoverProfile = document.getElementById("voiceoverProfile");
     const voiceoverAudio = new Audio();
     const VOICEOVER_PROFILE_STORAGE_KEY = "openrecovery.voiceoverProfile";
+    const NAVIGATION_KEYS = new Set([
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "PageUp",
+      "PageDown",
+      "Home",
+      "End",
+      " "
+    ]);
     const voiceoverState = {
       enabled: false,
       expanded: false,
       collapseTimer: null,
       currentKey: null,
+      currentCueToken: 0,
+      autoAdvanceSuspendedKey: null,
+      metadataHandler: null,
+      fragmentTimerIds: [],
       defaultProfileId: "default",
       selectedProfileId: "default",
       profiles: [],
@@ -1275,6 +1305,25 @@
       return voiceoverState.selectedProfileId || voiceoverState.defaultProfileId || "default";
     }
 
+    function clearGuidedPlaybackTimers() {
+      voiceoverState.fragmentTimerIds.forEach((timerId) => window.clearTimeout(timerId));
+      voiceoverState.fragmentTimerIds = [];
+
+      if (voiceoverState.metadataHandler) {
+        voiceoverAudio.removeEventListener("loadedmetadata", voiceoverState.metadataHandler);
+        voiceoverState.metadataHandler = null;
+      }
+    }
+
+    function suspendGuidedPlaybackForCurrentCue() {
+      if (!voiceoverState.enabled || !voiceoverState.currentKey) {
+        return;
+      }
+
+      voiceoverState.autoAdvanceSuspendedKey = voiceoverState.currentKey;
+      clearGuidedPlaybackTimers();
+    }
+
     function clearVoiceoverCollapseTimer() {
       if (voiceoverState.collapseTimer !== null) {
         window.clearTimeout(voiceoverState.collapseTimer);
@@ -1322,15 +1371,20 @@
         scheduleVoiceoverCollapse();
       } else {
         clearVoiceoverCollapseTimer();
+        clearGuidedPlaybackTimers();
+        voiceoverState.autoAdvanceSuspendedKey = null;
       }
     }
 
     function stopVoiceover() {
+      clearGuidedPlaybackTimers();
       voiceoverAudio.pause();
       voiceoverAudio.currentTime = 0;
       voiceoverAudio.removeAttribute("src");
       voiceoverAudio.load();
       voiceoverState.currentKey = null;
+      voiceoverState.currentCueToken += 1;
+      voiceoverState.autoAdvanceSuspendedKey = null;
     }
 
     function setVoiceoverProfile(profileId, { replayCurrentCue = false } = {}) {
@@ -1401,6 +1455,90 @@
       };
     }
 
+    function slideHasFragmentVoiceover(slideId) {
+      return Array.from(voiceoverState.segments.keys()).some((key) =>
+        key.startsWith(`${slideId}::fragment-`)
+      );
+    }
+
+    function scheduleGuidedFragments(segment, playbackKey, cueToken) {
+      clearGuidedPlaybackTimers();
+
+      if (segment.trigger !== "slide-enter" || slideHasFragmentVoiceover(segment.slide_id)) {
+        return;
+      }
+
+      const queueFragments = () => {
+        if (voiceoverState.currentCueToken !== cueToken || voiceoverState.currentKey !== playbackKey) {
+          return;
+        }
+
+        const activeSlide = Reveal.getCurrentSlide();
+        if (!activeSlide || activeSlide.id !== segment.slide_id) {
+          return;
+        }
+
+        const hiddenFragments = Array.from(activeSlide.querySelectorAll(".fragment:not(.visible)"));
+        if (hiddenFragments.length === 0) {
+          return;
+        }
+
+        const durationMs = Number.isFinite(voiceoverAudio.duration) ? voiceoverAudio.duration * 1000 : 0;
+        if (durationMs <= 0) {
+          return;
+        }
+
+        const leadIn = Math.min(1100, Math.max(450, durationMs * 0.22));
+        const tailBuffer = Math.min(1200, Math.max(550, durationMs * 0.18));
+        const usableWindow = Math.max(durationMs - leadIn - tailBuffer, durationMs * 0.2);
+
+        hiddenFragments.forEach((_, index) => {
+          const ratio = (index + 1) / (hiddenFragments.length + 1);
+          const delay = Math.max(
+            250,
+            Math.round(Math.min(durationMs - 180, leadIn + usableWindow * ratio))
+          );
+
+          const timerId = window.setTimeout(() => {
+            if (!voiceoverState.enabled) {
+              return;
+            }
+
+            if (voiceoverState.currentCueToken !== cueToken || voiceoverState.currentKey !== playbackKey) {
+              return;
+            }
+
+            if (voiceoverState.autoAdvanceSuspendedKey === playbackKey) {
+              return;
+            }
+
+            const liveSlide = Reveal.getCurrentSlide();
+            if (!liveSlide || liveSlide.id !== segment.slide_id) {
+              return;
+            }
+
+            if (liveSlide.querySelector(".fragment:not(.visible)")) {
+              Reveal.nextFragment();
+            }
+          }, delay);
+
+          voiceoverState.fragmentTimerIds.push(timerId);
+        });
+      };
+
+      if (voiceoverAudio.readyState >= 1 && Number.isFinite(voiceoverAudio.duration) && voiceoverAudio.duration > 0) {
+        queueFragments();
+        return;
+      }
+
+      voiceoverState.metadataHandler = () => {
+        voiceoverState.metadataHandler = null;
+        queueFragments();
+      };
+
+      voiceoverAudio.addEventListener("loadedmetadata", voiceoverState.metadataHandler, { once: true });
+    }
+
     function playVoiceoverCue(slideId, trigger) {
       if (!voiceoverState.enabled) {
         return;
@@ -1427,6 +1565,10 @@
       voiceoverAudio.currentTime = 0;
       voiceoverAudio.src = audioFile;
       voiceoverState.currentKey = playbackKey;
+      voiceoverState.currentCueToken += 1;
+      voiceoverState.autoAdvanceSuspendedKey = null;
+
+      scheduleGuidedFragments(segment, playbackKey, voiceoverState.currentCueToken);
 
       const playPromise = voiceoverAudio.play();
       if (playPromise) {
@@ -1454,8 +1596,38 @@
       playVoiceoverCue(cue.slideId, cue.trigger);
     }
 
+    function advanceToNextSlideFromVoiceover() {
+      const { h } = Reveal.getIndices();
+      const nextHorizontalIndex = h + 1;
+
+      if (nextHorizontalIndex >= slideEntries.length) {
+        return;
+      }
+
+      Reveal.slide(nextHorizontalIndex, 0);
+    }
+
+    function isFormControl(target) {
+      return target instanceof HTMLElement && (
+        target.isContentEditable ||
+        ["BUTTON", "INPUT", "OPTION", "SELECT", "TEXTAREA"].includes(target.tagName)
+      );
+    }
+
     voiceoverAudio.addEventListener("ended", () => {
+      const completedKey = voiceoverState.currentKey;
+      clearGuidedPlaybackTimers();
       voiceoverState.currentKey = null;
+
+      if (!voiceoverState.enabled || !completedKey) {
+        return;
+      }
+
+      if (voiceoverState.autoAdvanceSuspendedKey === completedKey) {
+        return;
+      }
+
+      advanceToNextSlideFromVoiceover();
     });
 
     fetch("voiceover.json")
@@ -1541,6 +1713,7 @@
       slideJumpList.querySelectorAll(".slide-jump-item").forEach((button) => {
         button.addEventListener("click", (event) => {
           event.stopPropagation();
+          suspendGuidedPlaybackForCurrentCue();
           closeSlideJump();
           Reveal.slide(Number(button.dataset.slideIndex));
         });
@@ -1607,6 +1780,7 @@
 
     slideJumpToggle.addEventListener("click", (event) => {
       event.stopPropagation();
+      suspendGuidedPlaybackForCurrentCue();
 
       if (slideJumpPanel.classList.contains("is-open")) {
         closeSlideJump();
@@ -1644,6 +1818,36 @@
         }
       }
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (!voiceoverState.enabled || event.defaultPrevented) {
+        return;
+      }
+
+      if (event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+
+      if (!NAVIGATION_KEYS.has(event.key) || isFormControl(event.target)) {
+        return;
+      }
+
+      suspendGuidedPlaybackForCurrentCue();
+    });
+
+    const revealControls = document.querySelector(".reveal .controls");
+    if (revealControls) {
+      revealControls.addEventListener("pointerdown", () => {
+        suspendGuidedPlaybackForCurrentCue();
+      });
+    }
+
+    const revealProgress = document.querySelector(".reveal .progress");
+    if (revealProgress) {
+      revealProgress.addEventListener("pointerdown", () => {
+        suspendGuidedPlaybackForCurrentCue();
+      });
+    }
 
     Reveal.on("slidechanged", () => {
       if (slideJumpPanel.classList.contains("is-open")) {
@@ -1684,6 +1888,7 @@
         return;
       }
 
+      suspendGuidedPlaybackForCurrentCue();
       Reveal.next();
     });
   </script>
