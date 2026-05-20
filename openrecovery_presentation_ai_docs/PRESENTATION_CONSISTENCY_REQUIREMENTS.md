@@ -90,11 +90,12 @@ If a new deck conflicts with this document or the shared CSS system, revise the 
 - Keep lesson files at `presentations/course-name/lesson-name/index.html`.
 - Create the `presentations/course-name/lesson-name/` folder when needed before writing `index.html`.
 - Link the shared stylesheet at `../../../shared-styles/master.css`.
+- Query-string cache busting such as `../../../shared-styles/master.css?v=...` is acceptable during active preview iteration.
 - Use Reveal assets from `../../../core-assets/dist/...`.
 - Do not link to `../../../core-assets/plugin/...`.
 - Do not modify Reveal core files in `core-assets/dist/` unless the tech team explicitly asks.
 - Reuse the standard Reveal initialization settings defined in this document.
-- Keep deck size at `1280x720` with `margin: 0.06`.
+- Keep deck size at `1440x810` with `margin: 0.04`.
 - Keep `hash`, `controls`, `progress`, `overview`, `touch`, `keyboard`, and `slideNumber: "c/t"` enabled.
 - Keep `transition: "slide"` and `backgroundTransition: "fade"` at the deck level.
 
@@ -107,9 +108,9 @@ Reveal.initialize({
   progress: true,
   center: true,
   slideNumber: "c/t",
-  width: 1280,
-  height: 720,
-  margin: 0.06,
+  width: 1440,
+  height: 810,
+  margin: 0.04,
   transition: "slide",
   backgroundTransition: "fade",
   overview: true,
@@ -131,6 +132,8 @@ Future lesson decks should keep the same top-level asset structure:
 <link rel="stylesheet" href="../../../shared-styles/master.css">
 ```
 
+During active local/Vercel preview iteration, query-string version tokens may be appended to the embedded lesson URL or shared stylesheet link to defeat stale iframe caching in the root preview shell.
+
 Required scripts:
 
 ```html
@@ -139,6 +142,15 @@ Required scripts:
 <script src="../../../core-assets/dist/plugin/search.js"></script>
 <script src="../../../core-assets/dist/plugin/zoom.js"></script>
 ```
+
+If a lesson includes pre-generated narration:
+
+- create `voiceover.json` in the lesson folder
+- save local narration files in the lesson `voiceover/` folder
+- define male and female voice profiles by default unless the user explicitly asks for a single voice
+- play those local audio files from the lesson deck instead of browser speech synthesis
+- expose an in-browser voice selector when more than one profile exists
+- add stable `<section id="...">` values so narration cues can target the right slide
 
 ## Visual Identity Requirements
 
@@ -267,6 +279,8 @@ Requirements:
 - Keep cards rounded, softly shadowed, and lightly bordered.
 - Keep generous whitespace around major sections.
 - Avoid cramped multi-column slides.
+- Make two-column layouts shrink cleanly in embedded view; shared grids should use shrink-safe tracks and allow child elements to shrink.
+- If a slide needs custom width overrides, size it against the slide/container with `%` and `max-width` rather than browser viewport units such as `vw`.
 
 ## Media / Image Requirements
 
@@ -365,6 +379,7 @@ Future decks should preserve these recognizable OpenRecovery moves when they are
 ## HTML Authoring Requirements
 
 - Give each slide a clear `data-title`.
+- Give each narrated slide a stable `id`.
 - Keep class names aligned with the shared CSS system.
 - Use speaker notes when they help instruction or narration.
 - Keep inline styling minimal and only for small one-off adjustments.
@@ -380,6 +395,7 @@ Before generating a new lesson:
 4. Confirm that the chosen slide flow is driven by the source content rather than by habit.
 5. Use `SLIDE_TEMPLATES.md` to choose layouts for those slides rather than to determine their subject matter.
 6. Use `OPENRECOVERY_IMAGE_CREATION_GUIDE.md` and the canonical reference asset to keep prompts, style, image count, and asset placement consistent.
+7. If the lesson should ship with narration, use `ELEVENLABS_VOICEOVER_WORKFLOW.md` and create `voiceover.json` plus local audio files as part of the normal lesson output, including the default male/female browser-selectable voice profiles unless the user asks otherwise.
 
 After generating a lesson:
 

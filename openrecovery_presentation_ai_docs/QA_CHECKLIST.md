@@ -5,7 +5,7 @@
 - [ ] Lesson file is at `presentations/course-name/lesson-name/index.html`
 - [ ] HTML links to `../../../core-assets/dist/reveal.css`
 - [ ] HTML links to `../../../core-assets/dist/theme/white.css`
-- [ ] HTML links to `../../../shared-styles/master.css`
+- [ ] HTML links to `../../../shared-styles/master.css` or a versioned equivalent such as `../../../shared-styles/master.css?v=...`
 - [ ] Plugin paths use `../../../core-assets/dist/plugin/...`
 - [ ] Do not link to `../../../core-assets/plugin/...`
 
@@ -16,9 +16,13 @@
 - [ ] No ugly orphan words on title/reflection slides
 - [ ] Text is readable in embedded iframe view
 - [ ] Text is readable in fullscreen view
+- [ ] Slide-specific width overrides match in embedded iframe view and fullscreen
 - [ ] Final takeaway boxes have readable text color
+- [ ] Final takeaway title/cards are not artificially narrowed in embedded view
 - [ ] Cards are aligned and not cramped
+- [ ] Two-column slides do not overlap in embedded iframe view
 - [ ] Arrows are small enough and not distracting
+- [ ] If an in-deck navigator exists, its launcher does not block important slide content in framed view
 - [ ] Transitions feel subtle and consistent; avoid aggressive depth effects
 - [ ] If images or diagrams are used, they follow the shared media/image treatment
 
@@ -31,6 +35,17 @@
 - [ ] Fragments reveal in the right order
 - [ ] Overview mode works if enabled
 - [ ] Search plugin does not break the deck
+- [ ] If click-to-advance is enabled, it does not hijack links or custom controls
+- [ ] If a custom slide navigator exists, it opens, closes, and jumps to the intended slide
+
+## Voiceover Checks
+
+- [ ] If narration is enabled, `voiceover.json` exists in the lesson folder
+- [ ] If narration is enabled, expected audio files exist in the lesson `voiceover/` folder for each declared voice profile
+- [ ] The narration toggle loads, starts, and stops cleanly
+- [ ] If multiple voice profiles exist, the in-browser voice selector changes playback to the chosen voice
+- [ ] Slide changes play the intended local audio file
+- [ ] Narration does not require a browser API key or live text-to-speech call
 
 ## Content Checks
 
@@ -44,7 +59,10 @@
 ## LMS Preview Checks
 
 - [ ] Root `index.html` iframe uses explicit `index.html` path
+- [ ] Root `index.html` iframe uses an updated version token when cache-busting is needed during active preview iteration
+- [ ] Root `index.html` iframe allows autoplay when narrated lessons are embedded
 - [ ] Expand presentation button works
 - [ ] Embedded deck is navigable after clicking inside it
+- [ ] External resource links open outside the iframe
 - [ ] Page works locally
 - [ ] Page works on Vercel

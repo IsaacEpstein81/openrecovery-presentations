@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "provider": "elevenlabs",
+  "lesson_title": "Sexual Harassment: What Employees Need to Know",
+  "description": "Slide-enter narration for the sexual-harassment lesson.",
+  "default_profile_id": "female",
+  "voice": {
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "language_code": "en",
+    "seed": 42,
+    "enable_logging": false,
+    "include_context_text": true,
+    "voice_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.15,
+      "use_speaker_boost": true
+    }
+  },
+  "profiles": [
+    {
+      "id": "female",
+      "label": "Female Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_FEMALE"
+    },
+    {
+      "id": "male",
+      "label": "Male Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_MALE"
+    }
+  ],
+  "segments": [
+    {
+      "slide_id": "lesson-title",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/01-lesson-title.mp3",
+      "text": "Welcome to OpenRecovery Training. In this lesson, we will look at what sexual harassment can look like in treatment settings, why early response matters, and how staff can document and report concerns clearly."
+    },
+    {
+      "slide_id": "learning-goals",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/02-learning-goals.mp3",
+      "text": "By the end of this lesson, you should be able to recognize common warning signs, document facts without speculation, and report concerns through the right workplace or clinical pathways while keeping safety in view."
+    },
+    {
+      "slide_id": "why-it-matters",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/03-why-it-matters.mp3",
+      "text": "Sexual harassment is not just a policy issue. In treatment settings, it can disrupt staff safety, patient trust, and the stability of the care environment. Early action helps protect both people and workflow."
+    },
+    {
+      "slide_id": "core-definition",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/04-core-definition.mp3",
+      "text": "Sexual harassment includes unwelcome sexual advances, requests for sexual favors, and other verbal or physical conduct of a sexual nature. What matters is not whether someone calls it a joke, but whether it is unwelcome and whether it changes safety, employment conditions, or the work environment."
+    },
+    {
+      "slide_id": "where-it-can-show-up",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/05-where-it-can-show-up.mp3",
+      "text": "In behavioral health settings, harassment can move in several directions: between coworkers, from supervisors toward staff, from patients toward staff, or between patients. Each scenario may require a different response, but none of them should be brushed aside."
+    },
+    {
+      "slide_id": "two-patterns-to-recognize",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/06-two-patterns-to-recognize.mp3",
+      "text": "Two patterns are especially important to recognize. Quid pro quo ties power or job decisions to sexual attention. Hostile environment concerns involve conduct that becomes severe, repeated, intimidating, or unsafe."
+    },
+    {
+      "slide_id": "activity-spot-the-concern",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/07-activity-spot-the-concern.mp3",
+      "text": "In this scenario, notice that the conduct has already been addressed and it is still continuing. Pay attention to repetition, the setting, and how the behavior starts to interfere with the employee's ability to work safely."
+    },
+    {
+      "slide_id": "first-response-priorities",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/08-first-response-priorities.mp3",
+      "text": "When something happens, the goal is not to solve everything on the spot. First stabilize the situation. Protect safety, set a clear boundary if it is safe to do so, preserve the facts, and bring the concern into the right reporting channel."
+    },
+    {
+      "slide_id": "document-facts-and-preserve-evidence",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/09-document-facts-and-preserve-evidence.mp3",
+      "text": "Good documentation makes the next step easier. Capture who was involved, what happened, when and where it happened, and who else was present. Keep the language factual and preserve supporting evidence."
+    },
+    {
+      "slide_id": "reporting-workflow",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/10-reporting-workflow.mp3",
+      "text": "Use structured reporting instead of carrying the issue alone. Follow policy, notify the right people, keep clinical support active if a patient is involved, and escalate immediately if risk is urgent."
+    },
+    {
+      "slide_id": "activity-documentation-practice",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/11-activity-documentation-practice.mp3",
+      "text": "This comparison shows why wording matters. Useful notes describe concrete details such as time, location, exact words, behavior, and response. Less useful notes rely on labels, assumptions, or conclusions."
+    },
+    {
+      "slide_id": "workplace-reporting-vs-mandatory-reporting",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/12-workplace-reporting-vs-mandatory-reporting.mp3",
+      "text": "Workplace reporting and mandatory reporting can overlap, but they are not the same thing. One addresses organizational response to conduct at work. The other may apply when a vulnerable person could be harmed under law or policy."
+    },
+    {
+      "slide_id": "employer-duties-and-anti-retaliation",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/13-employer-duties-and-anti-retaliation.mp3",
+      "text": "A healthy reporting culture does more than listen. It investigates objectively, protects people from retaliation, and follows through with corrective action, safety planning, and support."
+    },
+    {
+      "slide_id": "activity-choose-the-next-step",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/14-activity-choose-the-next-step.mp3",
+      "text": "In this scenario, the risky move is to stay silent because the situation feels complicated. The safer move is to preserve the messages, report through the right channel, and make a plan for safe continuity of care."
+    },
+    {
+      "slide_id": "patient-involved-incidents",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/15-patient-involved-incidents.mp3",
+      "text": "When a patient is involved, the response has to protect both workplace safety and the care environment. That means clear boundaries, team coordination, and support for everyone affected."
+    },
+    {
+      "slide_id": "activity-build-a-script",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/16-activity-build-a-script.mp3",
+      "text": "Boundary-setting does not need to be long or perfect. It needs to be clear, professional, and calm. Short direct language is often the most effective starting point."
+    },
+    {
+      "slide_id": "short-post-test",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/17-short-post-test.mp3",
+      "text": "Use these questions as a quick self-check. The core ideas are that harassment can involve more than employee-to-employee conduct, factual documentation is essential, and uncertainty is a reason to consult policy, not stay silent."
+    },
+    {
+      "slide_id": "resources",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/18-resources.mp3",
+      "text": "These resources can help you confirm legal guidance, workplace violence standards, and behavioral health support information. Use them to strengthen policy review and follow-up, not as a substitute for organization-specific procedures."
+    },
+    {
+      "slide_id": "key-takeaways",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/19-key-takeaways.mp3",
+      "text": "The main takeaways are simple. Respond early, document clearly, protect safety, and use the right reporting pathways. If a vulnerable person may be harmed, check mandatory reporting obligations as well."
+    }
+  ]
+}

@@ -11,11 +11,12 @@ Before generating a new lesson deck, the AI should read these docs in this order
 3. `PRESENTATION_CONSISTENCY_REQUIREMENTS.md`
 4. `STYLE_GUIDE.md`
 5. `OPENRECOVERY_IMAGE_CREATION_GUIDE.md`
-6. `SLIDE_TEMPLATES.md`
-7. `CURRENT_TASK.md`
-8. `DECISIONS.md`
-9. `SESSION_LOG.md`
-10. `QA_CHECKLIST.md`
+6. `ELEVENLABS_VOICEOVER_WORKFLOW.md`
+7. `SLIDE_TEMPLATES.md`
+8. `CURRENT_TASK.md`
+9. `DECISIONS.md`
+10. `SESSION_LOG.md`
+11. `QA_CHECKLIST.md`
 
 ## What To Say In A Fresh AI Session
 
@@ -32,6 +33,7 @@ First read these docs:
 - PRESENTATION_CONSISTENCY_REQUIREMENTS.md
 - STYLE_GUIDE.md
 - OPENRECOVERY_IMAGE_CREATION_GUIDE.md
+- ELEVENLABS_VOICEOVER_WORKFLOW.md
 - SLIDE_TEMPLATES.md
 - CURRENT_TASK.md
 - DECISIONS.md
@@ -50,10 +52,15 @@ Then:
 9. create one shared style lock prompt and one shared negative prompt for the full lesson image set, then reuse them across all lesson image prompts
 10. generate one calibration image first and compare it against the reference board before generating the rest of the lesson images
 11. generate the image assets when image generation is available and save them in the lesson `assets/` folder
-12. include those images in the deck using the shared media classes and keep the deck consistent with `PRESENTATION_CONSISTENCY_REQUIREMENTS.md`, `OPENRECOVERY_IMAGE_CREATION_GUIDE.md`, and `shared-styles/master.css`
-13. if the generated images drift toward flat vector or generic SaaS illustration, revise the shared style lock and regenerate them before finalizing the deck
-14. do not redesign the deck system unless truly necessary
-15. update CURRENT_TASK.md, SESSION_LOG.md, and DECISIONS.md if any durable shared-system change is made
+12. create `voiceover.json` in the lesson folder using `openrecovery_presentation_ai_docs/ELEVENLABS_VOICEOVER_WORKFLOW.md`
+13. define one female voice profile and one male voice profile by default unless I explicitly ask for a single voice
+14. add stable `<section id="...">` values for each narrated slide and wire the deck to local pre-generated audio files instead of browser speech synthesis
+15. when ElevenLabs credentials are configured locally, run `scripts/generate_elevenlabs_voiceover.py` against that `voiceover.json` file and save the audio files in the lesson `voiceover/` folder
+16. expose the browser voice selector so the learner can switch between the rendered voice profiles
+17. include those images in the deck using the shared media classes and keep the deck consistent with `PRESENTATION_CONSISTENCY_REQUIREMENTS.md`, `OPENRECOVERY_IMAGE_CREATION_GUIDE.md`, and `shared-styles/master.css`
+18. if the generated images drift toward flat vector or generic SaaS illustration, revise the shared style lock and regenerate them before finalizing the deck
+19. do not redesign the deck system unless truly necessary
+20. update CURRENT_TASK.md, SESSION_LOG.md, and DECISIONS.md if any durable shared-system change is made
 
 Use `openrecovery_presentation_ai_docs/AI_DECK_GENERATION_PROMPT.md` for the deck-generation rules.
 
@@ -70,6 +77,7 @@ Optional notes I may include:
 - desired scenario or roleplay
 - desired script language
 - desired visuals
+- narration preference override
 - compliance or policy cautions
 ```
 
@@ -88,6 +96,7 @@ Before writing the deck, read:
 - PRESENTATION_CONSISTENCY_REQUIREMENTS.md
 - STYLE_GUIDE.md
 - OPENRECOVERY_IMAGE_CREATION_GUIDE.md
+- ELEVENLABS_VOICEOVER_WORKFLOW.md
 - SLIDE_TEMPLATES.md
 - DECISIONS.md
 - QA_CHECKLIST.md
@@ -109,6 +118,7 @@ Core rules:
 14. By default, include `3–5` original images in a normal lesson deck unless the user explicitly requests fewer or none.
 15. Generate those images in one consistent lesson-level style defined by `OPENRECOVERY_IMAGE_CREATION_GUIDE.md`.
 16. Inspect the canonical style reference image and treat it as the visual anchor for all lesson images.
+17. When narration is desired, create `voiceover.json`, define browser-selectable male and female voice profiles by default, generate local audio files with ElevenLabs when credentials are available, and play those files from the deck instead of using browser speech synthesis.
 
 Motion rules:
 - Default transition language is subtle.
@@ -175,11 +185,14 @@ Output:
 6. Generate one calibration image first before generating the rest of the lesson images.
 7. If the calibration image or later images drift away from the reference style, revise the shared style lock and regenerate before finalizing.
 8. When image generation is available, generate the lesson images and save them in the lesson `assets/` folder.
-9. Then provide the complete index.html file with those images included.
-10. Do not output a separate CSS file unless I explicitly ask for one.
-11. Do not change the shared style unless absolutely necessary.
-12. If new shared CSS is truly needed, put it in a short "CSS additions" section and explain exactly where it goes in shared-styles/master.css.
-13. Do not invent organization policy, legal requirements, or clinical claims that are not supported by the source content.
+9. Create `voiceover.json` in the lesson folder with one narration segment per slide by default, adding fragment-level narration only when it genuinely helps instruction.
+10. Define one female profile and one male profile in that manifest by default so the learner can switch voices in the browser.
+11. When ElevenLabs credentials are configured locally, run `scripts/generate_elevenlabs_voiceover.py` against that manifest and save the audio files in the lesson `voiceover/` folder.
+12. Then provide the complete `index.html` file with those images and audio references included.
+13. Do not output a separate CSS file unless I explicitly ask for one.
+14. Do not change the shared style unless absolutely necessary.
+15. If new shared CSS is truly needed, put it in a short "CSS additions" section and explain exactly where it goes in shared-styles/master.css.
+16. Do not invent organization policy, legal requirements, or clinical claims that are not supported by the source content.
 
 Deck requirements:
 - Usually 10-16 slides for a 15-minute lesson, unless the source clearly justifies more.
@@ -191,6 +204,7 @@ Deck requirements:
 - Follow `OPENRECOVERY_IMAGE_CREATION_GUIDE.md` and keep all images in one consistent lesson-level style.
 - Match the canonical reference image closely enough that the lesson images feel like the same family, not merely “inspired by” it.
 - Reuse one shared style lock paragraph and one shared negative prompt across the lesson image set instead of rewriting the art direction from scratch image by image.
+- If narration is enabled for the lesson, prefer one slide-enter narration file per slide unless the content specifically benefits from fragment-level cues.
 - End with a concise key takeaways slide.
 - Match the structure and polish defined in PRESENTATION_CONSISTENCY_REQUIREMENTS.md.
 - Use `SLIDE_TEMPLATES.md` as a menu of layout/composition patterns, not a required content sequence.
@@ -203,6 +217,7 @@ Before generating the final HTML, silently check:
 - if images are used, do they follow the OpenRecovery image guide and feel like the same visual family?
 - do the images avoid flat vector / generic SaaS drift and clearly resemble the canonical reference style?
 - does the deck actually include the expected `3–5` images unless the user asked otherwise?
+- if narration is requested, does the lesson include `voiceover.json`, stable slide ids, local audio file references for both voice profiles, and an in-browser voice selector?
 - are there any oversized paragraphs that should be broken into cards or columns?
 - does the deck feel like unmistakably OpenRecovery based on the consistency spec?
 - does the flow feel earned by the content rather than copied from another lesson?

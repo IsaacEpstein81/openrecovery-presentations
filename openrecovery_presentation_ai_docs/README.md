@@ -8,17 +8,19 @@ This folder is the shared memory for creating consistent Reveal.js HTML5 lesson 
 2. `PRESENTATION_CONSISTENCY_REQUIREMENTS.md`
 3. `STYLE_GUIDE.md`
 4. `OPENRECOVERY_IMAGE_CREATION_GUIDE.md`
-5. `SLIDE_TEMPLATES.md`
-6. `CURRENT_TASK.md`
-7. `DECISIONS.md`
-8. `SESSION_LOG.md`
-9. `QA_CHECKLIST.md`
+5. `ELEVENLABS_VOICEOVER_WORKFLOW.md`
+6. `SLIDE_TEMPLATES.md`
+7. `CURRENT_TASK.md`
+8. `DECISIONS.md`
+9. `SESSION_LOG.md`
+10. `QA_CHECKLIST.md`
 
 ## Files
 
 - `PROJECT_CONTEXT.md` — repo, LMS use case, current prototype
 - `STYLE_GUIDE.md` — colors, fonts, layouts, transitions, arrows, Reveal settings
 - `OPENRECOVERY_IMAGE_CREATION_GUIDE.md` — consistent image-generation rules for lesson decks, including the default image style, `3–5` image expectation, prompt format, and asset workflow
+- `ELEVENLABS_VOICEOVER_WORKFLOW.md` — setup and generation workflow for pre-rendered lesson narration using ElevenLabs
 - `reference-assets/modern-human-collage-reference.png` — canonical visual reference for the approved OpenRecovery image style
 - `PRESENTATION_CONSISTENCY_REQUIREMENTS.md` — self-contained go/no-go requirements for matching the OpenRecovery lesson deck system
 - `SLIDE_TEMPLATES.md` — reusable slide layout and composition patterns

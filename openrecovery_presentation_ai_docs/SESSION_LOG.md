@@ -123,3 +123,24 @@ Suggested format:
 - changed: created `presentations/disaster-preparedness-essentials/lesson-01-disaster-preparedness-essentials/index.html`; built a 19-slide Reveal.js lesson with 4 activities, a short post-test, a resources page, and shared OpenRecovery styling; updated `CURRENT_TASK.md` to reflect the new active lesson build
 - next: run the deck through visual QA in preview and trim any slides that feel dense at embedded size, especially the four-card process slides
 - blockers: local visual preview was not fully verified in-tool, so final density checks still need an interactive browser pass
+
+## 2026-05-20 08:00
+
+- worked on: stabilizing the sexual-harassment lesson as the root LMS preview lesson and fixing embedded-versus-fullscreen mismatches
+- changed: repointed root `index.html` to `presentations/sexual-harassment-in-treatment-settings/lesson-01-what-employees-need-to-know/index.html`; updated deck sizing to `1440x810` with `margin: 0.04`; tightened shared text/card spacing; fixed slide 7 two-column overlap and final-takeaway width drift in iframe view; opened resources links in new tabs; added click-to-advance and a compact slide navigator; used versioned iframe and stylesheet URLs to break stale embedded caches during iteration
+- next: run side-by-side QA on the direct lesson and root preview shell, then decide whether the slide navigator should move into the shared reusable system
+- blockers: embedded preview can lag behind direct lesson changes unless the lesson URL and shared stylesheet are cache-busted during active iteration
+
+## 2026-05-20 11:15
+
+- worked on: production voiceover support for narrated Reveal.js lessons
+- changed: added an ElevenLabs voiceover generator script; added `voiceover.json` plus audio-output scaffolding for the sexual-harassment lesson; wired the lesson deck to local pre-generated narration files; updated the docs and prompts so future lesson-generation runs can create and render narration assets automatically
+- next: configure ElevenLabs credentials locally, render the sexual-harassment narration files, and QA playback in both the direct lesson and the LMS preview shell
+- blockers: actual audio generation still depends on a local ElevenLabs API key and voice id
+
+## 2026-05-20 12:10
+
+- worked on: expanding the ElevenLabs narration system from one fixed voice to two browser-selectable voice profiles
+- changed: updated the lesson manifest to render separate `female` and `male` voice packs; upgraded the deck UI to let learners switch voices in-browser; fixed the generator's multi-profile manifest validation; updated the workflow and generation prompts so future lessons render both voice sets by default
+- next: configure the two ElevenLabs voice ids locally, render both audio packs, and QA profile switching in the direct lesson and the LMS preview shell
+- blockers: actual audio generation still depends on a local ElevenLabs API key plus both selected voice ids

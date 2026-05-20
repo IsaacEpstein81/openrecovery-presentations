@@ -124,9 +124,9 @@ Reveal.initialize({
   progress: true,
   center: true,
   slideNumber: "c/t",
-  width: 1280,
-  height: 720,
-  margin: 0.06,
+  width: 1440,
+  height: 810,
+  margin: 0.04,
   transition: "slide",
   backgroundTransition: "fade",
   overview: true,
@@ -148,6 +148,8 @@ Use smaller Reveal controls than the default.
   bottom: 18px;
 }
 ```
+
+If a lesson adds a custom in-deck control such as a slide navigator, keep it compact in framed/iframe view and let the label expand only on hover or while open.
 
 ## Slide Length
 
@@ -201,6 +203,7 @@ Use recurring layouts:
 - final takeaway slide
 
 Avoid full paragraphs on slides unless it is a scenario or script.
+When a slide needs a one-off width override, size it against the slide/container with `%` and `max-width` rather than browser viewport units such as `vw`; embedded iframes make `vw` drift.
 
 ## Title Wrapping Rule
 

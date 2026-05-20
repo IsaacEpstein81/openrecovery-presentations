@@ -31,10 +31,20 @@ Current test lesson:
 
 ```text
 presentations/
-└── ethics-boundaries-recovery-counseling/
-    └── lesson-01-understanding-professional-boundaries/
-        └── index.html
+└── sexual-harassment-in-treatment-settings/
+    └── lesson-01-what-employees-need-to-know/
+        ├── index.html
+        ├── IMAGE_PROMPTS.md
+        └── assets/
 ```
+
+Current root preview shell:
+
+```text
+index.html
+```
+
+`index.html` currently embeds one primary lesson inside an LMS-style wrapper with sidebar, topbar, fullscreen behavior, and an assistant panel. During active local/Vercel iteration, lesson URLs and stylesheet links may use `?v=...` query strings to force the iframe to load the latest deck changes.
 
 ## Intended Repo Structure
 
@@ -48,7 +58,9 @@ openrecovery-presentations/
 └── presentations/
     └── course-name/
         └── lesson-name/
-            └── index.html
+            ├── index.html
+            ├── IMAGE_PROMPTS.md
+            └── assets/
 ```
 
 ## Editable Files
@@ -59,6 +71,8 @@ Usually edit only:
 index.html
 shared-styles/master.css
 presentations/course-name/lesson-name/index.html
+presentations/course-name/lesson-name/assets/*
+openrecovery_presentation_ai_docs/*.md
 ```
 
 Do not modify Reveal.js core files unless the tech team explicitly asks:

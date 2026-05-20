@@ -211,3 +211,77 @@ Before generating the full `3–5` lesson image set, the workflow should generat
 
 Reason:
 The fastest way to catch generic flat-vector drift is before the whole image batch is created. A calibration pass makes the workflow more reliable and reduces cleanup later.
+
+## 2026-05-20
+
+### Use A Larger Default Deck Canvas
+
+Decision:
+Standardize lessons on `1440x810` with `margin: 0.04`.
+
+Reason:
+The slightly larger base canvas scales down more cleanly inside the LMS iframe while still reading well fullscreen, and it reduced repeated bottom clipping on dense slides.
+
+### Cache-Bust Embedded Preview URLs During Iteration
+
+Decision:
+When the root preview shell embeds an actively edited lesson, version the lesson URL and, when needed, the lesson's shared stylesheet link with a `?v=...` token.
+
+Reason:
+Local/browser/Vercel iframe caching can otherwise show stale lesson HTML or stale `master.css`, which made embedded preview disagree with direct lesson preview.
+
+### Open External Resource Links Outside The Iframe
+
+Decision:
+External resource links inside embedded decks should open in a new tab/window.
+
+Reason:
+Many external sites block iframe rendering and otherwise replace the embedded lesson with a broken or blank view.
+
+### Prefer Container-Relative Width Overrides In Embedded Decks
+
+Decision:
+When a slide needs custom width overrides, size it relative to the slide/container with percentages and `max-width` rather than browser viewport units such as `vw`.
+
+Reason:
+Viewport units behaved differently in fullscreen versus iframe mode and caused the takeaway title and cards to appear much narrower in the root preview shell.
+
+### Make Shared Two-Column Layouts Shrink-Safe
+
+Decision:
+Shared two-column grids should use shrinkable tracks and allow child elements to shrink, using `minmax(0, 1fr)` with child `min-width: 0`.
+
+Reason:
+Embedded iframe widths exposed text/image overlap on dense two-column slides, especially scenario layouts like slide 7 in the sexual-harassment lesson.
+
+### Keep Optional In-Deck Navigation Compact
+
+Decision:
+If a lesson adds a custom in-deck slide navigator, keep the launcher compact in framed view and let it expand on hover/open rather than occupying a full labeled button all the time.
+
+### Use ElevenLabs With Pre-Generated Lesson Audio
+
+Decision:
+Use ElevenLabs to pre-render lesson narration into local audio files from a hidden script manifest instead of using browser speech synthesis in production.
+
+Reason:
+Pre-generated local audio keeps playback consistent, avoids API-key exposure, removes runtime latency, and still fits the fully automated lesson-generation pipeline.
+
+### Store Narration In `voiceover.json`
+
+Decision:
+Keep each lesson's narration script in `voiceover.json` and render output audio into the lesson `voiceover/` folder.
+
+Reason:
+This gives the AI workflow one durable narration artifact to generate, review, version, and re-render without mixing hidden narration text into visible slide copy.
+
+### Default To Two Browser-Selectable Narration Voices
+
+Decision:
+When narration is included, define one female voice profile and one male voice profile by default, render both sets of audio files ahead of time, and let the learner switch voices in the browser without making a live API call.
+
+Reason:
+This preserves consistent playback quality, keeps the pipeline fully automatable, and gives learners a simple voice preference control without introducing runtime synthesis latency or API-key exposure.
+
+Reason:
+The root LMS preview has less visible space than fullscreen, so persistent labeled controls can block slide content even when they look fine fullscreen.
