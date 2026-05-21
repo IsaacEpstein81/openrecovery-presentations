@@ -90,10 +90,13 @@ If a new deck conflicts with this document or the shared CSS system, revise the 
 - Keep lesson files at `presentations/course-name/lesson-name/index.html`.
 - Create the `presentations/course-name/lesson-name/` folder when needed before writing `index.html`.
 - Link the shared stylesheet at `../../../shared-styles/master.css`.
+- Link the shared lesson-runtime stylesheet at `../../../shared-styles/lesson-runtime.css` when using the standard OpenRecovery lesson chrome.
 - Query-string cache busting such as `../../../shared-styles/master.css?v=...` is acceptable during active preview iteration.
 - Use Reveal assets from `../../../core-assets/dist/...`.
 - Do not link to `../../../core-assets/plugin/...`.
 - Do not modify Reveal core files in `core-assets/dist/` unless the tech team explicitly asks.
+- Reuse `../../../shared-runtime/lesson-runtime.js` for the standard narrated-lesson controls, slide navigator, and Reveal initialization unless the tech team explicitly asks for a new shared runtime pattern.
+- Do not duplicate the shared narration / slide-navigation runtime inline when the standard shared system already fits the lesson.
 - Reuse the standard Reveal initialization settings defined in this document.
 - Keep deck size at `1440x810` with `margin: 0.04`.
 - Keep `hash`, `controls`, `progress`, `overview`, `touch`, `keyboard`, and `slideNumber: "c/t"` enabled.
@@ -130,6 +133,7 @@ Future lesson decks should keep the same top-level asset structure:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 <link rel="stylesheet" href="../../../shared-styles/master.css">
+<link rel="stylesheet" href="../../../shared-styles/lesson-runtime.css">
 ```
 
 During active local/Vercel preview iteration, query-string version tokens may be appended to the embedded lesson URL or shared stylesheet link to defeat stale iframe caching in the root preview shell.
@@ -141,6 +145,15 @@ Required scripts:
 <script src="../../../core-assets/dist/plugin/notes.js"></script>
 <script src="../../../core-assets/dist/plugin/search.js"></script>
 <script src="../../../core-assets/dist/plugin/zoom.js"></script>
+<script src="../../../shared-runtime/lesson-runtime.js"></script>
+```
+
+When a lesson uses the shared runtime, call:
+
+```html
+<script>
+  window.OpenRecoveryLessonRuntime.init();
+</script>
 ```
 
 If a lesson includes pre-generated narration:
@@ -151,6 +164,7 @@ If a lesson includes pre-generated narration:
 - play those local audio files from the lesson deck instead of browser speech synthesis
 - expose an in-browser voice selector when more than one profile exists
 - add stable `<section id="...">` values so narration cues can target the right slide
+- reuse the shared lesson runtime controls by default instead of building one-off lesson-specific narration or slide-navigation UI
 
 ## Visual Identity Requirements
 

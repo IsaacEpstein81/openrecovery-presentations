@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HIPAA Basics for Clinical Practice | OpenRecovery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../../core-assets/dist/reveal.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/theme/white.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/plugin/highlight/monokai.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../shared-styles/master.css?v=20260520-1730">
+  <link rel="stylesheet" href="../../../shared-styles/lesson-runtime.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section
+        id="lesson-title"
+        class="title-slide"
+        data-title="Lesson Title"
+        data-transition="fade"
+        data-background-gradient="linear-gradient(135deg, #ffffff 0%, #edf9f7 58%, #daf5ef 100%)"
+      >
+        <div class="slide-shell center">
+          <div class="title-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              OpenRecovery Training
+            </div>
+
+            <h1 class="lesson-title">
+              HIPAA Basics for<br>
+              Clinical Practice
+            </h1>
+
+            <p class="subtitle title-subtitle">
+              Lesson 1 &middot; 30 minutes &middot; Practical privacy, security, and breach-response essentials for licensed clinical providers
+            </p>
+
+            <div class="pill-row">
+              <span class="pill"><span class="material-symbols-outlined">lock</span> PHI Protection</span>
+              <span class="pill"><span class="material-symbols-outlined">health_and_safety</span> Clinical Practice</span>
+              <span class="pill"><span class="material-symbols-outlined">rule</span> Compliance</span>
+            </div>
+          </div>
+
+          <div class="footer-note">
+            <span>Audience: Licensed clinical providers at treatment centers</span>
+            <span>Self-paced microlearning with 4 activities and a short post-test</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="learning-goals" data-title="Learning Goals" data-transition="fade">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              By the end of this lesson
+            </div>
+
+            <h2>Know what you can share, how to protect it, and when to escalate.</h2>
+
+            <p class="subtitle">
+              This lesson is designed for day-to-day clinical workflow, not just policy recall.
+            </p>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">badge</span>
+                <h3>Recognize PHI</h3>
+                <p>Identify what counts as protected health information and which organizations the HIPAA rules apply to.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">share_reviews</span>
+                <h3>Share safely</h3>
+                <p>Use treatment, payment, and operations rules correctly while applying minimum-necessary thinking and basic safeguards.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">report</span>
+                <h3>Respond clearly</h3>
+                <p>Contain suspected breaches, document facts, and route unusual requests or overlapping laws to the right privacy leads.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-hipaa-matters" data-title="Why HIPAA Matters" data-transition="slide">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Why this matters
+              </div>
+
+              <h2>Privacy practice protects patient dignity, team trust, and clinical workflow.</h2>
+
+              <p class="subtitle" style="margin-left: 0;">
+                HIPAA is not only about avoiding penalties. In treatment settings, it helps patients trust the care environment and helps clinicians work with clarity about what can be shared.
+              </p>
+
+              <p class="fragment fade-up"><strong>Patient dignity:</strong> protected information should not travel farther than it needs to.</p>
+              <p class="fragment fade-up"><strong>Clinical trust:</strong> confident privacy practice supports honest treatment conversations and continuity of care.</p>
+              <p class="fragment fade-up"><strong>Operational safety:</strong> secure habits reduce preventable breaches, rushed workarounds, and uncertainty during unusual requests.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/01-secure-clinical-team-workflow.webp" alt="Clinical team reviewing secure patient workflow practices in a calm treatment-center setting.">
+              </div>
+              <p class="media-caption">
+                Strong privacy habits feel ordinary, visible, and consistent across the team.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="phi-and-coverage" data-title="PHI And Coverage" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Start with the basics
+              </div>
+
+              <h2>PHI is broader than the chart alone.</h2>
+
+              <div class="card-grid two" style="margin-top: 18px;">
+                <div class="card fragment fade-up">
+                  <h3>What counts as PHI</h3>
+                  <p>Individually identifiable health information in verbal, paper, or electronic form.</p>
+                </div>
+
+                <div class="card fragment fade-up">
+                  <h3>Who HIPAA covers</h3>
+                  <p>Covered entities and their business associates that create, receive, use, or maintain protected health information.</p>
+                </div>
+              </div>
+
+              <p class="fragment fade-up" style="margin-top: 18px;">
+                In real workflow, think beyond the EHR: shift reports, printed schedules, portal messages, billing details, voicemails, screenshots, and hallway conversations can all involve PHI.
+              </p>
+            </div>
+
+            <div class="quote-box">
+              <div class="brand-kicker" style="color: var(--or-mint);">
+                <span class="brand-dot"></span>
+                Practical rule
+              </div>
+
+              <h2>
+                If the information identifies a person and relates to health, care, or payment, treat it like PHI unless policy says otherwise.
+              </h2>
+
+              <p class="muted fragment fade-up">
+                That mindset makes it easier to slow down before talking, forwarding, printing, or uploading patient information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="permitted-sharing-vs-authorization" data-title="Permitted Sharing Vs Authorization" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Sharing rules
+            </div>
+
+            <h2>Some sharing is built into care. Some sharing needs extra permission or extra review.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">lan</span>
+                <h3>Usually permitted without separate authorization</h3>
+                <p>Treatment handoffs, payment activity, and healthcare operations can be allowed without a new patient signature when they fit HIPAA and your organization’s policy.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">description</span>
+                <h3>Pause for written authorization or extra review</h3>
+                <p>Psychotherapy notes, most marketing disclosures, sale of PHI, and unusual outside requests should trigger extra caution before anything is released.</p>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top: 24px; font-size: 0.5em;">
+              HHS guidance says the minimum-necessary standard generally does not apply to disclosures to or requests by healthcare providers for treatment purposes, but it still matters for payment, operations, and many other disclosures.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="minimum-necessary" data-title="Minimum Necessary" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Daily judgment check
+            </div>
+
+            <h2>Share enough to do the job, not everything you have.</h2>
+
+            <p class="subtitle">
+              When treatment does not drive the exchange, use a simple three-question filter before disclosing PHI.
+            </p>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">help</span>
+                <h3>Why is it needed?</h3>
+                <p>Name the purpose first: treatment, payment, operations, safety, or something that needs policy review.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">tune</span>
+                <h3>What is the least needed?</h3>
+                <p>Limit the disclosure to the smallest useful set of facts instead of defaulting to the whole chart.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">verified_user</span>
+                <h3>Who is receiving it?</h3>
+                <p>Verify identity, role, and channel before you speak, fax, email, upload, or text anything patient-related.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="activity-share-narrow-or-stop" data-title="Activity 1: Share, Narrow, Or Stop" data-transition="fade">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Activity 1
+            </div>
+
+            <h2>For each request, decide whether to share it, narrow it, or stop it.</h2>
+
+            <div class="card-grid">
+              <div class="card">
+                <h3>Shift handoff</h3>
+                <p>An oncoming nurse asks for today’s med changes and safety concerns before taking over the patient.</p>
+                <p class="fragment fade-up muted"><strong>Answer:</strong> Share for treatment.</p>
+              </div>
+
+              <div class="card">
+                <h3>Billing question</h3>
+                <p>A billing staff member asks for the entire chart to fix one claim discrepancy.</p>
+                <p class="fragment fade-up muted"><strong>Answer:</strong> Narrow to the minimum necessary.</p>
+              </div>
+
+              <div class="card">
+                <h3>Front-desk curiosity</h3>
+                <p>A friend of the patient asks whether the patient kept today’s appointment.</p>
+                <p class="fragment fade-up muted"><strong>Answer:</strong> Stop unless policy and valid permission clearly allow it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy-safeguards" data-title="Privacy Safeguards" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Everyday safeguards
+            </div>
+
+            <h2>Administrative, physical, and technical habits all matter.</h2>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">task_alt</span>
+                <h3>Administrative</h3>
+                <p>Verify identities, document requests and disclosures, and make sure access lines up with job role and patient need.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">inventory_2</span>
+                <h3>Physical</h3>
+                <p>Lock paper records, secure printouts, clear desks, and keep screens or conversations from drifting into public view.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">devices</span>
+                <h3>Technical</h3>
+                <p>Use strong passwords, device encryption, approved messaging and telehealth platforms, and role-based EHR access.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="telehealth-and-ehr-safeguards" data-title="Telehealth And EHR Safeguards" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Remote care still counts
+              </div>
+
+              <h2>Telehealth, messaging, and EHR access need the same privacy discipline as in-person care.</h2>
+
+              <p class="fragment fade-up"><strong>Use organization-approved tools:</strong> do not improvise with personal apps, unsecured email, or side-channel texting.</p>
+              <p class="fragment fade-up"><strong>Keep the setting private:</strong> limit who can see or hear the visit, and confirm the patient’s identity when the workflow requires it.</p>
+              <p class="fragment fade-up"><strong>Protect the device:</strong> strong passwords, lock screens, and encrypted systems help prevent casual exposure and preventable breaches.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/02-telehealth-and-secure-messaging.webp" alt="Clinician using secure telehealth and messaging tools in a private workspace.">
+              </div>
+              <p class="media-caption">
+                Covered providers should use secure, organization-approved telehealth technology rather than personal convenience tools.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="activity-spot-the-risky-workflow" data-title="Activity 2: Spot The Risky Workflow" data-transition="fade">
+        <div class="slide-shell">
+          <div class="scenario">
+            <div class="scenario-label">Activity 2</div>
+            <h2 style="margin-top: 10px;">Spot the risky workflow before it becomes a reportable problem.</h2>
+            <p>
+              A clinician joins a telehealth session from a shared office, leaves the chart visible on screen, and sends a patient update to a coworker from a personal phone while another person is nearby.
+            </p>
+
+            <div class="script-box">
+              <p class="fragment fade-up"><strong>What are the immediate privacy risks?</strong></p>
+              <p class="fragment fade-up"><strong>Which problems can be fixed on the spot?</strong></p>
+              <p class="fragment fade-up"><strong>Which habit change needs team or supervisor follow-up?</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="behavioral-health-extra-caution" data-title="Behavioral Health Extra Caution" data-transition="slide">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Behavioral health focus
+              </div>
+
+              <h2>Some records in behavioral health settings need extra caution.</h2>
+
+              <div class="card-grid two" style="margin-top: 18px;">
+                <div class="card fragment fade-up">
+                  <h3>Psychotherapy notes</h3>
+                  <p>These are not the same as the standard clinical record. Most disclosures generally require separate written authorization.</p>
+                </div>
+
+                <div class="card fragment fade-up">
+                  <h3>42 CFR Part 2 records</h3>
+                  <p>If your program handles substance-use treatment records, check whether Part 2 adds additional confidentiality rules beyond ordinary HIPAA workflow.</p>
+                </div>
+              </div>
+
+              <p class="muted" style="margin-top: 20px; font-size: 0.48em;">
+                Verified against current HHS guidance: the 2024 Part 2 final rule became effective on April 16, 2024, and compliance was required by February 16, 2026.
+              </p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/03-psychotherapy-notes-and-part2.webp" alt="Behavioral health record privacy visual showing psychotherapy notes and additional substance-use confidentiality protections.">
+              </div>
+              <p class="media-caption">
+                Behavioral health documentation can carry a higher privacy burden than routine clinical exchange.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="activity-choose-the-special-protection" data-title="Activity 3: Choose The Special Protection" data-transition="fade">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Activity 3
+            </div>
+
+            <h2>Which item can move under routine workflow, and which one needs extra review?</h2>
+
+            <div class="card-grid">
+              <div class="card">
+                <h3>Standard progress note</h3>
+                <p>A psychiatrist shares a routine progress note with another treating provider.</p>
+                <p class="fragment fade-up muted"><strong>Answer:</strong> Routine treatment sharing may be allowed.</p>
+              </div>
+
+              <div class="card">
+                <h3>Psychotherapy notes</h3>
+                <p>A therapist’s separately maintained process notes are requested for an outside purpose.</p>
+                <p class="fragment fade-up muted"><strong>Answer:</strong> Separate written authorization is usually required.</p>
+              </div>
+
+              <div class="card">
+                <h3>SUD treatment record</h3>
+                <p>A record connected to a federally assisted substance-use treatment program is requested during coordination.</p>
+                <p class="fragment fade-up muted"><strong>Answer:</strong> Check Part 2 rules and privacy guidance before releasing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="breach-response-workflow" data-title="Breach Response Workflow" data-transition="slide">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Suspected breach response
+              </div>
+
+              <h2>Contain first. Notify quickly. Preserve facts.</h2>
+
+              <div class="card-grid two" style="margin-top: 18px;">
+                <div class="card fragment fade-up">
+                  <h3>1. Contain it</h3>
+                  <p>Stop the disclosure, recover what you can, and limit additional exposure right away.</p>
+                </div>
+
+                <div class="card fragment fade-up">
+                  <h3>2. Notify the right leads</h3>
+                  <p>Bring in your supervisor, privacy officer, and IT immediately according to policy.</p>
+                </div>
+
+                <div class="card fragment fade-up">
+                  <h3>3. Preserve usable facts</h3>
+                  <p>Document what happened, when it was discovered, and what systems, files, or messages were involved.</p>
+                </div>
+
+                <div class="card fragment fade-up">
+                  <h3>4. Follow the breach workflow</h3>
+                  <p>Patient notice and HHS OCR reporting can depend on the event, so do not handle the assessment alone.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/04-privacy-breach-response.webp" alt="Clinical privacy incident response scene with documentation, secure systems, and team escalation.">
+              </div>
+              <p class="media-caption">
+                Fast escalation matters because notification duties and technical investigation often start immediately.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="activity-choose-the-next-step" data-title="Activity 4: Choose The Next Step" data-transition="fade">
+        <div class="slide-shell">
+          <div class="scenario">
+            <div class="scenario-label">Activity 4</div>
+            <h2 style="margin-top: 10px;">Choose the next step when a privacy slip actually happens.</h2>
+            <p>
+              A discharge summary is faxed to the wrong outside office. You learn about the error ten minutes later, and the patient has not been notified yet.
+            </p>
+
+            <div class="card-grid two" style="margin-top: 20px;">
+              <div class="card fragment fade-up">
+                <h3>Common but risky response</h3>
+                <p>Wait to see whether anyone notices, then decide later whether it was serious enough to report.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>Safer response</h3>
+                <p>Contain the error, notify privacy and IT immediately, document the facts, and follow the organization’s breach workflow.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="when-rules-overlap" data-title="When Rules Overlap" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Unusual requests
+              </div>
+
+              <h2>When the request feels unusual, slow down before releasing PHI.</h2>
+
+              <p class="fragment fade-up"><strong>Subpoenas and law-enforcement requests:</strong> do not assume a badge or legal-looking paper is enough on its own.</p>
+              <p class="fragment fade-up"><strong>Overlapping laws:</strong> state law, Part 2, organizational policy, or emergency exceptions can change the right next step.</p>
+              <p class="fragment fade-up"><strong>Best move:</strong> pause, verify, and consult your privacy officer or legal counsel before releasing anything outside routine workflow.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/05-consult-before-releasing-phi.webp" alt="Clinician consulting a privacy or legal lead before releasing protected health information.">
+              </div>
+              <p class="media-caption">
+                Limited safety or public-health exceptions can exist, but unusual requests should move through policy and privacy review.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="short-post-test" data-title="Short Post-Test" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Short post-test
+            </div>
+
+            <h2>Check your understanding.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <h3>1. Which disclosure is not limited by minimum necessary?</h3>
+                <p>A disclosure to another provider for treatment purposes.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>2. Which record usually needs separate written authorization?</h3>
+                <p>Psychotherapy notes.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>3. First move after a suspected breach?</h3>
+                <p>Contain the incident and notify the right privacy and technical leads immediately.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>4. Safer telehealth habit?</h3>
+                <p>Use organization-approved secure tools instead of personal convenience channels.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" data-title="Resources" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Resources
+            </div>
+
+            <h2>Keep these official references close.</h2>
+
+            <table class="clean-table">
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Use it for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="fragment fade-up">
+                  <td>HHS &mdash; HIPAA for Professionals</td>
+                  <td><a href="https://www.hhs.gov/hipaa/for-professionals/index.html" target="_blank" rel="noopener noreferrer">Core Privacy, Security, and Breach guidance</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>HHS OCR &mdash; Minimum Necessary Requirement</td>
+                  <td><a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/minimum-necessary-requirement/index.html" target="_blank" rel="noopener noreferrer">When to limit disclosures and requests</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>HHS OCR &mdash; Security Rule</td>
+                  <td><a href="https://www.hhs.gov/hipaa/for-professionals/security/index.html" target="_blank" rel="noopener noreferrer">Administrative, physical, and technical safeguards</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>Telehealth.HHS.gov &mdash; HIPAA Rules for Telehealth Technology</td>
+                  <td><a href="https://telehealth.hhs.gov/providers/telehealth-policy/hipaa-for-telehealth-technology" target="_blank" rel="noopener noreferrer">Platform and workflow considerations for remote care</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>HHS &mdash; Understanding Part 2</td>
+                  <td><a href="https://www.hhs.gov/hipaa/for-professionals/special-topics/hipaa-part-2/index.html" target="_blank" rel="noopener noreferrer">Current substance-use confidentiality guidance</a></td>
+                </tr>
+                <tr class="fragment fade-up">
+                  <td>eCFR &mdash; 45 CFR Parts 160 &amp; 164</td>
+                  <td><a href="https://www.ecfr.gov/current/title-45/subtitle-A" target="_blank" rel="noopener noreferrer">Current HIPAA regulatory text</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="key-takeaways"
+        class="dark-slide key-takeaways-slide"
+        data-title="Key Takeaways"
+        data-transition="slide"
+        data-background-gradient="linear-gradient(145deg, #073f46 0%, #0a5963 52%, #0b6f78 100%)"
+      >
+        <div class="slide-shell left">
+          <div class="takeaway-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Key takeaways
+            </div>
+
+            <h2>Recognize PHI, protect it in routine workflow, and escalate early when something feels off.</h2>
+
+            <ul class="takeaway-list">
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">check_circle</span>
+                <span>PHI includes identifiable health information across verbal, paper, and electronic workflow, not only the chart itself.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">share_reviews</span>
+                <span>Treatment sharing may be permitted, but payment, operations, and unusual requests still need minimum-necessary discipline.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">lock</span>
+                <span>Secure habits around verification, paper records, remote tools, devices, and EHR access prevent many avoidable privacy problems.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">support_agent</span>
+                <span>For breaches, subpoenas, law enforcement, or overlapping rules, contain the issue and bring in privacy, IT, supervision, or legal support quickly.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../../core-assets/dist/reveal.js"></script>
+  <script src="../../../core-assets/dist/plugin/notes.js"></script>
+  <script src="../../../core-assets/dist/plugin/search.js"></script>
+  <script src="../../../core-assets/dist/plugin/zoom.js"></script>
+  <script src="../../../shared-runtime/lesson-runtime.js"></script>
+  <script>
+    window.OpenRecoveryLessonRuntime.init();
+  </script>
+</body>
+</html>

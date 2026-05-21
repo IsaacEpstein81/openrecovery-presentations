@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "match": "HIPAA",
+      "replace": "HIP-uh",
+      "whole_word": true,
+      "case_sensitive": true
+    },
+    {
+      "match": "HHS",
+      "replace": "H H S",
+      "whole_word": true,
+      "case_sensitive": true
+    },
+    {
+      "match": "OCR",
+      "replace": "O C R",
+      "whole_word": true,
+      "case_sensitive": true
+    },
+    {
+      "match": "EHR",
+      "replace": "E H R",
+      "whole_word": true,
+      "case_sensitive": true
+    },
+    {
+      "match": "PHI",
+      "replace": "P H I",
+      "whole_word": true,
+      "case_sensitive": true
+    },
+    {
+      "match": "SUD",
+      "replace": "S U D",
+      "whole_word": true,
+      "case_sensitive": true
+    }
+  ]
+}

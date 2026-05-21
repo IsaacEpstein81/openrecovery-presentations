@@ -165,3 +165,45 @@ Suggested format:
 - changed: added a bottom-dock pause/resume button that appears only during an active narration session and resumes the current MP3 from its paused position instead of restarting the slide
 - next: manually QA pause/resume together with guided fragments and end-of-slide auto-advance in both direct and embedded preview modes
 - blockers: still need a browser pass to confirm the resumed fragment timing feels natural during real playback
+
+## 2026-05-20 16:45
+
+- worked on: simplifying the ElevenLabs setup for future one-prompt deck generation
+- changed: added auto-loading of a repo-root `.env` file in the ElevenLabs generator, added `.env.example`, expanded `.gitignore` for local env files, and updated the prompt/workflow docs to treat `.env` as the preferred local setup path
+- next: fill in `.env` once with the ElevenLabs API key and preferred female/male voice ids, then test a fresh-session new-deck run using only `NEW_LESSON_DECK_PROMPT.md`
+- blockers: none
+
+## 2026-05-20 17:20
+
+- worked on: creating a new HIPAA lesson deck from the source `.docx`
+- changed: created `presentations/hipaa-basics-for-clinical-practice/lesson-01-hipaa-basics-for-clinical-practice/` with `index.html`, `IMAGE_PROMPTS.md`, 5 generated lesson images, `voiceover.json`, and 36 rendered ElevenLabs MP3s across female/male voice packs
+- next: run an interactive browser QA pass on the HIPAA lesson, then decide whether to repoint the root preview shell or leave the sexual-harassment lesson as the default preview
+- blockers: in-tool interactive browser QA was not completed in this session, so final direct-browser narration verification still needs a manual pass
+
+## 2026-05-21 09:44
+
+- worked on: tightening HIPAA narration alignment with on-screen slide content and fragment order
+- changed: rewrote the HIPAA `voiceover.json` script to follow each slide's visible concepts more closely; updated the reusable voiceover workflow, generation prompts, QA checklist, and project decisions so future decks treat slide content as the default narration source; added `.env.example` so the documented ElevenLabs setup path exists in-repo
+- next: run browser QA focused on narration-to-fragment alignment, voice switching, and framed-view readability
+- blockers: none
+
+## 2026-05-21 10:31
+
+- worked on: making ElevenLabs pronunciation fixes reusable across lessons
+- changed: added repo-level pronunciation support to `scripts/generate_elevenlabs_voiceover.py`; created `openrecovery_presentation_ai_docs/voiceover_pronunciations.json` for shared spoken-form replacements; updated the voiceover workflow, deck-generation prompts, and current-task notes so repeated terms like `HIPAA` can be fixed once and applied automatically during renders; verified with a forced dry run that the HIPAA manifest picks up the shared rules across the expected narration files
+- next: use the shared rules file as the default path for future pronunciation fixes before changing lesson-specific narration text, then continue the normal HIPAA QA flow
+- blockers: none
+
+## 2026-05-21 10:39
+
+- worked on: wrapping the pronunciation workflow handoff for the next session
+- changed: updated `CURRENT_TASK.md` to reflect that the audio/pronunciation work is done and that manual HIPAA QA is the next step; added a recurring pronunciation spot-check item to `QA_CHECKLIST.md`
+- next: manually review the HIPAA lesson in-browser, then decide whether it should replace the current root preview lesson
+- blockers: none
+
+## 2026-05-21 11:20
+
+- worked on: separating reusable narrated-lesson runtime code from lesson-specific presentation content
+- changed: moved the duplicated lesson chrome into `shared-styles/lesson-runtime.css` and `shared-runtime/lesson-runtime.js`; updated the sexual-harassment and HIPAA lesson HTML files to consume those shared assets; revised the consistency spec, deck-generation prompts, and voiceover workflow so future decks reuse the shared runtime instead of copying that code inline
+- next: run manual browser QA on both lessons to confirm the shared runtime behaves the same in direct lesson view and framed preview
+- blockers: none

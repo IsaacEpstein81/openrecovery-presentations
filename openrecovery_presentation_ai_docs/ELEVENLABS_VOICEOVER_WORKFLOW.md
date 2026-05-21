@@ -9,6 +9,7 @@ Keep narration production deterministic and production-ready:
 - AI writes the hidden narration script
 - ElevenLabs renders audio ahead of time
 - Reveal.js plays those local files during the lesson
+- the hidden narration follows the visible slide content and reveal order closely enough that guided playback feels intentional
 
 This keeps learner playback fast and consistent while avoiding browser-side API calls.
 
@@ -35,6 +36,41 @@ presentations/course-name/lesson-name/
 ```
 
 `voiceover.json` is the source of truth for the narration script.
+
+When a lesson uses the standard narrated OpenRecovery deck chrome, the lesson HTML should usually load `../../../shared-runtime/lesson-runtime.js`, which reads `voiceover.json` and renders the shared narration controls / profile selector.
+
+## Shared Pronunciation Rules
+
+Use the repo-level file `openrecovery_presentation_ai_docs/voiceover_pronunciations.json` for recurring spoken-form fixes that should apply across lessons.
+
+- Keep visible slide copy normal.
+- Keep `voiceover.json` readable unless a lesson truly needs a one-off spoken rewrite.
+- Put repeated acronym, program-name, and pronunciation fixes in the shared rules file so they only need to be maintained once.
+
+Current rule shape:
+
+```json
+{
+  "version": 1,
+  "rules": [
+    {
+      "match": "HIPAA",
+      "replace": "HIP-uh",
+      "whole_word": true,
+      "case_sensitive": true
+    }
+  ]
+}
+```
+
+Notes:
+
+- `match` is the original text to find in narration.
+- `replace` is the spoken-form text that should be sent to ElevenLabs.
+- `whole_word` should usually stay `true` for acronyms and short terms.
+- `case_sensitive` should usually stay `true` unless you truly want every casing variant replaced.
+
+Use the shared file for durable repo-wide fixes. Use a direct narration rewrite inside a lesson manifest only when the change is lesson-specific or intentionally different from the default spoken form.
 
 ## Manifest Shape
 
@@ -79,6 +115,9 @@ Rules:
 - `slide_id` should match the `<section id="...">` in the deck HTML.
 - `trigger` should usually be `slide-enter`.
 - Use `fragment-0`, `fragment-1`, and so on only when a fragment needs its own narration cue.
+- Write narration from the actual slide content, not as a separate essay about the topic.
+- If a slide uses fragments and keeps a single `slide-enter` cue, write that cue so it follows the same concept order the fragments reveal on screen.
+- Use fragment-level cues only when the timing needs to be tighter than one guided `slide-enter` track can support.
 - Use `profiles` for the production voice choices that should be available in the browser.
 - Keep `file_template` relative to the lesson folder so the browser can play it directly after replacing `{profile_id}`.
 - Use `mp3_44100_128` as the default output format unless the tech team prefers another format.
@@ -87,10 +126,23 @@ Rules:
 
 ## Manual Setup
 
+Preferred one-time setup:
+
 1. Create an ElevenLabs API key.
 2. Choose one female-presenting voice and one male-presenting voice.
 3. Find both `voice_id` values.
-4. Export these environment variables in your shell:
+4. Copy `.env.example` to `.env` in the repo root.
+5. Fill in these values in `.env`:
+
+```dotenv
+ELEVENLABS_API_KEY="your_api_key_here"
+ELEVENLABS_VOICE_ID_FEMALE="your_female_voice_id_here"
+ELEVENLABS_VOICE_ID_MALE="your_male_voice_id_here"
+```
+
+The generator automatically loads the repo-root `.env`, so you do not need to re-export those values in every shell session.
+
+If you prefer temporary shell exports instead of `.env`, this also works:
 
 ```bash
 export ELEVENLABS_API_KEY="your_api_key_here"
@@ -118,6 +170,13 @@ That command renders every declared profile, so the current lesson will create b
 - `voiceover/female/*.mp3`
 - `voiceover/male/*.mp3`
 
+The generator also auto-loads:
+
+- the repo-root `.env`
+- `openrecovery_presentation_ai_docs/voiceover_pronunciations.json`
+
+That means recurring fixes like `HIPAA -> HIP-uh` do not need to be rewritten separately in every lesson before rendering.
+
 To render only one profile:
 
 ```bash
@@ -141,12 +200,14 @@ When building a new lesson deck, the AI should:
 1. Create the lesson `index.html`.
 2. Add stable `id` values to each `<section>` that needs narration.
 3. Create `voiceover.json` in the lesson folder.
-4. Write one narration segment per slide by default.
-5. Add fragment-level narration only when step-by-step coaching is genuinely helpful.
-6. Define two browser-selectable voice profiles by default unless the user asks for only one voice.
-7. Render local audio files with `scripts/generate_elevenlabs_voiceover.py` when the user has configured `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID_FEMALE`, and `ELEVENLABS_VOICE_ID_MALE`.
-8. Save the rendered audio files in the lesson `voiceover/` folder.
-9. Wire the deck's playback controls to those local audio files and expose the profile selector in the lesson UI.
+4. Write one narration segment per slide by default, using the visible slide content as the source material.
+5. When a slide reveals fragments, write the `slide-enter` narration so it follows the fragment order unless the slide truly needs separate fragment cues.
+6. Add repeated pronunciation fixes to `openrecovery_presentation_ai_docs/voiceover_pronunciations.json` instead of scattering phonetic respellings across multiple lesson manifests.
+7. Add fragment-level narration only when step-by-step coaching or tighter timing is genuinely helpful.
+8. Define two browser-selectable voice profiles by default unless the user asks for only one voice.
+9. Render local audio files with `scripts/generate_elevenlabs_voiceover.py` when the user has configured `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID_FEMALE`, and `ELEVENLABS_VOICE_ID_MALE`, preferably in the repo-root `.env`.
+10. Save the rendered audio files in the lesson `voiceover/` folder.
+11. Wire the deck's playback controls to those local audio files through the shared lesson runtime when the standard deck chrome fits, and expose the profile selector in the lesson UI.
 
 ## Current Lesson Command
 

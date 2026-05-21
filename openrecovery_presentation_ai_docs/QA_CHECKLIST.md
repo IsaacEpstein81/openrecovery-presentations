@@ -49,6 +49,8 @@
 - [ ] If a dock-level pause/resume control exists, it appears only during an active narration session and resumes the current slide audio without restarting it
 - [ ] If multiple voice profiles exist, the in-browser voice selector changes playback to the chosen voice
 - [ ] Slide changes play the intended local audio file
+- [ ] Narration tracks the concepts currently visible on the slide instead of drifting into off-slide summary language
+- [ ] Obvious acronyms, legal references, and organization names sound correct; if not, update `openrecovery_presentation_ai_docs/voiceover_pronunciations.json` or the lesson narration text before re-rendering
 - [ ] If narration is intended to feel like guided playback, remaining slide fragments reveal during the MP3 before the deck advances
 - [ ] If the learner manually navigates during narration, the current audio can continue without forcing one extra automatic slide advance at the end of that cue
 - [ ] Narration does not require a browser API key or live text-to-speech call

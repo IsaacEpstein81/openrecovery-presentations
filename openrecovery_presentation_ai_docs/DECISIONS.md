@@ -270,6 +270,14 @@ Use ElevenLabs to pre-render lesson narration into local audio files from a hidd
 Reason:
 Pre-generated local audio keeps playback consistent, avoids API-key exposure, removes runtime latency, and still fits the fully automated lesson-generation pipeline.
 
+### Prefer Repo-Local `.env` For ElevenLabs Setup
+
+Decision:
+Keep the ElevenLabs API key and default voice ids in a gitignored repo-root `.env`, and let the voiceover generator auto-load that file.
+
+Reason:
+This makes the narration pipeline easier to run from a single prompt while keeping secrets and account-specific voice ids out of tracked docs and code.
+
 ### Store Narration In `voiceover.json`
 
 Decision:
@@ -333,3 +341,29 @@ When a narrated lesson is actively playing, show a compact pause/resume button i
 
 Reason:
 Learners should be able to pause and continue the current slide audio without reopening the expanded narration controls or restarting the slide from the beginning.
+
+## 2026-05-21
+
+### Anchor Narration To Visible Slide Content
+
+Decision:
+Write narration from the actual slide content, and when a slide uses fragments, make the default `slide-enter` script follow the same concept order the learner sees on screen. Use separate fragment cues only when the timing truly needs to be tighter.
+
+Reason:
+Guided narration feels more natural when the audio tracks the visible teaching beats instead of drifting into broad summary language that is only loosely related to the current reveal.
+
+### Keep Shared Pronunciation Fixes In One Repo-Level Rules File
+
+Decision:
+Store recurring ElevenLabs spoken-form fixes in `openrecovery_presentation_ai_docs/voiceover_pronunciations.json`, and have the generator apply those replacements automatically before each render.
+
+Reason:
+Repeated terms like `HIPAA`, acronyms, and organization names should only need to be corrected once. A shared structured rules file keeps lesson manifests readable and avoids scattering ad hoc phonetic rewrites across many decks.
+
+### Keep Lesson Chrome In Shared Runtime Files
+
+Decision:
+Keep the standard narrated-lesson chrome in shared files, using `shared-styles/lesson-runtime.css` for the reusable controls/layout styling and `shared-runtime/lesson-runtime.js` for standard Reveal initialization, slide navigation, and narration behavior.
+
+Reason:
+If the shared lesson UI or playback behavior changes, it should be updated once and immediately affect every lesson that uses the standard runtime. This keeps lesson HTML focused on lesson content instead of duplicating application code.

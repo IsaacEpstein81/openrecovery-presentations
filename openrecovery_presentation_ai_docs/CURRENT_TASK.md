@@ -1,47 +1,49 @@
 # Current Task
 
-Last updated: 2026-05-20
+Last updated: 2026-05-21
 
 ## Active Focus
 
-Finalize the sexual-harassment lesson as the primary OpenRecovery preview lesson, including the production ElevenLabs narration workflow and the last-round interaction polish in the direct lesson and LMS-style root shell.
+The HIPAA lesson build, refreshed dual-voice audio pack, and shared pronunciation workflow are in place. The next step is manual browser QA to confirm narrated playback, voice switching, image placement, and framed-view readability before deciding whether to promote HIPAA into the root preview flow or keep the sexual-harassment lesson as the default preview lesson.
 
 ## Current Lesson Build
 
-- Course: Sexual Harassment in Treatment Settings
-- Lesson: 1 What Employees Need to Know
+- Course: HIPAA Basics for Clinical Practice
+- Lesson: 1 HIPAA Basics for Clinical Practice
 - Format: Reveal.js HTML5
-- Source: `Content/course_content_sexual_harassment_what_employees_need_to_know.docx`
-- Target file: `presentations/sexual-harassment-in-treatment-settings/lesson-01-what-employees-need-to-know/index.html`
-- Root preview shell: `index.html`
+- Source: `Content/course_content_HIPAA_basics_for_clinical_practice.docx`
+- Target file: `presentations/hipaa-basics-for-clinical-practice/lesson-01-hipaa-basics-for-clinical-practice/index.html`
+- Related lesson assets: `IMAGE_PROMPTS.md`, `voiceover.json`, `assets/`, `voiceover/female/`, `voiceover/male/`
+- Root preview shell still points to: `presentations/sexual-harassment-in-treatment-settings/lesson-01-what-employees-need-to-know/index.html`
 - Audience: Licensed clinical providers at treatment centers
 - Preview: https://openrecovery-presentations.vercel.app/
 - Repo: https://github.com/IsaacEpstein81/openrecovery-presentations
 
 ## What Is Done
 
-- Repointed the root `index.html` LMS preview shell to the sexual-harassment lesson
-- Tightened the lesson and shared CSS so the deck reads better at embedded iframe size and fullscreen
-- Updated Reveal sizing to `1440x810` with `margin: 0.04` for better embedded readability
-- Fixed embedded preview problems on the sexual-harassment lesson: stale iframe/CSS cache drift, final takeaway width drift, slide 7 two-column overlap, and external resource links breaking inside the iframe
-- Added click-to-advance and a compact `Jump to slide` / `Slide Navigator` control for faster lesson review
-- Added an ElevenLabs-based pre-generated voiceover pipeline with `voiceover.json`, two rendered voice profiles, and browser playback wired to local lesson audio files
-- Polished the narration controls into a compact launcher plus action-button pattern with auto-collapse after playback starts
-- Docked the narration horn beside the slide navigator launcher and added bottom-safe slide spacing so framed-view content clears the compact control row
-- Upgraded narration into guided playback that reveals fragments gradually and advances to the next slide when each slide-enter MP3 finishes unless the learner takes over manually
-- Added a dock-level pause/resume control that appears only during an active narration session so learners can pause and continue the current slide audio without restarting it
-- Added an always-visible custom scroll rail to the slide navigator so the list still advertises itself on macOS systems that hide overlay scrollbars until gesture
+- Created `presentations/hipaa-basics-for-clinical-practice/lesson-01-hipaa-basics-for-clinical-practice/index.html`
+- Built an 18-slide HIPAA lesson with a process-first compliance flow, 4 practical activities, a short post-test, and an official-resources slide
+- Created `IMAGE_PROMPTS.md` with one shared style lock, one shared negative prompt, and a calibration-first image workflow tied to the canonical Modern Human Collage reference board
+- Generated 5 lesson images and saved them into the HIPAA lesson `assets/` folder as both `.png` source copies and `.webp` deck assets
+- Created `voiceover.json` with stable slide ids and one slide-enter narration segment per slide
+- Revised the HIPAA narration script so each slide-enter cue follows the visible slide concepts and fragment order more closely
+- Rendered both `female` and `male` ElevenLabs audio packs into the HIPAA lesson `voiceover/` folder
+- Re-rendered both HIPAA voice packs after the narration rewrite so the local MP3s now match the slide-aligned script
+- Added shared repo-level pronunciation-rule support so recurring spoken-form fixes like `HIPAA` can be maintained once and applied automatically during ElevenLabs renders
+- Verified with a forced dry run that the shared pronunciation rules load correctly and would apply across the expected HIPAA narration files
+- Confirmed the HIPAA deck has 18 narrated slides and that all 18 slide ids match the 18 narration manifest entries
+- Kept the root preview shell pointed at the sexual-harassment lesson until the HIPAA deck gets an interactive browser QA pass
+- Extracted the reusable lesson chrome into `shared-styles/lesson-runtime.css` and `shared-runtime/lesson-runtime.js`, then repointed both current narrated lessons to those shared files so runtime/UI changes now land once
 
 ## Added Worklist
 
-- In progress: run the QA checklist against the sexual-harassment lesson in both direct and embedded preview modes, including guided narration playback, pause/resume behavior, manual takeover behavior, and navigator interactions
-- In progress: verify the rendered ElevenLabs MP3 assets behave correctly after commit/push in both local preview and deployed preview
-- Queued: decide whether the slide navigator should become a shared reusable pattern in `shared-styles/master.css` instead of lesson-specific inline CSS
-- Queued: decide whether the narration launcher/action pattern should become a reusable shared lesson pattern instead of staying lesson-specific
-- Queued: audit the disaster-preparedness and future decks against the new embedded-preview sizing standard
-- Queued: test the new reference-locked image workflow on the next lesson and confirm the calibration pass produces images closer to the approved texture board
+- In progress: run the QA checklist against the HIPAA lesson in direct browser view, with special attention to narrated playback, voice switching, narration-to-fragment alignment, image placement, and framed-view readability
+- In progress: confirm whether the HIPAA lesson behaves cleanly when opened directly via `file://` or whether local QA should default to a lightweight HTTP server for narrated decks
+- Queued: decide whether the root `index.html` preview shell should stay on the sexual-harassment lesson or be repointed to the HIPAA lesson after QA
+- Queued: decide whether to turn the current source-document pattern into a reusable SME lesson-content template for future course authors
+- Queued: resume the deferred interactive QA on the sexual-harassment preview lesson and confirm the shared lesson runtime behaves the same there as it does in HIPAA
 - Queued: research video ingestion and an AI video workflow; lowest current priority
 
 ## Next Best Step
 
-Open the sexual-harassment lesson directly and through the root preview shell side by side, confirm the guided narration flow, dock-level pause/resume behavior, manual-arrow takeover behavior, docked horn-plus-hamburger layout, voice-profile switching, and custom slide-navigator scroll rail in both views, then decide which of those interaction patterns should move into the shared system before pushing the next deck build.
+Open the HIPAA lesson directly in a browser and, if needed for narrated playback, through a lightweight local HTTP server; confirm the generated images feel correct in-slide, the refreshed dual-voice narration now tracks the slide reveals cleanly, obvious acronym pronunciations sound right, and the slide dock does not block framed-view content, then decide whether to promote the HIPAA lesson into the root preview shell or keep it as a secondary lesson.

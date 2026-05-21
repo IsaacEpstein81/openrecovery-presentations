@@ -17,6 +17,10 @@ This folder is the shared memory for creating consistent Reveal.js HTML5 lesson 
 
 ## Files
 
+- `.env.example` (repo root) — copy to `.env` for local ElevenLabs API key and default voice ids; `.env` is gitignored
+- `shared-runtime/lesson-runtime.js` — shared narrated-lesson runtime for Reveal initialization, compact slide navigation, and narration playback UI
+- `shared-styles/lesson-runtime.css` — shared narrated-lesson chrome styles used across decks
+- `voiceover_pronunciations.json` — repo-level spoken-form replacements that the ElevenLabs generator applies automatically at render time
 - `PROJECT_CONTEXT.md` — repo, LMS use case, current prototype
 - `STYLE_GUIDE.md` — colors, fonts, layouts, transitions, arrows, Reveal settings
 - `OPENRECOVERY_IMAGE_CREATION_GUIDE.md` — consistent image-generation rules for lesson decks, including the default image style, `3–5` image expectation, prompt format, and asset workflow

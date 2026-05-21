@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -22,6 +23,11 @@ from typing import Any
 
 
 API_BASE = "https://api.elevenlabs.io"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DOTENV_PATH = REPO_ROOT / ".env"
+PRONUNCIATIONS_PATH = (
+    REPO_ROOT / "openrecovery_presentation_ai_docs" / "voiceover_pronunciations.json"
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -73,9 +79,109 @@ def require_api_key() -> str:
     api_key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
     if not api_key:
         raise SystemExit(
-            "ELEVENLABS_API_KEY is not set. Export it in your shell and run again."
+            "ELEVENLABS_API_KEY is not set. Add it to the repo-root .env file or export it in your shell and run again."
         )
     return api_key
+
+
+def load_dotenv(path: Path) -> None:
+    if not path.exists():
+        return
+
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+
+        if line.startswith("export "):
+            line = line[7:].strip()
+
+        if "=" not in line:
+            continue
+
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip()
+
+        if not key or key in os.environ:
+            continue
+
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
+            value = value[1:-1]
+
+        os.environ[key] = value
+
+
+def load_json_file(path: Path) -> dict[str, Any]:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ValueError(f"Invalid JSON at {path}: {error}") from error
+
+
+def load_pronunciation_rules(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+
+    payload = load_json_file(path)
+    if payload.get("version") != 1:
+        raise ValueError(
+            f"Pronunciation rules file must use version 1: {path}"
+        )
+
+    rules = payload.get("rules")
+    if not isinstance(rules, list):
+        raise ValueError(
+            f"Pronunciation rules file must include a `rules` list: {path}"
+        )
+
+    normalized_rules: list[dict[str, Any]] = []
+    for index, rule in enumerate(rules, start=1):
+        if not isinstance(rule, dict):
+            raise ValueError(
+                f"Pronunciation rule {index} must be an object: {path}"
+            )
+
+        match = str(rule.get("match", "")).strip()
+        replace = str(rule.get("replace", "")).strip()
+        if not match:
+            raise ValueError(
+                f"Pronunciation rule {index} is missing `match`: {path}"
+            )
+        if not replace:
+            raise ValueError(
+                f"Pronunciation rule {index} is missing `replace`: {path}"
+            )
+
+        normalized_rules.append(
+            {
+                "match": match,
+                "replace": replace,
+                "whole_word": bool(rule.get("whole_word", True)),
+                "case_sensitive": bool(rule.get("case_sensitive", True)),
+            }
+        )
+
+    return normalized_rules
+
+
+def apply_pronunciation_rules(
+    text: str,
+    rules: list[dict[str, Any]],
+) -> tuple[str, int]:
+    updated = text
+    total_replacements = 0
+
+    for rule in rules:
+        pattern = re.escape(rule["match"])
+        if rule["whole_word"]:
+            pattern = rf"(?<!\w){pattern}(?!\w)"
+
+        flags = 0 if rule["case_sensitive"] else re.IGNORECASE
+        updated, count = re.subn(pattern, rule["replace"], updated, flags=flags)
+        total_replacements += count
+
+    return updated, total_replacements
 
 
 def build_request(
@@ -295,6 +401,7 @@ def list_voices(api_key: str, search: str | None) -> int:
 
 
 def main() -> int:
+    load_dotenv(DOTENV_PATH)
     args = parse_args()
     if args.list_voices:
         api_key = require_api_key()
@@ -309,7 +416,14 @@ def main() -> int:
     voice_defaults = manifest.get("voice") or {}
     profiles = get_profiles(manifest)
     segments = manifest["segments"]
+    pronunciation_rules = load_pronunciation_rules(PRONUNCIATIONS_PATH)
     api_key = None if args.dry_run else require_api_key()
+
+    if pronunciation_rules:
+        print(
+            "pronunciation rules "
+            f"loaded={len(pronunciation_rules)} source={PRONUNCIATIONS_PATH.relative_to(REPO_ROOT)}"
+        )
 
     if args.profile:
         requested_profiles = set(args.profile)
@@ -322,6 +436,15 @@ def main() -> int:
     generated = 0
     skipped = 0
     total_chars = 0
+    resolved_segment_texts: list[str] = []
+    segment_replacement_counts: list[int] = []
+
+    for segment in segments:
+        resolved_text, replacement_count = apply_pronunciation_rules(
+            segment["text"].strip(), pronunciation_rules
+        )
+        resolved_segment_texts.append(resolved_text)
+        segment_replacement_counts.append(replacement_count)
 
     for profile in profiles:
         for index, segment in enumerate(segments):
@@ -370,7 +493,7 @@ def main() -> int:
                 )
 
             payload: dict[str, Any] = {
-                "text": segment["text"].strip(),
+                "text": resolved_segment_texts[index],
                 "model_id": model_id,
                 "output_format": output_format,
             }
@@ -382,9 +505,9 @@ def main() -> int:
                 payload["voice_settings"] = voice_settings
 
             if include_context:
-                previous_text = segments[index - 1]["text"].strip() if index > 0 else None
+                previous_text = resolved_segment_texts[index - 1] if index > 0 else None
                 next_text = (
-                    segments[index + 1]["text"].strip()
+                    resolved_segment_texts[index + 1]
                     if index + 1 < len(segments)
                     else None
                 )
@@ -398,7 +521,10 @@ def main() -> int:
             )
             url = f"{API_BASE}/v1/text-to-speech/{voice_id}?{query}"
 
-            print(f"build {output_path.relative_to(lesson_root)}")
+            build_line = f"build {output_path.relative_to(lesson_root)}"
+            if segment_replacement_counts[index] > 0:
+                build_line += f" [pronunciation rules: {segment_replacement_counts[index]}]"
+            print(build_line)
             if args.dry_run:
                 generated += 1
                 total_chars += len(payload["text"])

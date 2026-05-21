@@ -53,13 +53,18 @@ openrecovery-presentations/
 ├── index.html
 ├── core-assets/
 │   └── dist/
+├── shared-runtime/
+│   └── lesson-runtime.js
 ├── shared-styles/
+│   ├── lesson-runtime.css
 │   └── master.css
 └── presentations/
     └── course-name/
         └── lesson-name/
             ├── index.html
             ├── IMAGE_PROMPTS.md
+            ├── voiceover.json
+            ├── voiceover/
             └── assets/
 ```
 
@@ -69,6 +74,8 @@ Usually edit only:
 
 ```text
 index.html
+shared-runtime/lesson-runtime.js
+shared-styles/lesson-runtime.css
 shared-styles/master.css
 presentations/course-name/lesson-name/index.html
 presentations/course-name/lesson-name/assets/*

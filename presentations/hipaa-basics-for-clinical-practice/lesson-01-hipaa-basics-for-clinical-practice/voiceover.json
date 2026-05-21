@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "provider": "elevenlabs",
+  "lesson_title": "HIPAA Basics for Clinical Practice",
+  "description": "Slide-enter narration for the HIPAA basics lesson, written to track visible slide content and fragment order.",
+  "default_profile_id": "female",
+  "voice": {
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "language_code": "en",
+    "seed": 42,
+    "enable_logging": false,
+    "include_context_text": true,
+    "voice_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.15,
+      "use_speaker_boost": true
+    }
+  },
+  "profiles": [
+    {
+      "id": "female",
+      "label": "Female Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_FEMALE"
+    },
+    {
+      "id": "male",
+      "label": "Male Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_MALE"
+    }
+  ],
+  "segments": [
+    {
+      "slide_id": "lesson-title",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/01-lesson-title.mp3",
+      "text": "Welcome to OpenRecovery Training. In this lesson, we will focus on the HIPAA basics that matter most in clinical practice: recognizing protected health information, sharing it safely in routine workflow, protecting it with everyday safeguards, and responding clearly when something goes wrong."
+    },
+    {
+      "slide_id": "learning-goals",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/02-learning-goals.mp3",
+      "text": "By the end of this lesson, you should be able to recognize protected health information, share it safely by using permitted-disclosure and minimum-necessary thinking, and respond clearly by escalating suspected breaches or unusual requests through the right privacy channels."
+    },
+    {
+      "slide_id": "why-hipaa-matters",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/03-why-hipaa-matters.mp3",
+      "text": "HIPAA matters for three connected reasons. It protects patient dignity by limiting how far sensitive information travels, it strengthens clinical trust so patients can speak honestly, and it improves operational safety by reducing preventable breaches, rushed workarounds, and workflow confusion."
+    },
+    {
+      "slide_id": "phi-and-coverage",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/04-phi-and-coverage.mp3",
+      "text": "Start with two basics. Protected health information is individually identifiable health information in verbal, paper, or electronic form, and HIPAA applies to covered entities and business associates that handle it. In daily workflow, that means thinking beyond the chart to schedules, portal messages, billing details, screenshots, and conversations. A simple practical rule is this: if information identifies a person and relates to health, care, or payment, treat it like PHI unless policy clearly says otherwise."
+    },
+    {
+      "slide_id": "permitted-sharing-vs-authorization",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/05-permitted-sharing-vs-authorization.mp3",
+      "text": "Some sharing is built into care. Treatment, payment, and healthcare operations disclosures can often move without a new signature when they fit HIPAA and your organization's policy. But psychotherapy notes, most marketing disclosures, sale of PHI, and unusual outside requests should slow you down for written authorization or extra review. Also remember that minimum necessary works differently for treatment than it does for payment, operations, and many other disclosures."
+    },
+    {
+      "slide_id": "minimum-necessary",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/06-minimum-necessary.mp3",
+      "text": "When treatment is not driving the exchange, use a three-question filter. First, name the purpose. Second, narrow the disclosure to the least information needed. Third, verify exactly who is receiving it and whether the channel is appropriate before you speak, send, fax, or upload anything."
+    },
+    {
+      "slide_id": "activity-share-narrow-or-stop",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/07-activity-share-narrow-or-stop.mp3",
+      "text": "Use these three requests to practice fast judgment. A shift handoff about medication changes and safety concerns can be shared for treatment. A billing request for the entire chart should usually be narrowed to the minimum necessary. And a friend asking about today's appointment should stop unless policy and valid permission clearly allow it."
+    },
+    {
+      "slide_id": "privacy-safeguards",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/08-privacy-safeguards.mp3",
+      "text": "Strong privacy practice depends on three kinds of habits. Administrative safeguards verify identity, document requests, and align access with role and patient need. Physical safeguards protect paper, screens, and conversations from drifting into public view. Technical safeguards rely on strong passwords, encryption, approved platforms, and role-based EHR access."
+    },
+    {
+      "slide_id": "telehealth-and-ehr-safeguards",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/09-telehealth-and-ehr-safeguards.mp3",
+      "text": "Remote care still needs the same privacy discipline as in-person care. Use organization-approved tools instead of personal apps or side-channel texting. Keep the setting private so other people cannot see or hear the visit. And protect the device itself with passwords, lock screens, and encrypted systems."
+    },
+    {
+      "slide_id": "activity-spot-the-risky-workflow",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/10-activity-spot-the-risky-workflow.mp3",
+      "text": "This scenario combines several common workflow slips. First, identify the immediate privacy risks in the shared office, visible chart, and personal-phone message. Next, decide which problems can be corrected on the spot. Then think about which habit changes need supervisor or team follow-up so the same pattern does not repeat."
+    },
+    {
+      "slide_id": "behavioral-health-extra-caution",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/11-behavioral-health-extra-caution.mp3",
+      "text": "Behavioral health settings often require an extra pause. Psychotherapy notes are different from the ordinary clinical record and usually need separate written authorization for most disclosures. Substance use treatment records may also trigger Part 2 confidentiality rules, so you may need to check both HIPAA and Part 2 before releasing information."
+    },
+    {
+      "slide_id": "activity-choose-the-special-protection",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/12-activity-choose-the-special-protection.mp3",
+      "text": "Use this comparison to separate routine workflow from special-protection workflow. A routine progress note shared with another treating provider may fit ordinary treatment workflow. Separately maintained psychotherapy notes usually require separate written authorization. And a substance use treatment record connected to a federally assisted program should trigger a Part 2 check before release."
+    },
+    {
+      "slide_id": "breach-response-workflow",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/13-breach-response-workflow.mp3",
+      "text": "Breach response follows a simple sequence. First, contain the disclosure and limit further exposure. Second, notify the right supervisor, privacy, and IT leads quickly. Third, preserve the facts about what happened, when it was discovered, and what systems or messages were involved. Fourth, let the formal breach workflow determine notice and reporting obligations instead of handling the assessment alone."
+    },
+    {
+      "slide_id": "activity-choose-the-next-step",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/14-activity-choose-the-next-step.mp3",
+      "text": "This scenario is about what happens right after the mistake. Waiting to see whether anyone notices is the risky move. The safer response is to contain the fax error, notify privacy and IT right away, document the facts, and follow the breach workflow."
+    },
+    {
+      "slide_id": "when-rules-overlap",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/15-when-rules-overlap.mp3",
+      "text": "Unusual requests deserve a deliberate pause. Subpoenas and law-enforcement requests should not be treated as automatically sufficient on first sight. Overlapping state law, Part 2 rules, policy, or emergency exceptions can change what happens next. The safest default is to verify the request and consult privacy or legal support before releasing anything outside routine workflow."
+    },
+    {
+      "slide_id": "short-post-test",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/16-short-post-test.mp3",
+      "text": "Use the post-test to confirm four core points. Treatment disclosures are different from disclosures limited by minimum necessary. Psychotherapy notes usually need separate written authorization. Suspected breaches call for immediate containment and escalation. And safer telehealth starts with organization-approved secure tools."
+    },
+    {
+      "slide_id": "resources",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/17-resources.mp3",
+      "text": "Keep six references close: HHS professional HIPAA guidance, the OCR minimum-necessary guidance, the OCR security-rule resources, the telehealth technology guidance from HHS, Part 2 guidance, and the current eCFR text for the underlying regulations. Use them together with your own organization's policy and privacy contacts."
+    },
+    {
+      "slide_id": "key-takeaways",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/18-key-takeaways.mp3",
+      "text": "Leave with four habits in mind. Recognize PHI across verbal, paper, and electronic workflow. Use permitted-sharing and minimum-necessary judgment appropriately. Protect information through routine secure habits around records, devices, and access. And escalate quickly when a breach, subpoena, law-enforcement request, or special-protection record appears."
+    }
+  ]
+}
