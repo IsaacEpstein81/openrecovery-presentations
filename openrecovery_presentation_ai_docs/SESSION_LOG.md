@@ -207,3 +207,10 @@ Suggested format:
 - changed: moved the duplicated lesson chrome into `shared-styles/lesson-runtime.css` and `shared-runtime/lesson-runtime.js`; updated the sexual-harassment and HIPAA lesson HTML files to consume those shared assets; revised the consistency spec, deck-generation prompts, and voiceover workflow so future decks reuse the shared runtime instead of copying that code inline
 - next: run manual browser QA on both lessons to confirm the shared runtime behaves the same in direct lesson view and framed preview
 - blockers: none
+
+## 2026-05-21 12:18
+
+- worked on: packaging the repo for tech-team handoff and clarifying the likely backend path
+- changed: created `TECH_HANDOFF.md`, pointed the root `README.md` to it, clarified that prompt/templates would normally live in the backend codebase if generation moves server-side, and confirmed the repo is pushed and clean for sharing
+- next: have the tech team review the handoff doc, choose between local generation, backend generation, or a hybrid setup, then resume the pending HIPAA/shared-runtime browser QA
+- blockers: waiting on the tech team's architecture preference and secure secret-sharing path for real `.env` values

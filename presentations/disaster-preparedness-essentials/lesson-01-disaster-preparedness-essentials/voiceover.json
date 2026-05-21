@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "provider": "elevenlabs",
+  "lesson_title": "Disaster Preparedness Essentials",
+  "description": "Slide-enter narration for the disaster preparedness essentials lesson, written to track visible slide content and fragment order.",
+  "default_profile_id": "female",
+  "voice": {
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "language_code": "en",
+    "seed": 42,
+    "enable_logging": false,
+    "include_context_text": true,
+    "voice_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.15,
+      "use_speaker_boost": true
+    }
+  },
+  "profiles": [
+    {
+      "id": "female",
+      "label": "Female Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_FEMALE"
+    },
+    {
+      "id": "male",
+      "label": "Male Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_MALE"
+    }
+  ],
+  "segments": [
+    {
+      "slide_id": "lesson-title",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/01-lesson-title.mp3",
+      "text": "Welcome to OpenRecovery Training. In this lesson, we will cover the practical disaster preparedness habits that help clinical teams protect patients, staff, and essential services when emergencies disrupt normal care."
+    },
+    {
+      "slide_id": "learning-goals",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/02-learning-goals.mp3",
+      "text": "By the end of this lesson, you should be able to prepare your role by recognizing the command path and continuity tools, protect continuity by prioritizing high-risk patients and critical workflows, and respond in a way the team can improve after the event."
+    },
+    {
+      "slide_id": "why-preparedness-matters",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/03-why-preparedness-matters.mp3",
+      "text": "Preparedness matters because disruption can quickly affect patient safety, team coordination, and continuity of services. High-risk patients may lose medications, mobility support, or behavioral-health stability first. Teams respond better when roles and contacts are already clear, and organizations recover faster when they document decisions and improve the plan afterward."
+    },
+    {
+      "slide_id": "preparedness-essentials",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/04-preparedness-essentials.mp3",
+      "text": "Most frontline preparedness starts with four basics. Know the incident command structure, know your role in the continuity of operations plan, know where emergency supplies and emergency procedures live, and keep contact tools and drill habits current enough that you can act without guesswork."
+    },
+    {
+      "slide_id": "incident-command-and-coop",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/05-incident-command-and-coop.mp3",
+      "text": "When an incident starts, do not invent a new chain of command. Use the designated reporting structure, know how your role changes if normal operations are disrupted, and keep your escalation path and emergency contacts easy to reach. In the first minutes of a crisis, clarity is more useful than improvisation."
+    },
+    {
+      "slide_id": "activity-first-five-minutes",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/06-activity-first-five-minutes.mp3",
+      "text": "Use this storm scenario to practice your first five minutes. Think about who you would report to first, which continuity plan should guide the response, and which tasks should stay inside the existing command structure instead of becoming individual improvisation."
+    },
+    {
+      "slide_id": "patient-continuity-priorities",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/07-patient-continuity-priorities.mp3",
+      "text": "Continuity work starts with the patients most likely to be harmed by disruption. Identify people with high medication, mobility, or behavioral-health risk. Protect medication continuity next. Then stabilize the care path by clarifying whether the patient stays in place, moves to another site, switches to telehealth, or needs transfer support."
+    },
+    {
+      "slide_id": "medication-and-documentation-continuity",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/08-medication-and-documentation-continuity.mp3",
+      "text": "Have a fast backup for patient essentials when the normal workflow is unstable. Know where critical medications are and how temperature-sensitive items are protected. Use rapid documentation tools that preserve patient identity, medications, allergies, safety concerns, and destination so care can continue safely even before the full system is restored."
+    },
+    {
+      "slide_id": "communication-and-alternate-care",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/09-communication-and-alternate-care.mp3",
+      "text": "When services shift, patients and families need clear, calm instructions. Explain what changed, whether care is delayed, moved, or virtual, and make the next step concrete by naming where to go, who will call next, and how urgent concerns should be escalated. Even during emergencies, protect confidentiality and use appropriate channels."
+    },
+    {
+      "slide_id": "activity-triage-continuity",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/10-activity-triage-continuity.mp3",
+      "text": "This wildfire-smoke scenario is a continuity triage exercise. Notice how each patient type creates a different first priority: medication protection, safe movement, or clear follow-up communication. The right answer is to match the continuity action to the risk that could cause harm first."
+    },
+    {
+      "slide_id": "privacy-during-emergencies",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/11-privacy-during-emergencies.mp3",
+      "text": "Emergencies can change the channel and the pace, but they do not erase privacy judgment. Share what supports safety, treatment, transfer, or approved emergency operations, and still slow down before oversharing. Use the channels your organization authorizes and limit disclosure to what the situation actually requires."
+    },
+    {
+      "slide_id": "incident-response-workflow",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/12-incident-response-workflow.mp3",
+      "text": "When the incident is active, follow a simple sequence. Activate the right plan, follow safety protocols to stabilize the environment, document what happened and who made key decisions, and notify the internal or external partners who need to take the next steps."
+    },
+    {
+      "slide_id": "activity-report-the-incident",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/13-activity-report-the-incident.mp3",
+      "text": "This medication-storage scenario is about escalation discipline. Quietly handling the issue alone creates more risk. The safer move is to follow safety protocols, use the command channel, document the situation, and notify the leads who own medication, facilities, and incident coordination."
+    },
+    {
+      "slide_id": "community-partner-coordination",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/14-community-partner-coordination.mp3",
+      "text": "Some incidents extend beyond your building. Emergency management may need to support sheltering or transport. Public-health authorities may need coordinated reporting during community-wide events. Behavioral-health and recovery partners can help when patients need alternate supports during displacement."
+    },
+    {
+      "slide_id": "after-action-review",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/15-after-action-review.mp3",
+      "text": "Preparedness gets stronger only if the team studies what actually happened. Capture supply gaps, communication failures, staffing issues, and unclear responsibilities while they are still fresh. Then update the checklists, contacts, medication workflows, training, and continuity procedures that need to change before the next event."
+    },
+    {
+      "slide_id": "activity-turn-lessons-into-updates",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/16-activity-turn-lessons-into-updates.mp3",
+      "text": "This tabletop exercise shows how improvement planning should work. An outdated contact list, hidden downtime forms, and unclear medication backup procedures are not competing ideas. They all belong in the final improvement plan, with owners and follow-through, because each one threatens continuity differently."
+    },
+    {
+      "slide_id": "short-post-test",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/17-short-post-test.mp3",
+      "text": "Use the post-test to confirm four core habits. Start with the command path and continuity plan, prioritize the patients most likely to be harmed by disruption, remember that privacy judgment still applies during emergencies, and treat after-action review as the bridge to better future readiness."
+    },
+    {
+      "slide_id": "resources",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/18-resources.mp3",
+      "text": "Keep these sources close: the FEMA Emergency Management Institute, H H S ASPR Health Care Readiness guidance, the C D C emergency preparedness page, the C D C emergency water supply planning guide, Joint Commission emergency readiness standards, and S A M H S A disaster behavioral health resources."
+    },
+    {
+      "slide_id": "key-takeaways",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/19-key-takeaways.mp3",
+      "text": "Leave with four habits in mind. Know the command path and continuity tools before the incident. Protect high-risk patients and critical workflows first when disruption starts. During active incidents, activate the plan, document decisions, and notify the right partners. And after the event, use the review process to make the next response stronger."
+    }
+  ]
+}

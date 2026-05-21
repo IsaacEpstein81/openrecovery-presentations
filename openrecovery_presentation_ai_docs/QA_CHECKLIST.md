@@ -47,6 +47,7 @@
 - [ ] The narration toggle loads, starts, and stops cleanly
 - [ ] If narration controls auto-collapse, reopening or closing them does not interrupt playback unless the explicit stop action is used
 - [ ] If a dock-level pause/resume control exists, it appears only during an active narration session and resumes the current slide audio without restarting it
+- [ ] If touch/mobile use is in scope, tapping a slide does not strand the learner without an obvious way to pause or stop active narration
 - [ ] If multiple voice profiles exist, the in-browser voice selector changes playback to the chosen voice
 - [ ] Slide changes play the intended local audio file
 - [ ] Narration tracks the concepts currently visible on the slide instead of drifting into off-slide summary language
@@ -71,6 +72,8 @@
 - [ ] Root `index.html` iframe allows autoplay when narrated lessons are embedded
 - [ ] Expand presentation button works
 - [ ] Embedded deck is navigable after clicking inside it
+- [ ] If touch/mobile preview is in scope, learners can still move backward as well as forward after tapping inside the embedded deck
+- [ ] If touch/mobile preview is in scope, the expand/open action works on mobile Safari or has a clear direct-lesson fallback
 - [ ] External resource links open outside the iframe
 - [ ] Page works locally
 - [ ] Page works on Vercel

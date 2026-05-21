@@ -4,7 +4,7 @@ Last updated: 2026-05-21
 
 ## Active Focus
 
-The HIPAA lesson build, refreshed dual-voice audio pack, and shared pronunciation workflow are in place. The next step is manual browser QA to confirm narrated playback, voice switching, image placement, and framed-view readability before deciding whether to promote HIPAA into the root preview flow or keep the sexual-harassment lesson as the default preview lesson.
+The repo is now packaged for tech-team review: the HIPAA lesson build, shared narrated-lesson runtime, shared pronunciation workflow, and `TECH_HANDOFF.md` are all in place and pushed to GitHub. The immediate next step is for the tech team to review the repo and decide whether lesson generation stays local, moves to a backend worker, or uses a hybrid approach; after that architecture call, resume manual browser QA on the HIPAA lesson and shared runtime behavior.
 
 ## Current Lesson Build
 
@@ -34,11 +34,15 @@ The HIPAA lesson build, refreshed dual-voice audio pack, and shared pronunciatio
 - Confirmed the HIPAA deck has 18 narrated slides and that all 18 slide ids match the 18 narration manifest entries
 - Kept the root preview shell pointed at the sexual-harassment lesson until the HIPAA deck gets an interactive browser QA pass
 - Extracted the reusable lesson chrome into `shared-styles/lesson-runtime.css` and `shared-runtime/lesson-runtime.js`, then repointed both current narrated lessons to those shared files so runtime/UI changes now land once
+- Created root-level `TECH_HANDOFF.md` and pointed `README.md` to it so the tech team has one engineer-facing entry point into the repo
+- Confirmed the repo is pushed and clean so the shared GitHub link is ready to send to the tech team for their architecture discussion
 
 ## Added Worklist
 
-- In progress: run the QA checklist against the HIPAA lesson in direct browser view, with special attention to narrated playback, voice switching, narration-to-fragment alignment, image placement, and framed-view readability
-- In progress: confirm whether the HIPAA lesson behaves cleanly when opened directly via `file://` or whether local QA should default to a lightweight HTTP server for narrated decks
+- In progress: have the tech team review `TECH_HANDOFF.md` and decide whether the generation pipeline should stay local, move to a backend worker, or use a hybrid handoff path
+- In progress: define how real OpenAI/ElevenLabs secrets will be handed off securely using `.env.example` as the template and an out-of-band channel for the actual values
+- Queued: run the QA checklist against the HIPAA lesson in direct browser view, with special attention to narrated playback, voice switching, narration-to-fragment alignment, image placement, and framed-view readability
+- Queued: confirm whether the HIPAA lesson behaves cleanly when opened directly via `file://` or whether local QA should default to a lightweight HTTP server for narrated decks
 - Queued: decide whether the root `index.html` preview shell should stay on the sexual-harassment lesson or be repointed to the HIPAA lesson after QA
 - Queued: decide whether to turn the current source-document pattern into a reusable SME lesson-content template for future course authors
 - Queued: resume the deferred interactive QA on the sexual-harassment preview lesson and confirm the shared lesson runtime behaves the same there as it does in HIPAA
@@ -46,4 +50,4 @@ The HIPAA lesson build, refreshed dual-voice audio pack, and shared pronunciatio
 
 ## Next Best Step
 
-Open the HIPAA lesson directly in a browser and, if needed for narrated playback, through a lightweight local HTTP server; confirm the generated images feel correct in-slide, the refreshed dual-voice narration now tracks the slide reveals cleanly, obvious acronym pronunciations sound right, and the slide dock does not block framed-view content, then decide whether to promote the HIPAA lesson into the root preview shell or keep it as a secondary lesson.
+Share the GitHub repo and `TECH_HANDOFF.md` with the tech team before their architecture discussion, capture whether they want local generation, backend generation, or a hybrid workflow, then use that decision to guide the pending HIPAA/shared-runtime browser QA and any future repo split or backend packaging work.

@@ -367,3 +367,19 @@ Keep the standard narrated-lesson chrome in shared files, using `shared-styles/l
 
 Reason:
 If the shared lesson UI or playback behavior changes, it should be updated once and immediately affect every lesson that uses the standard runtime. This keeps lesson HTML focused on lesson content instead of duplicating application code.
+
+### Use One Engineer-Facing Tech Handoff Doc
+
+Decision:
+Put the engineering handoff overview in root `TECH_HANDOFF.md` and point `README.md` to it.
+
+Reason:
+This gives the tech team one durable entry point that explains the repo structure, lesson output shape, shared runtime files, and prototype-versus-production boundaries without making them parse AI session-memory docs first.
+
+### Keep Real Environment Values Out Of Git
+
+Decision:
+Keep only `.env.example` in the repo and hand real API keys, voice ids, and related secrets to the tech team through a secure out-of-band channel.
+
+Reason:
+The generation workflow needs reproducible setup guidance, but production and local secrets should not live in Git or in general project documentation.
