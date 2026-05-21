@@ -4,15 +4,15 @@ Last updated: 2026-05-21
 
 ## Active Focus
 
-The repo is now packaged for tech-team review: the HIPAA lesson build, shared narrated-lesson runtime, shared pronunciation workflow, and `TECH_HANDOFF.md` are all in place and pushed to GitHub. The immediate next step is for the tech team to review the repo and decide whether lesson generation stays local, moves to a backend worker, or uses a hybrid approach; after that architecture call, resume manual browser QA on the HIPAA lesson and shared runtime behavior.
+The repo is now packaged for tech-team review, and the active lesson build has shifted to Disaster Preparedness Essentials. The new narrated disaster-preparedness deck, lesson image set, and dual-voice audio pack are now in place; the immediate next step is direct browser QA on that lesson while the broader tech-team architecture review of `TECH_HANDOFF.md` continues in parallel.
 
 ## Current Lesson Build
 
-- Course: HIPAA Basics for Clinical Practice
-- Lesson: 1 HIPAA Basics for Clinical Practice
+- Course: Disaster Preparedness Essentials
+- Lesson: 1 Disaster Preparedness Essentials
 - Format: Reveal.js HTML5
-- Source: `Content/course_content_HIPAA_basics_for_clinical_practice.docx`
-- Target file: `presentations/hipaa-basics-for-clinical-practice/lesson-01-hipaa-basics-for-clinical-practice/index.html`
+- Source: `Content/course_content_disaster_preparedness_essentials.docx`
+- Target file: `presentations/disaster-preparedness-essentials/lesson-01-disaster-preparedness-essentials/index.html`
 - Related lesson assets: `IMAGE_PROMPTS.md`, `voiceover.json`, `assets/`, `voiceover/female/`, `voiceover/male/`
 - Root preview shell still points to: `presentations/sexual-harassment-in-treatment-settings/lesson-01-what-employees-need-to-know/index.html`
 - Audience: Licensed clinical providers at treatment centers
@@ -21,6 +21,13 @@ The repo is now packaged for tech-team review: the HIPAA lesson build, shared na
 
 ## What Is Done
 
+- Created `presentations/disaster-preparedness-essentials/lesson-01-disaster-preparedness-essentials/index.html`
+- Built a 19-slide disaster-preparedness lesson with a process-first emergency-readiness flow, 4 practical activities, a short post-test, and an official-resources slide
+- Created `IMAGE_PROMPTS.md` with one shared style lock, one shared negative prompt, and a calibration-first image workflow tied to the canonical Modern Human Collage reference board
+- Generated 5 lesson images and saved them into the disaster-preparedness lesson `assets/` folder as both `.png` source copies and `.webp` deck assets
+- Created `voiceover.json` with stable slide ids and one slide-enter narration segment per slide
+- Rendered both `female` and `male` ElevenLabs audio packs into the disaster-preparedness lesson `voiceover/` folder
+- Confirmed the disaster-preparedness deck has 19 narrated slides and that all 19 slide ids match the 19 narration manifest entries
 - Created `presentations/hipaa-basics-for-clinical-practice/lesson-01-hipaa-basics-for-clinical-practice/index.html`
 - Built an 18-slide HIPAA lesson with a process-first compliance flow, 4 practical activities, a short post-test, and an official-resources slide
 - Created `IMAGE_PROMPTS.md` with one shared style lock, one shared negative prompt, and a calibration-first image workflow tied to the canonical Modern Human Collage reference board
@@ -39,6 +46,8 @@ The repo is now packaged for tech-team review: the HIPAA lesson build, shared na
 
 ## Added Worklist
 
+- In progress: run the QA checklist against the disaster-preparedness lesson in direct browser view, with special attention to narrated playback, voice switching, narration-to-slide alignment, image placement, and framed-view readability
+- Queued: decide whether the disaster-preparedness lesson should stay as a secondary lesson or be promoted into the root preview flow after QA
 - In progress: have the tech team review `TECH_HANDOFF.md` and decide whether the generation pipeline should stay local, move to a backend worker, or use a hybrid handoff path
 - In progress: define how real OpenAI/ElevenLabs secrets will be handed off securely using `.env.example` as the template and an out-of-band channel for the actual values
 - Queued: run the QA checklist against the HIPAA lesson in direct browser view, with special attention to narrated playback, voice switching, narration-to-fragment alignment, image placement, and framed-view readability
@@ -50,4 +59,4 @@ The repo is now packaged for tech-team review: the HIPAA lesson build, shared na
 
 ## Next Best Step
 
-Share the GitHub repo and `TECH_HANDOFF.md` with the tech team before their architecture discussion, capture whether they want local generation, backend generation, or a hybrid workflow, then use that decision to guide the pending HIPAA/shared-runtime browser QA and any future repo split or backend packaging work.
+Open the disaster-preparedness lesson directly in a browser, confirm the generated images feel correct in-slide, the dual-voice narration tracks the slide flow cleanly, the runtime controls behave well in framed view, and the resource links open correctly, then decide whether to add the lesson to the root preview flow while the separate tech-team architecture review of `TECH_HANDOFF.md` continues.

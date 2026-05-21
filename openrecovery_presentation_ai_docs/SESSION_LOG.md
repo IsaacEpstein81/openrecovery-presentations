@@ -214,3 +214,10 @@ Suggested format:
 - changed: created `TECH_HANDOFF.md`, pointed the root `README.md` to it, clarified that prompt/templates would normally live in the backend codebase if generation moves server-side, and confirmed the repo is pushed and clean for sharing
 - next: have the tech team review the handoff doc, choose between local generation, backend generation, or a hybrid setup, then resume the pending HIPAA/shared-runtime browser QA
 - blockers: waiting on the tech team's architecture preference and secure secret-sharing path for real `.env` values
+
+## 2026-05-21 12:56
+
+- worked on: creating a new disaster-preparedness lesson deck from the source `.docx`
+- changed: created `presentations/disaster-preparedness-essentials/lesson-01-disaster-preparedness-essentials/` with `index.html`, `IMAGE_PROMPTS.md`, 5 generated lesson images saved as `.png` and `.webp`, `voiceover.json`, and 38 rendered ElevenLabs MP3s across female and male voice packs
+- next: run a direct browser QA pass on the disaster-preparedness lesson, then decide whether it should stay as a secondary lesson or move into the root preview flow
+- blockers: interactive direct-browser QA was not completed in-tool, so final layout and playback checks still need a browser pass
