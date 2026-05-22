@@ -383,3 +383,11 @@ Keep only `.env.example` in the repo and hand real API keys, voice ids, and rela
 
 Reason:
 The generation workflow needs reproducible setup guidance, but production and local secrets should not live in Git or in general project documentation.
+
+### Refresh Resource-Slide Links Against Current Official Pages
+
+Decision:
+When a source document provides external resources, verify the final lesson's resource-slide links against the current official pages instead of copying older source-document URLs blindly.
+
+Reason:
+Lesson source documents can contain links that have moved or been reorganized. Refreshing those links before finalizing the deck makes the resources slide more reliable and avoids shipping stale official references.

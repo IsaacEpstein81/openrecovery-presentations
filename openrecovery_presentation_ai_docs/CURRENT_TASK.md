@@ -23,6 +23,7 @@ The repo is now packaged for tech-team review, and the active lesson build has s
 
 - Created `presentations/disaster-preparedness-essentials/lesson-01-disaster-preparedness-essentials/index.html`
 - Built a 19-slide disaster-preparedness lesson with a process-first emergency-readiness flow, 4 practical activities, a short post-test, and an official-resources slide
+- Refreshed the disaster-preparedness resources slide to use current official source URLs instead of relying on older source-document links that had moved
 - Created `IMAGE_PROMPTS.md` with one shared style lock, one shared negative prompt, and a calibration-first image workflow tied to the canonical Modern Human Collage reference board
 - Generated 5 lesson images and saved them into the disaster-preparedness lesson `assets/` folder as both `.png` source copies and `.webp` deck assets
 - Created `voiceover.json` with stable slide ids and one slide-enter narration segment per slide
@@ -47,6 +48,7 @@ The repo is now packaged for tech-team review, and the active lesson build has s
 ## Added Worklist
 
 - In progress: run the QA checklist against the disaster-preparedness lesson in direct browser view, with special attention to narrated playback, voice switching, narration-to-slide alignment, image placement, and framed-view readability
+- Queued: confirm the refreshed official resource links behave cleanly in direct browser view and inside the framed LMS preview
 - Queued: decide whether the disaster-preparedness lesson should stay as a secondary lesson or be promoted into the root preview flow after QA
 - In progress: have the tech team review `TECH_HANDOFF.md` and decide whether the generation pipeline should stay local, move to a backend worker, or use a hybrid handoff path
 - In progress: define how real OpenAI/ElevenLabs secrets will be handed off securely using `.env.example` as the template and an out-of-band channel for the actual values
@@ -59,4 +61,4 @@ The repo is now packaged for tech-team review, and the active lesson build has s
 
 ## Next Best Step
 
-Open the disaster-preparedness lesson directly in a browser, confirm the generated images feel correct in-slide, the dual-voice narration tracks the slide flow cleanly, the runtime controls behave well in framed view, and the resource links open correctly, then decide whether to add the lesson to the root preview flow while the separate tech-team architecture review of `TECH_HANDOFF.md` continues.
+Open the disaster-preparedness lesson directly in a browser, confirm the generated images feel correct in-slide, the dual-voice narration tracks the slide flow cleanly, the runtime controls behave well in framed view, and the refreshed official resource links open correctly both directly and from the framed preview, then decide whether to add the lesson to the root preview flow while the separate tech-team architecture review of `TECH_HANDOFF.md` continues.

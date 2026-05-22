@@ -64,6 +64,7 @@
 - [ ] If there is a script, it sounds like something staff could actually say
 - [ ] Key takeaways are concise
 - [ ] No unsupported legal/clinical claims are presented as definitive policy
+- [ ] If the lesson has a resources slide, external references use current official URLs rather than stale source-document links
 
 ## LMS Preview Checks
 

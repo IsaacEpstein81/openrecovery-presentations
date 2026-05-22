@@ -221,3 +221,10 @@ Suggested format:
 - changed: created `presentations/disaster-preparedness-essentials/lesson-01-disaster-preparedness-essentials/` with `index.html`, `IMAGE_PROMPTS.md`, 5 generated lesson images saved as `.png` and `.webp`, `voiceover.json`, and 38 rendered ElevenLabs MP3s across female and male voice packs
 - next: run a direct browser QA pass on the disaster-preparedness lesson, then decide whether it should stay as a secondary lesson or move into the root preview flow
 - blockers: interactive direct-browser QA was not completed in-tool, so final layout and playback checks still need a browser pass
+
+## 2026-05-21 16:23
+
+- worked on: end-of-session wrap-up for the disaster-preparedness lesson build
+- changed: updated task docs, recorded that the resources slide was refreshed to current official URLs, and added a recurring QA check for stale source-document links on resource slides
+- next: run direct browser QA on the disaster-preparedness lesson and verify the refreshed resource links in both direct and framed view
+- blockers: no in-tool interactive browser QA was completed in this session
