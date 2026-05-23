@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "provider": "elevenlabs",
+  "lesson_title": "Introduction to Mental Health First Aid",
+  "description": "Slide-enter narration for the Introduction to Mental Health First Aid lesson, written to track visible slide content and fragment order.",
+  "default_profile_id": "female",
+  "voice": {
+    "model_id": "eleven_multilingual_v2",
+    "output_format": "mp3_44100_128",
+    "language_code": "en",
+    "seed": 42,
+    "enable_logging": false,
+    "include_context_text": true,
+    "voice_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.15,
+      "use_speaker_boost": true
+    }
+  },
+  "profiles": [
+    {
+      "id": "female",
+      "label": "Female Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_FEMALE"
+    },
+    {
+      "id": "male",
+      "label": "Male Voice",
+      "voice_id_env": "ELEVENLABS_VOICE_ID_MALE"
+    }
+  ],
+  "segments": [
+    {
+      "slide_id": "lesson-title",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/01-lesson-title.mp3",
+      "text": "Welcome to OpenRecovery Training. This opening lesson introduces the purpose, language, safety foundation, and course flow of Mental Health First Aid before you move into the action-plan skills."
+    },
+    {
+      "slide_id": "learning-goals",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/02-learning-goals.mp3",
+      "text": "By the end of this lesson, you should understand what Mental Health First Aid is and is not, use respectful and nonjudgmental practice habits, and feel ready for the next module on the action plan called ALGEE."
+    },
+    {
+      "slide_id": "why-mhfa-matters",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/03-why-mhfa-matters.mp3",
+      "text": "Mental Health First Aid matters because early, respectful support can reduce stigma, lower distress, and help people connect to care sooner. You are not being asked to diagnose anyone. You are being asked to notice change, listen with care, and support the next appropriate step."
+    },
+    {
+      "slide_id": "what-mhfa-is",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/04-what-mhfa-is.mp3",
+      "text": "Mental Health First Aid is short-term support for someone experiencing a mental health or substance use challenge, or a crisis, until safer ground or professional help is in place. It is not therapy, treatment, or a replacement for emergency response, local policy, or legal duties."
+    },
+    {
+      "slide_id": "what-first-aiders-do",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/05-what-first-aiders-do.mp3",
+      "text": "In practice, First Aiders do three things well. They notice meaningful change in behavior, thoughts, feelings, appearance, or functioning. They listen nonjudgmentally instead of minimizing or taking over. And they help connect the person to appropriate support while respecting privacy and staying within role."
+    },
+    {
+      "slide_id": "how-this-course-works",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/06-how-this-course-works.mp3",
+      "text": "This course is designed to feel safe, clear, and active. You can expect respectful instruction and practical learning steps, and you are asked to participate, respect others, ask for help when needed, and complete the required activities. After this orientation, the course moves into the ALGEE action plan, early and worsening signs, crisis response, and self-care."
+    },
+    {
+      "slide_id": "equity-stigma-language",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/07-equity-stigma-language.mp3",
+      "text": "Stigma can delay help and make people feel reduced to a label. This course uses person-first language because dignity matters. It also asks you to avoid stereotypes, notice structural barriers, and remember that scenarios represent whole people, not categories."
+    },
+    {
+      "slide_id": "mental-health-vs-challenge",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/08-mental-health-vs-challenge.mp3",
+      "text": "Mental health is the everyday ability to cope, function, and connect. A mental health challenge is a stronger or longer-lasting shift that interferes with daily life, relationships, work, learning, or safety. First Aiders are not expected to label every feeling. They are expected to notice when a change seems significant enough to deserve support."
+    },
+    {
+      "slide_id": "prevalence-and-impact",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/09-prevalence-and-impact.mp3",
+      "text": "Mental health challenges are common, and many people still face barriers to care. Current official sources say more than one in five U S adults lived with a mental illness in 2022, and nearly half of American adults may experience mental illness at some point in life. Early, respectful support can make help feel more reachable."
+    },
+    {
+      "slide_id": "recovery-is-possible",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/10-recovery-is-possible.mp3",
+      "text": "Recovery is possible, and Mental Health First Aid should be grounded in hope. Recovery is a process, not a single event. Health, home, purpose, and community all matter, and First Aiders support that process by reinforcing dignity, connection, and the possibility of next steps."
+    },
+    {
+      "slide_id": "common-challenges",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/11-common-challenges.mp3",
+      "text": "This course will later go deeper into several challenge areas. Depression can affect mood, energy, and functioning. Anxiety can shape worry, panic, and avoidance. Trauma and stress can overwhelm the body and attention. Substance use or psychosis can create faster-moving safety concerns and may require urgent support."
+    },
+    {
+      "slide_id": "what-first-aiders-notice",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/12-what-first-aiders-notice.mp3",
+      "text": "Often, a First Aider starts with a simple moment like this one. Someone who is usually engaged begins to look exhausted, isolated, or overwhelmed and says something that raises concern. At this stage, the job is to notice the change, approach with calm presence, and get ready to respond with more structure in the next module."
+    },
+    {
+      "slide_id": "safety-privacy-emergencies",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/13-safety-privacy-emergencies.mp3",
+      "text": "Supportive conversation matters, but some moments require urgent safety action. Mental Health First Aid does not replace emergency response, clinical care, legal duties, or local policy. Respect privacy, stay within role, and escalate when someone may be in immediate danger, including medical emergencies, overdose, direct suicidal intent, or severe disorientation that creates unsafe conditions."
+    },
+    {
+      "slide_id": "key-resources",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/14-key-resources.mp3",
+      "text": "Keep these current official resources close. The 988 Suicide and Crisis Lifeline offers free crisis support by call or text. Crisis Text Line connects people to a live volunteer Crisis Counselor by texting HOME or HOLA to 741741. The N I M H statistics page and the Mental Health First Aid adults page provide current learning context, and local contacts should be added for your setting."
+    },
+    {
+      "slide_id": "start-algee",
+      "trigger": "slide-enter",
+      "file_template": "voiceover/{profile_id}/15-start-algee.mp3",
+      "text": "Carry four ideas into the next module. Mental Health First Aid is initial support, not treatment. Respectful language and nonjudgmental listening reduce stigma. Meaningful change is worth noticing, and recovery is possible. Safety comes first, and next you will learn the action plan called ALGEE so you can respond with more structure and confidence."
+    }
+  ]
+}

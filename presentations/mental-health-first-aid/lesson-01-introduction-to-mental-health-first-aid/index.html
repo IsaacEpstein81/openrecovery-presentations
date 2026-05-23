@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Introduction to Mental Health First Aid | OpenRecovery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../../core-assets/dist/reveal.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/theme/white.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/plugin/highlight/monokai.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../shared-styles/master.css">
+  <link rel="stylesheet" href="../../../shared-styles/lesson-runtime.css">
+
+  <style>
+    body.mhfa-intro-lesson .reveal {
+      --lesson-control-safe-bottom: 124px;
+    }
+
+    body.mhfa-intro-lesson .reveal .slides > section .slide-shell {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      height: 100%;
+      min-height: 100%;
+      padding-top: 26px;
+      padding-left: 48px;
+      padding-right: 48px;
+      padding-bottom: var(--lesson-control-safe-bottom);
+      box-sizing: border-box;
+      gap: 18px;
+      overflow: hidden;
+    }
+
+    body.mhfa-intro-lesson .reveal .slides > section.title-slide .slide-shell {
+      padding-top: 18px;
+      padding-bottom: calc(var(--lesson-control-safe-bottom) + 14px);
+    }
+
+    body.mhfa-intro-lesson #lesson-title .slide-shell {
+      align-items: center;
+      text-align: center;
+    }
+
+    body.mhfa-intro-lesson #lesson-title .slide-shell > .title-content {
+      width: min(1080px, 94vw);
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+
+    body.mhfa-intro-lesson #lesson-title .lesson-title,
+    body.mhfa-intro-lesson #lesson-title .title-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body.mhfa-intro-lesson #lesson-title .pill-row {
+      justify-content: center;
+    }
+
+    body.mhfa-intro-lesson .reveal .slides > section .slide-shell.center {
+      align-items: center;
+    }
+
+    body.mhfa-intro-lesson .reveal .slides > section .slide-shell > :not(.footer-note) {
+      width: 100%;
+      min-height: 0;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-bottom: 10px;
+    }
+
+    body.mhfa-intro-lesson .reveal .slides > section .footer-note {
+      bottom: calc(var(--lesson-control-safe-bottom) - 14px);
+    }
+
+    body.mhfa-intro-lesson .reveal h2 {
+      font-size: 1.34em;
+      line-height: 1.08;
+    }
+
+    body.mhfa-intro-lesson .reveal p,
+    body.mhfa-intro-lesson .reveal li {
+      font-size: 0.62em;
+      line-height: 1.25;
+    }
+
+    body.mhfa-intro-lesson .brand-kicker {
+      margin-bottom: 10px;
+    }
+
+    body.mhfa-intro-lesson .subtitle {
+      max-width: 860px;
+      font-size: 0.62em !important;
+      line-height: 1.24 !important;
+    }
+
+    body.mhfa-intro-lesson #learning-goals .subtitle {
+      display: block;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body.mhfa-intro-lesson .card-grid,
+    body.mhfa-intro-lesson .boundary-spectrum,
+    body.mhfa-intro-lesson .media-grid {
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    body.mhfa-intro-lesson .card,
+    body.mhfa-intro-lesson .spectrum-card,
+    body.mhfa-intro-lesson .scenario,
+    body.mhfa-intro-lesson .quote-box,
+    body.mhfa-intro-lesson .media-panel {
+      border-radius: 22px;
+    }
+
+    body.mhfa-intro-lesson .card {
+      padding: 16px;
+    }
+
+    body.mhfa-intro-lesson .spectrum-card {
+      min-height: 0;
+      padding: 14px;
+    }
+
+    body.mhfa-intro-lesson .quote-box {
+      padding: 24px;
+    }
+
+    body.mhfa-intro-lesson .scenario {
+      padding: 20px;
+    }
+
+    body.mhfa-intro-lesson .script-box {
+      margin-top: 10px;
+      padding: 14px 18px;
+    }
+
+    body.mhfa-intro-lesson .media-panel {
+      padding: 14px;
+    }
+
+    body.mhfa-intro-lesson .two-column {
+      gap: 20px;
+      align-items: start;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters .two-column,
+    body.mhfa-intro-lesson #recovery-is-possible .two-column,
+    body.mhfa-intro-lesson #what-first-aiders-notice .two-column,
+    body.mhfa-intro-lesson #safety-privacy-emergencies .two-column {
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    body.mhfa-intro-lesson .media-frame {
+      height: min(29vh, 290px);
+      aspect-ratio: auto;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters .media-frame,
+    body.mhfa-intro-lesson #recovery-is-possible .media-frame,
+    body.mhfa-intro-lesson #what-first-aiders-notice .media-frame {
+      height: min(24vh, 240px);
+    }
+
+    body.mhfa-intro-lesson .media-caption {
+      margin-top: 8px !important;
+      font-size: 0.42em !important;
+      line-height: 1.28 !important;
+    }
+
+    body.mhfa-intro-lesson .key-takeaways-slide .takeaway-content {
+      width: min(1140px, 92vw);
+    }
+
+    body.mhfa-intro-lesson .key-takeaways-slide h2 {
+      max-width: 1060px;
+      margin: 0 auto 4px;
+      font-size: 1.32em;
+      line-height: 1.08;
+    }
+
+    body.mhfa-intro-lesson .key-takeaways-slide .takeaway-list {
+      margin-top: 14px;
+    }
+
+    body.mhfa-intro-lesson .key-takeaways-slide .takeaway-list li {
+      gap: 12px;
+      margin: 10px 0;
+      padding: 12px 16px;
+    }
+
+    body.mhfa-intro-lesson .key-takeaways-slide .takeaway-list .material-symbols-outlined {
+      font-size: 28px;
+    }
+
+    body.mhfa-intro-lesson #start-algee p {
+      margin-top: 12px !important;
+      font-size: 0.52em !important;
+      line-height: 1.28 !important;
+    }
+
+    body.mhfa-intro-lesson #key-resources .card-grid.two {
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    body.mhfa-intro-lesson #key-resources .resources-slide-content {
+      text-align: center;
+    }
+
+    body.mhfa-intro-lesson #key-resources .resources-slide-content .brand-kicker {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    body.mhfa-intro-lesson #key-resources .resources-slide-content .card-grid,
+    body.mhfa-intro-lesson #key-resources .resources-slide-content .card,
+    body.mhfa-intro-lesson #key-resources .resources-slide-content .muted {
+      text-align: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body.mhfa-intro-lesson #key-resources h2 {
+      max-width: 24ch;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 1.14em;
+      line-height: 1.06;
+    }
+
+    body.mhfa-intro-lesson #key-resources .card {
+      min-height: 0;
+      padding: 12px;
+    }
+
+    body.mhfa-intro-lesson #key-resources .card h3 {
+      font-size: 0.84em;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+
+    body.mhfa-intro-lesson #key-resources .card p {
+      font-size: 0.5em;
+      line-height: 1.18;
+    }
+
+    body.mhfa-intro-lesson #key-resources .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters h2,
+    body.mhfa-intro-lesson #recovery-is-possible h2 {
+      max-width: 12ch;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters .two-column,
+    body.mhfa-intro-lesson #recovery-is-possible .two-column {
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters .left,
+    body.mhfa-intro-lesson #recovery-is-possible .left {
+      max-width: 690px;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters .media-panel,
+    body.mhfa-intro-lesson #recovery-is-possible .media-panel {
+      max-width: 430px;
+      width: 100%;
+      justify-self: center;
+      align-self: center;
+    }
+
+    body.mhfa-intro-lesson #equity-stigma-language .two-column {
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    body.mhfa-intro-lesson #equity-stigma-language .media-panel {
+      align-self: center;
+    }
+
+    body.mhfa-intro-lesson #what-first-aiders-notice .two-column {
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    body.mhfa-intro-lesson #what-first-aiders-notice .scenario {
+      position: relative;
+      z-index: 2;
+    }
+
+    body.mhfa-intro-lesson #what-first-aiders-notice .media-panel {
+      max-width: 430px;
+      width: 100%;
+      justify-self: center;
+      align-self: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters h2,
+    body.mhfa-intro-lesson #recovery-is-possible h2,
+    body.mhfa-intro-lesson #what-first-aiders-notice .scenario h2 {
+      font-size: 1.16em;
+      line-height: 1.05;
+    }
+
+    body.mhfa-intro-lesson #what-first-aiders-notice .scenario h2 {
+      max-width: 15ch;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters h2,
+    body.mhfa-intro-lesson #recovery-is-possible h2 {
+      max-width: 15ch;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters .subtitle,
+    body.mhfa-intro-lesson #recovery-is-possible .subtitle {
+      font-size: 0.58em !important;
+      line-height: 1.18 !important;
+      max-width: 34ch;
+      margin-bottom: 8px !important;
+    }
+
+    body.mhfa-intro-lesson #why-mhfa-matters p.fragment,
+    body.mhfa-intro-lesson #recovery-is-possible p.fragment,
+    body.mhfa-intro-lesson #what-first-aiders-notice .script-box p {
+      margin: 0 0 10px;
+    }
+
+    body.mhfa-intro-lesson #key-resources .muted {
+      margin-top: 12px !important;
+      font-size: 0.44em !important;
+      line-height: 1.18 !important;
+    }
+
+    @media (max-height: 860px) {
+      body.mhfa-intro-lesson .reveal .slides > section .slide-shell {
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        gap: 14px;
+      }
+
+      body.mhfa-intro-lesson .reveal h2 {
+        font-size: 1.22em;
+      }
+
+      body.mhfa-intro-lesson .reveal p,
+      body.mhfa-intro-lesson .reveal li,
+      body.mhfa-intro-lesson .subtitle {
+        font-size: 0.56em !important;
+        line-height: 1.2 !important;
+      }
+
+      body.mhfa-intro-lesson .card,
+      body.mhfa-intro-lesson .spectrum-card,
+      body.mhfa-intro-lesson .quote-box,
+      body.mhfa-intro-lesson .scenario,
+      body.mhfa-intro-lesson .media-panel {
+        padding: 14px;
+      }
+
+      body.mhfa-intro-lesson .card-grid,
+      body.mhfa-intro-lesson .boundary-spectrum,
+      body.mhfa-intro-lesson .media-grid,
+      body.mhfa-intro-lesson .two-column {
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      body.mhfa-intro-lesson .media-frame {
+        height: min(25vh, 240px);
+      }
+
+      body.mhfa-intro-lesson #why-mhfa-matters .two-column,
+      body.mhfa-intro-lesson #recovery-is-possible .two-column,
+      body.mhfa-intro-lesson #equity-stigma-language .two-column,
+      body.mhfa-intro-lesson #what-first-aiders-notice .two-column {
+        gap: 18px;
+      }
+
+      body.mhfa-intro-lesson #why-mhfa-matters .media-frame,
+      body.mhfa-intro-lesson #recovery-is-possible .media-frame,
+      body.mhfa-intro-lesson #what-first-aiders-notice .media-frame {
+        height: min(22vh, 210px);
+      }
+
+      body.mhfa-intro-lesson .material-symbols-outlined.icon {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-height: 760px) {
+      body.mhfa-intro-lesson .reveal .slides > section .slide-shell {
+        padding-top: 16px;
+        padding-left: 32px;
+        padding-right: 32px;
+        gap: 12px;
+      }
+
+      body.mhfa-intro-lesson .reveal h2 {
+        font-size: 1.08em;
+      }
+
+      body.mhfa-intro-lesson .reveal p,
+      body.mhfa-intro-lesson .reveal li,
+      body.mhfa-intro-lesson .subtitle {
+        font-size: 0.5em !important;
+        line-height: 1.16 !important;
+      }
+
+      body.mhfa-intro-lesson .brand-kicker {
+        font-size: 0.32em;
+        margin-bottom: 8px;
+      }
+
+      body.mhfa-intro-lesson .card h3,
+      body.mhfa-intro-lesson .spectrum-card h3 {
+        font-size: 0.82em;
+      }
+
+      body.mhfa-intro-lesson .card,
+      body.mhfa-intro-lesson .spectrum-card,
+      body.mhfa-intro-lesson .quote-box,
+      body.mhfa-intro-lesson .scenario,
+      body.mhfa-intro-lesson .media-panel,
+      body.mhfa-intro-lesson .script-box {
+        padding: 12px;
+      }
+
+      body.mhfa-intro-lesson .media-frame {
+        height: min(22vh, 190px);
+      }
+
+      body.mhfa-intro-lesson #why-mhfa-matters .two-column,
+      body.mhfa-intro-lesson #recovery-is-possible .two-column,
+      body.mhfa-intro-lesson #equity-stigma-language .two-column,
+      body.mhfa-intro-lesson #what-first-aiders-notice .two-column {
+        gap: 14px;
+      }
+
+      body.mhfa-intro-lesson #why-mhfa-matters .media-frame,
+      body.mhfa-intro-lesson #recovery-is-possible .media-frame,
+      body.mhfa-intro-lesson #what-first-aiders-notice .media-frame {
+        height: min(19vh, 170px);
+      }
+
+      body.mhfa-intro-lesson .material-symbols-outlined.icon {
+        font-size: 28px;
+      }
+
+      body.mhfa-intro-lesson .key-takeaways-slide h2 {
+        font-size: 1.04em;
+      }
+
+      body.mhfa-intro-lesson .key-takeaways-slide .takeaway-list li {
+        margin: 8px 0;
+        padding: 10px 12px;
+      }
+
+      body.mhfa-intro-lesson #key-resources .card h3 {
+        font-size: 0.8em;
+      }
+    }
+  </style>
+</head>
+<body class="mhfa-intro-lesson">
+  <div class="reveal">
+    <div class="slides">
+
+      <section
+        id="lesson-title"
+        class="title-slide"
+        data-title="Lesson Title"
+        data-transition="fade"
+        data-background-gradient="linear-gradient(135deg, #ffffff 0%, #edf9f7 58%, #daf5ef 100%)"
+      >
+        <div class="slide-shell center">
+          <div class="title-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              OpenRecovery Training
+            </div>
+
+            <h1 class="lesson-title">
+              Introduction to Mental<br>
+              Health First Aid
+            </h1>
+
+            <p class="subtitle title-subtitle">
+              Lesson 1 &middot; 20 minutes &middot; A practical orientation to the purpose, language, safety, and course flow of Mental Health First Aid
+            </p>
+
+            <div class="pill-row">
+              <span class="pill"><span class="material-symbols-outlined">volunteer_activism</span> Early Support</span>
+              <span class="pill"><span class="material-symbols-outlined">forum</span> Nonjudgmental Listening</span>
+              <span class="pill"><span class="material-symbols-outlined">signpost</span> Course Orientation</span>
+            </div>
+          </div>
+
+          <div class="footer-note">
+            <span>Audience: Adult learners beginning Mental Health First Aid training</span>
+            <span>Self-paced orientation with reflection and a transition into the ALGEE action plan</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="learning-goals" data-title="Learning Goals" data-transition="fade">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              By the end of this lesson
+            </div>
+
+            <h2>Know what Mental Health First Aid is, how First Aiders show up, and what this course expects from you.</h2>
+
+            <p class="subtitle">
+              This opening lesson builds shared language, respectful practice habits, and a safety-first foundation before the deeper skills modules begin.
+            </p>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">info</span>
+                <h3>Understand the role</h3>
+                <p>Explain what Mental Health First Aid is, what it is not, and how First Aiders support someone until appropriate help is in place.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">psychology</span>
+                <h3>Use respectful practice</h3>
+                <p>Recognize how stigma, person-first language, privacy, and equity-aware thinking shape the way support is offered.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">assignment</span>
+                <h3>Prepare for next steps</h3>
+                <p>Notice common signs, understand when safety changes the response, and get ready to learn the ALGEE action plan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-mhfa-matters" data-title="Why Mental Health First Aid Matters" data-transition="slide">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Why this matters
+              </div>
+
+              <h2>Early support can reduce stigma and help people connect to care sooner.</h2>
+
+              <p class="subtitle" style="margin-left: 0;">
+                Mental Health First Aid gives everyday helpers a starting point. It helps you notice change, listen with care, and support an appropriate next step.
+              </p>
+
+              <p class="fragment fade-up"><strong>Human impact:</strong> a calm approach can reduce shame and fear.</p>
+              <p class="fragment fade-up"><strong>Community impact:</strong> First Aiders strengthen schools, workplaces, teams, and neighborhoods.</p>
+              <p class="fragment fade-up"><strong>Recovery impact:</strong> early support can help someone reach care or safer ground sooner.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/01-welcome-support-conversation.png" alt="Supportive conversation between two adults in a calm community or workplace setting.">
+              </div>
+              <p class="media-caption">
+                Mental Health First Aid starts with how we notice, listen, and respond when someone may be struggling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="what-mhfa-is" data-title="What Mental Health First Aid Is" data-transition="fade">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Start with the definition
+            </div>
+
+            <h2>Mental Health First Aid is initial help and support, not diagnosis or treatment.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">health_and_safety</span>
+                <h3>What it is</h3>
+                <p>Short-term support for someone experiencing a mental health or substance use challenge, or a crisis, until professional help arrives or the situation becomes safer.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">rule</span>
+                <h3>What it is not</h3>
+                <p>It is not therapy, a clinical assessment, or a replacement for emergency response, legal duties, or licensed treatment.</p>
+              </div>
+            </div>
+
+            <p class="muted fragment fade-up" style="margin-top: 20px;">
+              The core mindset is simple: stay grounded, reduce harm, and help the person move toward appropriate support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="what-first-aiders-do" data-title="What First Aiders Do" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              The role in practice
+            </div>
+
+            <h2>First Aiders usually do three things well: notice, listen, and connect.</h2>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">visibility</span>
+                <h3>Notice meaningful change</h3>
+                <p>Pay attention to shifts in behavior, thoughts, feelings, appearance, functioning, or safety that seem stronger or more sustained than usual.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">hearing</span>
+                <h3>Listen nonjudgmentally</h3>
+                <p>Offer calm presence, open questions, and reassurance without minimizing, arguing, or taking over the person's experience.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <span class="material-symbols-outlined icon">groups</span>
+                <h3>Link to support</h3>
+                <p>Respect privacy, stay within your role, and help the person move toward appropriate resources, emergency help, or trusted supports.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-this-course-works" data-title="How This Course Works" data-transition="slide">
+        <div class="slide-shell">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Course orientation
+            </div>
+
+            <h2>This course works best when the learning space feels safe, clear, and active.</h2>
+
+            <div class="card-grid two">
+              <div class="card">
+                <h3>Participant experience</h3>
+                <p><strong>You can expect:</strong> a respectful learning environment, clear instruction, accommodations when available, and information about course processes and supports.</p>
+                <p><strong>You are asked to:</strong> participate actively, respect others, ask for help when needed, and complete the required learning steps.</p>
+              </div>
+
+              <div class="card">
+                <h3>Lesson roadmap</h3>
+                <p>This lesson introduces the purpose and values of Mental Health First Aid, the First Aider role, respectful language, common signs, safety basics, and the resources you should keep close.</p>
+                <p>The next modules go deeper into the ALGEE action plan, early and worsening signs, crisis situations, and self-care for the First Aider.</p>
+              </div>
+            </div>
+
+            <p class="muted fragment fade-up" style="margin-top: 18px;">
+              Expect short activities, reflection pauses, resources, and practical examples throughout the course rather than long blocks of lecture alone.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="equity-stigma-language" data-title="Equity, Stigma, And Language" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                How the course frames support
+              </div>
+
+              <h2>Respectful language and equity-aware practice help people feel seen, not reduced to a label.</h2>
+
+              <p class="fragment fade-up"><strong>Stigma harms:</strong> negative assumptions can lead to shame, silence, discrimination, and delayed help-seeking.</p>
+              <p class="fragment fade-up"><strong>Person-first language matters:</strong> say "person living with depression" instead of letting a diagnosis stand in for the whole person.</p>
+              <p class="fragment fade-up"><strong>Context matters too:</strong> this curriculum asks you to avoid stereotypes, notice structural barriers, and remember that scenarios represent people, not categories.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/02-stigma-and-person-first-language.png" alt="Diverse adults in a respectful learning or support conversation with calm collage styling.">
+              </div>
+              <p class="media-caption">
+                A respectful response avoids assumptions and keeps the person's dignity at the center of the conversation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="mental-health-vs-challenge" data-title="Mental Health Vs Mental Health Challenge" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Shared language
+            </div>
+
+            <h2>Mental health and a mental health challenge are related, but they are not the same thing.</h2>
+
+            <div class="card-grid two">
+              <div class="card fragment fade-up">
+                <h3>Mental health</h3>
+                <p>The day-to-day ability to cope, function, build relationships, and contribute in ways that feel manageable and meaningful.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3>Mental health challenge</h3>
+                <p>A stronger or longer-lasting change that interferes with daily life, relationships, work, learning, or safety.</p>
+              </div>
+            </div>
+
+            <p class="muted fragment fade-up" style="margin-top: 20px;">
+              First Aiders are not asked to label every feeling. They are asked to notice when a shift seems significant, sustained, or disruptive enough to deserve closer attention and support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="prevalence-and-impact" data-title="Prevalence And Impact" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Why early support matters
+            </div>
+
+            <h2>Mental health challenges are common, and many people still face barriers to getting help.</h2>
+
+            <div class="card-grid">
+              <div class="card fragment fade-up">
+                <h3 style="font-size: 1.25em; margin-bottom: 10px;">1 in 5 U.S. adults</h3>
+                <p>NIMH estimates that more than one in five U.S. adults lived with a mental illness in 2022.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3 style="font-size: 1.25em; margin-bottom: 10px;">Almost half in a lifetime</h3>
+                <p>Mental Health First Aid notes that nearly half of American adults will experience a mental illness during their lifetime.</p>
+              </div>
+
+              <div class="card fragment fade-up">
+                <h3 style="font-size: 1.25em; margin-bottom: 10px;">Support can reduce barriers</h3>
+                <p>Stigma, cost, access, and uncertainty delay care. Early, nonjudgmental support can make help feel more reachable.</p>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top: 18px; font-size: 0.48em;">
+              Sources: NIMH mental illness statistics and the Mental Health First Aid adults page, accessed May 22, 2026.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="recovery-is-possible" data-title="Recovery Is Possible" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Recovery mindset
+              </div>
+
+              <h2>Recovery is possible, and support should be grounded in hope.</h2>
+
+              <p class="subtitle" style="margin-left: 0;">
+                Recovery is a process that may involve care, community, practical support, and time. First Aiders help by reinforcing hope and connection.
+              </p>
+
+              <p class="fragment fade-up"><strong>Health:</strong> care and coping support day-to-day wellbeing.</p>
+              <p class="fragment fade-up"><strong>Home:</strong> stable, safe living conditions support healing.</p>
+              <p class="fragment fade-up"><strong>Purpose:</strong> work, learning, and meaningful goals can be part of recovery.</p>
+              <p class="fragment fade-up"><strong>Community:</strong> relationships and belonging help recovery feel possible.</p>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/03-recovery-is-possible.png" alt="Human-centered recovery collage suggesting health, home, purpose, and community support.">
+              </div>
+              <p class="media-caption">
+                A recovery-oriented response keeps hope, dignity, and connection visible even when someone is struggling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="common-challenges" data-title="Common Challenges At A Glance" data-transition="slide">
+        <div class="slide-shell center">
+          <div>
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Quick orientation
+            </div>
+
+            <h2>Mental Health First Aid covers several common challenge areas where early support can make a difference.</h2>
+
+            <div class="boundary-spectrum">
+              <div class="spectrum-card fragment fade-up">
+                <h3>Depression</h3>
+                <p>Watch for persistent low mood, loss of interest, hopelessness, or changes in energy, sleep, and daily functioning.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Anxiety</h3>
+                <p>Excessive worry, panic, physical tension, and avoidance can all shape how someone shows up and functions.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Trauma and stress</h3>
+                <p>Hypervigilance, emotional flooding, shutdown, sleep disruption, or sudden reactions can signal a person is overwhelmed.</p>
+              </div>
+
+              <div class="spectrum-card fragment fade-up">
+                <h3>Substance use or psychosis</h3>
+                <p>Behavior that feels disorganized, unsafe, detached from reality, or strongly tied to substance use may require faster support and safety planning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="what-first-aiders-notice" data-title="What First Aiders Notice" data-transition="fade">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="scenario">
+              <div class="scenario-label">Practical application</div>
+              <h2 style="margin-top: 10px;">What might a First Aider notice first?</h2>
+
+              <p>
+                A coworker who is usually engaged begins arriving late, looks exhausted, stops joining others at lunch, and says, "I do not know how much longer I can keep doing this."
+              </p>
+
+              <div class="script-box">
+                <p class="fragment fade-up"><strong>Notice the change:</strong> behavior, appearance, energy, isolation, and distress cues all matter.</p>
+                <p class="fragment fade-up"><strong>Start with presence:</strong> approach calmly, listen without judgment, and avoid rushing to fix everything.</p>
+                <p class="fragment fade-up"><strong>Know what comes next:</strong> the next module introduces ALGEE so you can respond with more structure.</p>
+              </div>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/04-noticing-change-and-offering-support.png" alt="One adult noticing a coworker or peer who seems withdrawn and then offering calm support.">
+              </div>
+              <p class="media-caption">
+                First Aiders often begin with a small but important moment: they notice a real change and choose to respond with care.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety-privacy-emergencies" data-title="Safety, Privacy, And Emergencies" data-transition="slide">
+        <div class="slide-shell">
+          <div class="two-column">
+            <div class="left">
+              <div class="brand-kicker">
+                <span class="brand-dot"></span>
+                Safety comes first
+              </div>
+
+              <h2>Supportive conversation matters, but there are moments when urgent safety action matters more.</h2>
+
+              <p class="fragment fade-up"><strong>Stay within your role:</strong> Mental Health First Aid does not replace emergency response, clinical care, legal duties, or local policy.</p>
+              <p class="fragment fade-up"><strong>Respect privacy:</strong> share information carefully and only with the people or services who need it for safety, support, or required action.</p>
+              <p class="fragment fade-up"><strong>Escalate when needed:</strong> if safety changes quickly, move toward emergency or crisis support instead of waiting to see whether things settle on their own.</p>
+            </div>
+
+            <div class="quote-box">
+              <div class="brand-kicker" style="color: var(--or-mint);">
+                <span class="brand-dot"></span>
+                Immediate action examples
+              </div>
+
+              <h2>
+                Medical emergencies, overdose, direct suicidal intent, or severe disorientation with immediate danger are not wait-and-see moments.
+              </h2>
+
+              <p class="muted" style="margin-top: 20px;">
+                Call 911 for immediate medical danger. Call or text 988 for suicidal or emotional crisis support when urgent crisis help is needed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="key-resources" data-title="Key Resources" data-transition="slide">
+        <div class="slide-shell">
+          <div class="resources-slide-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Current official resources
+            </div>
+
+            <h2>Keep these official resources close and pair them with local support options.</h2>
+
+            <div class="card-grid two">
+              <div class="card">
+                <h3>988 Suicide &amp; Crisis Lifeline</h3>
+                <p>Free, confidential U.S. crisis support for suicidal or emotional crisis.</p>
+                <p style="font-size: 0.48em; margin-top: 10px;"><a href="https://988lifeline.org/get-help/" target="_blank" rel="noreferrer noopener">Open 988 Lifeline</a></p>
+              </div>
+
+              <div class="card">
+                <h3>Crisis Text Line</h3>
+                <p>Text <strong>HOME</strong> or <strong>HOLA</strong> to <strong>741741</strong> in the U.S. for free, confidential crisis support.</p>
+                <p style="font-size: 0.48em; margin-top: 10px;"><a href="https://www.crisistextline.org/" target="_blank" rel="noreferrer noopener">Open Crisis Text Line</a></p>
+              </div>
+
+              <div class="card">
+                <h3>NIMH Mental Illness Statistics</h3>
+                <p>Current prevalence context and related national mental health data.</p>
+                <p style="font-size: 0.48em; margin-top: 10px;"><a href="https://www.nimh.nih.gov/health/statistics/mental-illness" target="_blank" rel="noreferrer noopener">Open NIMH statistics</a></p>
+              </div>
+
+              <div class="card">
+                <h3>Mental Health First Aid for Adults</h3>
+                <p>Official adults course overview and supporting Mental Health First Aid materials.</p>
+                <p style="font-size: 0.48em; margin-top: 10px;"><a href="https://www.mentalhealthfirstaid.org/population-focused-modules/adults/" target="_blank" rel="noreferrer noopener">Open the MHFA adults page</a></p>
+              </div>
+            </div>
+
+            <p class="muted" style="margin-top: 18px;">
+              Add local crisis teams, EAP, campus, or community contacts that fit your setting.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="start-algee"
+        class="dark-slide key-takeaways-slide"
+        data-title="Start ALGEE"
+        data-transition="slide"
+        data-background="linear-gradient(135deg, #073f46 0%, #0b6f78 58%, #37c7bd 100%)"
+      >
+        <div class="slide-shell center">
+          <div class="takeaway-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Key takeaways
+            </div>
+
+            <h2>Start the ALGEE module with these four ideas in mind.</h2>
+
+            <ul class="takeaway-list">
+              <li>
+                <span class="material-symbols-outlined">health_and_safety</span>
+                <span>Mental Health First Aid is initial support that helps someone reach safer ground or more appropriate care. It is not diagnosis or treatment.</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">forum</span>
+                <span>Respectful, person-first language and nonjudgmental listening reduce stigma and make support feel more possible.</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">visibility</span>
+                <span>Look for meaningful change in behavior, thoughts, feelings, appearance, or functioning, and remember that recovery is possible.</span>
+              </li>
+              <li>
+                <span class="material-symbols-outlined">signpost</span>
+                <span>Safety comes first. In the next module, you will learn the action plan called ALGEE so you can respond with more structure and confidence.</span>
+              </li>
+            </ul>
+
+            <p style="margin-top: 18px; font-size: 0.58em; color: rgba(255, 255, 255, 0.82);">
+              Pause for a moment before you continue: how do you want to show up when someone around you may need support?
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="../../../core-assets/dist/reveal.js"></script>
+  <script src="../../../core-assets/dist/plugin/notes.js"></script>
+  <script src="../../../core-assets/dist/plugin/search.js"></script>
+  <script src="../../../core-assets/dist/plugin/zoom.js"></script>
+  <script src="../../../shared-runtime/lesson-runtime.js"></script>
+  <script>
+    window.OpenRecoveryLessonRuntime.init();
+  </script>
+</body>
+</html>

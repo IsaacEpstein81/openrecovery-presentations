@@ -36,6 +36,12 @@
       "replace": "S U D",
       "whole_word": true,
       "case_sensitive": true
+    },
+    {
+      "match": "ALGEE",
+      "replace": "allegy",
+      "whole_word": true,
+      "case_sensitive": true
     }
   ]
 }
