@@ -228,3 +228,17 @@ Suggested format:
 - changed: updated task docs, recorded that the resources slide was refreshed to current official URLs, and added a recurring QA check for stale source-document links on resource slides
 - next: run direct browser QA on the disaster-preparedness lesson and verify the refreshed resource links in both direct and framed view
 - blockers: no in-tool interactive browser QA was completed in this session
+
+## 2026-05-24 18:37
+
+- worked on: creating the second Mental Health First Aid lesson from `Content/National Council Demo Training Content (Deck 2).docx`
+- changed: created `presentations/mental-health-first-aid/lesson-02-mental-health-first-aid-for-crisis-situations/` with `index.html`, `IMAGE_PROMPTS.md`, 5 generated lesson images, `voiceover.json`, and 34 rendered ElevenLabs MP3s across female and male voice packs; updated the resources slide to current official crisis links
+- next: run a direct browser QA pass on the new lesson, compare its pacing against lesson 1 of the same course, and decide whether it should join the root preview flow after QA
+- blockers: in-tool direct browser QA was not completed because browser automation access was not available in this session
+
+## 2026-05-24 18:50
+
+- worked on: fixing narrated direct-file preview for the new Mental Health First Aid crisis-situations lesson
+- changed: updated `shared-runtime/lesson-runtime.js` to accept an inline JSON voiceover-manifest fallback; embedded that fallback manifest in the new crisis-situations lesson HTML so the audio launcher can still initialize when `voiceover.json` fetch is blocked in `file://` preview
+- next: refresh the lesson in-browser, confirm the audio launcher initializes in direct local preview, and decide whether to propagate the same fallback to older narrated lessons
+- blockers: direct interactive browser verification still needs a manual pass

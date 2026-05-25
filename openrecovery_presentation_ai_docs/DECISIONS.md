@@ -259,6 +259,16 @@ Embedded iframe widths exposed text/image overlap on dense two-column slides, es
 Decision:
 If a lesson adds a custom in-deck slide navigator, keep the launcher compact in framed view and let it expand on hover/open rather than occupying a full labeled button all the time.
 
+## 2026-05-24
+
+### Support Inline Voiceover Manifest Fallback For Direct File Preview
+
+Decision:
+Allow the shared narrated-lesson runtime to read an inline JSON voiceover manifest from the lesson HTML when it is present, instead of relying only on `fetch("voiceover.json")`.
+
+Reason:
+Direct `file://` lesson preview can block `fetch()` access to `voiceover.json`, which leaves the narration launcher disabled even when the local MP3 files exist. The inline manifest fallback keeps narrated lessons usable during local direct-file QA while preserving `voiceover.json` as the lesson source of truth.
+
 Reason:
 The root LMS preview has less visible space than fullscreen, so persistent labeled controls can block slide content even when they look fine fullscreen.
 

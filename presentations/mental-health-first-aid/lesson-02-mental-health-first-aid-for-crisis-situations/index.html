@@ -1,0 +1,1543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mental Health First Aid for Crisis Situations | OpenRecovery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../../core-assets/dist/reveal.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/theme/white.css">
+  <link rel="stylesheet" href="../../../core-assets/dist/plugin/highlight/monokai.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../shared-styles/master.css">
+  <link rel="stylesheet" href="../../../shared-styles/lesson-runtime.css">
+
+  <style>
+    body.mhfa-crisis-lesson .reveal {
+      --lesson-control-safe-bottom: 124px;
+    }
+
+    body.mhfa-crisis-lesson .reveal .slides > section .slide-shell {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: stretch;
+      height: 100%;
+      min-height: 100%;
+      padding-top: 24px;
+      padding-left: 48px;
+      padding-right: 48px;
+      padding-bottom: var(--lesson-control-safe-bottom);
+      box-sizing: border-box;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    body.mhfa-crisis-lesson .reveal .slides > section.title-slide .slide-shell {
+      padding-top: 18px;
+      padding-bottom: calc(var(--lesson-control-safe-bottom) + 14px);
+    }
+
+    body.mhfa-crisis-lesson .reveal .slides > section .slide-shell > :not(.footer-note) {
+      width: 100%;
+      min-height: 0;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-bottom: 8px;
+      box-sizing: border-box;
+    }
+
+    body.mhfa-crisis-lesson .reveal .slides > section .slide-shell.center {
+      align-items: center;
+      text-align: center;
+    }
+
+    body.mhfa-crisis-lesson #lesson-title .slide-shell {
+      align-items: center;
+      text-align: center;
+    }
+
+    body.mhfa-crisis-lesson #lesson-title .title-content {
+      width: min(1080px, 94vw);
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    body.mhfa-crisis-lesson #lesson-title .lesson-title,
+    body.mhfa-crisis-lesson #lesson-title .title-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body.mhfa-crisis-lesson .reveal h2 {
+      font-size: 1.3em;
+      line-height: 1.08;
+      max-width: 18ch;
+    }
+
+    body.mhfa-crisis-lesson .reveal p,
+    body.mhfa-crisis-lesson .reveal li {
+      font-size: 0.6em;
+      line-height: 1.22;
+    }
+
+    body.mhfa-crisis-lesson .wide-heading-slide .brand-kicker {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    body.mhfa-crisis-lesson .wide-heading-slide h2 {
+      width: 100%;
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    body.mhfa-crisis-lesson .subtitle {
+      max-width: 820px;
+      font-size: 0.58em !important;
+      line-height: 1.22 !important;
+    }
+
+    body.mhfa-crisis-lesson .wide-heading-slide .subtitle {
+      width: 100%;
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    body.mhfa-crisis-lesson .brand-kicker {
+      margin-bottom: 8px;
+    }
+
+    body.mhfa-crisis-lesson .card-grid,
+    body.mhfa-crisis-lesson .media-grid,
+    body.mhfa-crisis-lesson .boundary-spectrum {
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    body.mhfa-crisis-lesson .card,
+    body.mhfa-crisis-lesson .spectrum-card,
+    body.mhfa-crisis-lesson .scenario,
+    body.mhfa-crisis-lesson .quote-box,
+    body.mhfa-crisis-lesson .media-panel {
+      border-radius: 22px;
+    }
+
+    body.mhfa-crisis-lesson .card,
+    body.mhfa-crisis-lesson .spectrum-card {
+      padding: 16px;
+    }
+
+    body.mhfa-crisis-lesson .quote-box {
+      padding: 22px 24px;
+    }
+
+    body.mhfa-crisis-lesson .scenario {
+      padding: 22px;
+    }
+
+    body.mhfa-crisis-lesson .media-panel {
+      padding: 14px;
+    }
+
+    body.mhfa-crisis-lesson .media-frame {
+      height: min(27vh, 250px);
+      aspect-ratio: auto;
+    }
+
+    body.mhfa-crisis-lesson .media-caption {
+      margin-top: 8px !important;
+      font-size: 0.42em !important;
+      line-height: 1.24 !important;
+    }
+
+    body.mhfa-crisis-lesson .two-column {
+      gap: 18px;
+      align-items: start;
+    }
+
+    body.mhfa-crisis-lesson .two-column > .media-panel {
+      justify-self: center;
+      align-self: center;
+    }
+
+    body.mhfa-crisis-lesson .goal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    body.mhfa-crisis-lesson .goal-card,
+    body.mhfa-crisis-lesson .mini-card {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(11, 111, 120, 0.16);
+      border-radius: 20px;
+      padding: 16px;
+      text-align: left;
+      box-shadow: 0 16px 38px rgba(7, 63, 70, 0.06);
+    }
+
+    body.mhfa-crisis-lesson .goal-card h3,
+    body.mhfa-crisis-lesson .mini-card h3,
+    body.mhfa-crisis-lesson .card h3,
+    body.mhfa-crisis-lesson .spectrum-card h3 {
+      font-size: 0.86em;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+
+    body.mhfa-crisis-lesson .goal-card p,
+    body.mhfa-crisis-lesson .mini-card p,
+    body.mhfa-crisis-lesson .card p,
+    body.mhfa-crisis-lesson .scenario p,
+    body.mhfa-crisis-lesson .quote-box p {
+      margin: 0;
+    }
+
+    body.mhfa-crisis-lesson .icon-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--or-deep);
+      font-weight: 700;
+    }
+
+    body.mhfa-crisis-lesson .icon-line .material-symbols-outlined {
+      font-size: 30px;
+      color: var(--or-teal);
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 48;
+    }
+
+    body.mhfa-crisis-lesson .checklist,
+    body.mhfa-crisis-lesson .bullet-list {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    body.mhfa-crisis-lesson .checklist li,
+    body.mhfa-crisis-lesson .bullet-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    body.mhfa-crisis-lesson .checklist li::before,
+    body.mhfa-crisis-lesson .bullet-list li::before {
+      content: "check_circle";
+      font-family: "Material Symbols Outlined";
+      font-size: 1.1em;
+      line-height: 1;
+      color: var(--or-good);
+      margin-top: 1px;
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 500,
+        "GRAD" 0,
+        "opsz" 48;
+    }
+
+    body.mhfa-crisis-lesson .micro-card-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .slide-shell {
+      gap: 10px;
+      padding-top: 18px;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .two-column {
+      gap: 14px;
+      align-items: start;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide h2 {
+      font-size: 1.14em;
+      line-height: 1.04;
+      max-width: 16ch;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .subtitle {
+      font-size: 0.5em !important;
+      line-height: 1.14 !important;
+      margin-top: 2px !important;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .micro-card-stack,
+    body.mhfa-crisis-lesson .safe-frame-slide .scenario-prompt {
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .mini-card,
+    body.mhfa-crisis-lesson .safe-frame-slide .scenario,
+    body.mhfa-crisis-lesson .safe-frame-slide .media-panel {
+      padding: 12px;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .mini-card h3,
+    body.mhfa-crisis-lesson .safe-frame-slide .scenario h2 {
+      margin-bottom: 6px;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .scenario .subtitle {
+      max-width: none;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .media-panel {
+      max-width: 430px;
+      width: 100%;
+      justify-self: center;
+      align-self: center;
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .media-frame {
+      height: min(21vh, 205px);
+    }
+
+    body.mhfa-crisis-lesson .safe-frame-slide .media-caption {
+      font-size: 0.4em !important;
+      line-height: 1.18 !important;
+      margin-top: 6px !important;
+    }
+
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario {
+      padding: 16px;
+    }
+
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario h2 {
+      font-size: 1.02em;
+      max-width: 15ch;
+    }
+
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .media-frame {
+      height: min(19vh, 182px);
+    }
+
+    body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .left h2 {
+      max-width: 19ch;
+    }
+
+    body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .micro-card-stack {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .mini-card,
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .mini-card {
+      padding: 10px;
+    }
+
+    body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .mini-card h3,
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .mini-card h3 {
+      font-size: 0.72em;
+      line-height: 1.06;
+      margin-bottom: 5px;
+    }
+
+    body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .mini-card p,
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .mini-card p {
+      font-size: 0.46em;
+      line-height: 1.14;
+    }
+
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario-prompt {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario .subtitle {
+      font-size: 0.46em !important;
+      line-height: 1.12 !important;
+      margin-top: 2px !important;
+    }
+
+    body.mhfa-crisis-lesson .quote-box .prompt-line {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.74em;
+      font-weight: 700;
+      line-height: 1.18;
+      color: white;
+    }
+
+    body.mhfa-crisis-lesson .script-box {
+      margin-top: 12px;
+      padding: 14px 18px;
+    }
+
+    body.mhfa-crisis-lesson .script-box p {
+      font-size: 0.54em;
+      line-height: 1.22;
+      margin: 0;
+    }
+
+    body.mhfa-crisis-lesson .compact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    body.mhfa-crisis-lesson .compact-grid .card {
+      padding: 14px;
+    }
+
+    body.mhfa-crisis-lesson .support-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    body.mhfa-crisis-lesson .support-columns .card {
+      min-height: 0;
+    }
+
+    body.mhfa-crisis-lesson .scenario-prompt {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    body.mhfa-crisis-lesson .note-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(233, 251, 248, 0.9);
+      color: var(--or-deep);
+      font-size: 0.44em;
+      font-weight: 700;
+      border: 1px solid rgba(11, 111, 120, 0.14);
+    }
+
+    body.mhfa-crisis-lesson .note-strip .material-symbols-outlined {
+      font-size: 18px;
+      color: var(--or-teal);
+    }
+
+    body.mhfa-crisis-lesson .algee-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    body.mhfa-crisis-lesson .algee-step {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(11, 111, 120, 0.15);
+      border-radius: 20px;
+      padding: 14px 12px;
+      text-align: left;
+      box-shadow: 0 12px 30px rgba(7, 63, 70, 0.06);
+    }
+
+    body.mhfa-crisis-lesson .algee-step .step-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--or-aqua), var(--or-deep));
+      color: white;
+      font-size: 0.44em;
+      font-weight: 800;
+    }
+
+    body.mhfa-crisis-lesson .algee-step h3 {
+      font-size: 0.74em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    body.mhfa-crisis-lesson .algee-step p {
+      font-size: 0.48em;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    body.mhfa-crisis-lesson .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    body.mhfa-crisis-lesson .resource-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(11, 111, 120, 0.15);
+      border-radius: 22px;
+      padding: 16px;
+      text-align: left;
+      box-shadow: 0 16px 38px rgba(7, 63, 70, 0.06);
+    }
+
+    body.mhfa-crisis-lesson .resource-card h3 {
+      font-size: 0.84em;
+      line-height: 1.08;
+      margin-bottom: 8px;
+    }
+
+    body.mhfa-crisis-lesson .resource-card a {
+      color: var(--or-teal);
+      font-weight: 700;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    body.mhfa-crisis-lesson .resource-card p {
+      font-size: 0.5em;
+      line-height: 1.18;
+      margin: 0;
+    }
+
+    body.mhfa-crisis-lesson .reflection-slide .slide-shell {
+      justify-items: center;
+      text-align: center;
+    }
+
+    body.mhfa-crisis-lesson .reflection-content {
+      width: min(1080px, 94vw);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    body.mhfa-crisis-lesson .wide-heading-slide .reflection-content {
+      width: min(1200px, 96vw);
+    }
+
+    body.mhfa-crisis-lesson .reflection-title {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto 18px !important;
+      text-align: center !important;
+      line-height: 1.12 !important;
+      letter-spacing: -0.035em;
+      font-size: clamp(2.4rem, 5vw, 3.8rem) !important;
+    }
+
+    body.mhfa-crisis-lesson .reflection-title span {
+      display: block;
+      width: 100%;
+    }
+
+    body.mhfa-crisis-lesson .footer-note {
+      bottom: calc(var(--lesson-control-safe-bottom) - 14px);
+    }
+
+    body.mhfa-crisis-lesson .key-takeaways-slide .takeaway-content {
+      width: min(1140px, 92vw);
+    }
+
+    body.mhfa-crisis-lesson .key-takeaways-slide h2 {
+      max-width: 1060px;
+      margin: 0 auto 4px;
+      font-size: 1.24em;
+      line-height: 1.08;
+    }
+
+    body.mhfa-crisis-lesson .key-takeaways-slide .takeaway-list {
+      margin-top: 12px;
+    }
+
+    body.mhfa-crisis-lesson .key-takeaways-slide .takeaway-list li {
+      margin: 10px 0;
+      padding: 12px 16px;
+      gap: 12px;
+    }
+
+    body.mhfa-crisis-lesson .key-takeaways-slide .takeaway-list .material-symbols-outlined {
+      font-size: 28px;
+    }
+
+    @media (max-height: 860px) {
+      body.mhfa-crisis-lesson .reveal .slides > section .slide-shell {
+        padding-top: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        gap: 14px;
+      }
+
+      body.mhfa-crisis-lesson .reveal h2 {
+        font-size: 1.18em;
+      }
+
+      body.mhfa-crisis-lesson .reveal p,
+      body.mhfa-crisis-lesson .reveal li,
+      body.mhfa-crisis-lesson .subtitle {
+        font-size: 0.54em !important;
+        line-height: 1.18 !important;
+      }
+
+      body.mhfa-crisis-lesson .goal-grid,
+      body.mhfa-crisis-lesson .resource-grid,
+      body.mhfa-crisis-lesson .compact-grid,
+      body.mhfa-crisis-lesson .support-columns,
+      body.mhfa-crisis-lesson .algee-grid,
+      body.mhfa-crisis-lesson .two-column {
+        gap: 12px;
+      }
+
+      body.mhfa-crisis-lesson .card,
+      body.mhfa-crisis-lesson .spectrum-card,
+      body.mhfa-crisis-lesson .quote-box,
+      body.mhfa-crisis-lesson .scenario,
+      body.mhfa-crisis-lesson .resource-card,
+      body.mhfa-crisis-lesson .goal-card,
+      body.mhfa-crisis-lesson .mini-card,
+      body.mhfa-crisis-lesson .media-panel {
+        padding: 14px;
+      }
+
+      body.mhfa-crisis-lesson .media-frame {
+        height: min(24vh, 220px);
+      }
+
+      body.mhfa-crisis-lesson .algee-step {
+        padding: 12px 10px;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .slide-shell {
+        padding-top: 16px;
+        gap: 8px;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide h2 {
+        font-size: 1.04em;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .subtitle {
+        font-size: 0.46em !important;
+        line-height: 1.12 !important;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .media-frame {
+        height: min(19vh, 176px);
+      }
+
+      body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .micro-card-stack,
+      body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario-prompt {
+        gap: 6px;
+      }
+    }
+
+    @media (max-height: 760px) {
+      body.mhfa-crisis-lesson .reveal .slides > section .slide-shell {
+        padding-top: 16px;
+        padding-left: 32px;
+        padding-right: 32px;
+        gap: 12px;
+      }
+
+      body.mhfa-crisis-lesson .reveal h2 {
+        font-size: 1.02em;
+      }
+
+      body.mhfa-crisis-lesson .reveal p,
+      body.mhfa-crisis-lesson .reveal li,
+      body.mhfa-crisis-lesson .subtitle {
+        font-size: 0.48em !important;
+        line-height: 1.14 !important;
+      }
+
+      body.mhfa-crisis-lesson .brand-kicker {
+        font-size: 0.32em;
+      }
+
+      body.mhfa-crisis-lesson .card,
+      body.mhfa-crisis-lesson .spectrum-card,
+      body.mhfa-crisis-lesson .quote-box,
+      body.mhfa-crisis-lesson .scenario,
+      body.mhfa-crisis-lesson .resource-card,
+      body.mhfa-crisis-lesson .goal-card,
+      body.mhfa-crisis-lesson .mini-card,
+      body.mhfa-crisis-lesson .media-panel,
+      body.mhfa-crisis-lesson .algee-step {
+        padding: 12px;
+      }
+
+      body.mhfa-crisis-lesson .media-frame {
+        height: min(20vh, 180px);
+      }
+
+      body.mhfa-crisis-lesson .algee-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .slide-shell {
+        padding-top: 14px;
+        gap: 7px;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide h2 {
+        font-size: 0.96em;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .subtitle {
+        font-size: 0.42em !important;
+        line-height: 1.08 !important;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .mini-card,
+      body.mhfa-crisis-lesson .safe-frame-slide .scenario,
+      body.mhfa-crisis-lesson .safe-frame-slide .media-panel {
+        padding: 10px;
+      }
+
+      body.mhfa-crisis-lesson .safe-frame-slide .media-frame {
+        height: min(17vh, 150px);
+      }
+
+      body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .micro-card-stack,
+      body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario-prompt {
+        gap: 5px;
+      }
+
+      body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .mini-card,
+      body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .mini-card {
+        padding: 8px;
+      }
+
+      body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .mini-card h3,
+      body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .mini-card h3 {
+        font-size: 0.66em;
+      }
+
+      body.mhfa-crisis-lesson #other-crisis-situations.safe-frame-slide .mini-card p,
+      body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .mini-card p,
+      body.mhfa-crisis-lesson #practice-scenario.safe-frame-slide .scenario .subtitle {
+        font-size: 0.4em !important;
+        line-height: 1.08 !important;
+      }
+    }
+  </style>
+</head>
+<body class="mhfa-crisis-lesson">
+  <div class="reveal">
+    <div class="slides">
+
+      <section
+        id="lesson-title"
+        class="title-slide"
+        data-title="Lesson Title"
+        data-transition="fade"
+        data-background-gradient="linear-gradient(135deg, #ffffff 0%, #edf9f7 58%, #daf5ef 100%)"
+      >
+        <div class="slide-shell center">
+          <div class="title-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              OpenRecovery Training
+            </div>
+
+            <h1 class="lesson-title">
+              Mental Health First Aid<br>
+              for Crisis Situations
+            </h1>
+
+            <p class="subtitle title-subtitle">
+              Lesson 2 &middot; 25 minutes &middot; Applying ALGEE in crisis situations with de-escalation, suicide-safety response, and safe referral
+            </p>
+
+            <div class="pill-row">
+              <p class="pill">
+                <span class="material-symbols-outlined">shield_person</span>
+                Crisis response
+              </p>
+              <p class="pill">
+                <span class="material-symbols-outlined">forum</span>
+                De-escalation
+              </p>
+              <p class="pill">
+                <span class="material-symbols-outlined">health_and_safety</span>
+                Suicide safety
+              </p>
+            </div>
+          </div>
+
+          <div class="footer-note">
+            <span>Mental Health First Aid course &middot; adult learners continuing crisis-response training</span>
+            <span>Source: National Council Demo Training Content (Deck 2)</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="learning-goals" class="wide-heading-slide" data-title="Learning Goals" data-transition="fade">
+        <div class="slide-shell center">
+          <div class="centered-kicker">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Lesson overview
+            </div>
+          </div>
+
+          <h2 class="clean-title">What You Should Be Ready to Do After This Lesson</h2>
+          <p class="subtitle">This lesson turns the MHFA crisis content into a practical workflow: recognize risk, stabilize the moment, ask direct safety questions, and connect the person to the right next support.</p>
+
+          <div class="goal-grid">
+            <div class="goal-card fragment fade-up">
+              <div class="icon-line">
+                <span class="material-symbols-outlined">warning</span>
+                Recognize crisis
+              </div>
+              <p>Define what makes a situation a crisis and spot the presentations that require immediate safety thinking.</p>
+            </div>
+
+            <div class="goal-card fragment fade-up">
+              <div class="icon-line">
+                <span class="material-symbols-outlined">record_voice_over</span>
+                Respond calmly
+              </div>
+              <p>Use calm approach, nonthreatening language, and de-escalation habits that reduce pressure instead of increasing it.</p>
+            </div>
+
+            <div class="goal-card fragment fade-up">
+              <div class="icon-line">
+                <span class="material-symbols-outlined">crisis_alert</span>
+                Assess urgent risk
+              </div>
+              <p>Ask directly about suicide when indicated and know what to do when danger, overdose, or severe disorientation is present.</p>
+            </div>
+
+            <div class="goal-card fragment fade-up">
+              <div class="icon-line">
+                <span class="material-symbols-outlined">connect_without_contact</span>
+                Hand off support
+              </div>
+              <p>Finish ALGEE by connecting the person to emergency, professional, workplace, peer, or self-help supports that fit the situation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="what-counts-as-crisis" class="safe-frame-slide" data-title="What Counts as a Crisis">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Crisis definition
+          </div>
+
+          <div class="two-column">
+            <div class="left">
+              <h2>What Makes a Situation a Crisis?</h2>
+              <p class="subtitle">A crisis is not just a hard moment. It is a situation where safety or basic functioning may be in immediate danger and the next response needs to happen quickly.</p>
+
+              <div class="micro-card-stack">
+                <div class="mini-card fragment fade-up">
+                  <h3>Immediate safety risk</h3>
+                  <p>Examples include suicidal intent, overdose, severe aggression, medical emergency, or a psychotic state that is disrupting safe functioning.</p>
+                </div>
+
+                <div class="mini-card fragment fade-up">
+                  <h3>Fast-changing distress</h3>
+                  <p>Panic, disorientation, trauma reactions, or self-injury concerns can escalate quickly when nobody slows the moment down.</p>
+                </div>
+
+                <div class="mini-card fragment fade-up">
+                  <h3>Urgent support decisions</h3>
+                  <p>The goal is not diagnosis. The goal is to protect life, reduce harm, and choose the right next help without delay.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/01-crisis-support-opener.png" alt="Editorial collage of two adults in a calm crisis-support conversation">
+              </div>
+              <p class="media-caption">A supportive crisis response starts with noticing risk, staying grounded, and choosing a stabilizing first move instead of reacting impulsively.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="before-you-reach-out" class="wide-heading-slide" data-title="Before You Reach Out">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            First pause
+          </div>
+
+          <h2>Before You Reach Out, Slow Down and Scan</h2>
+          <p class="subtitle">The best crisis support begins before the first sentence. A quick mental scan helps you protect yourself, protect the other person, and avoid missing key context.</p>
+
+          <div class="card-grid">
+            <div class="card fragment fade-up">
+              <span class="material-symbols-outlined icon">shield_person</span>
+              <h3>Protect yourself first</h3>
+              <p>Check whether the environment, the person’s behavior, or nearby hazards make it unsafe to approach alone.</p>
+            </div>
+
+            <div class="card fragment fade-up">
+              <span class="material-symbols-outlined icon">diversity_3</span>
+              <h3>Respect context</h3>
+              <p>Consider privacy, culture, trauma history, likely triggers, and how your role or identity may affect the interaction.</p>
+            </div>
+
+            <div class="card fragment fade-up">
+              <span class="material-symbols-outlined icon">contacts_product</span>
+              <h3>Prepare supports</h3>
+              <p>Know your local policy, emergency contacts, mobile crisis options, and the coworkers or supervisors you may need to involve.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="approach-and-de-escalate" data-title="Approach and De-Escalate">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Contact strategy
+          </div>
+
+          <div class="two-column">
+            <div class="left">
+              <h2>Approach Calmly and De-Escalate Before You Solve</h2>
+              <p class="subtitle">People in crisis often need a nervous-system reset before they can absorb options, instructions, or referrals.</p>
+
+              <ul class="checklist">
+                <li class="fragment fade-up">Approach from an angle that feels nonthreatening, introduce yourself, and name your concern plainly.</li>
+                <li class="fragment fade-up">Use short sentences, open body language, and a steady pace instead of commands, debates, or power struggles.</li>
+                <li class="fragment fade-up">Offer choices whenever you can, validate emotion without endorsing unsafe behavior, and reduce nearby hazards if it is safe to do so.</li>
+              </ul>
+
+              <div class="script-box fragment fade-up">
+                <p><strong>Sample opening:</strong> “I’m Jordan. I’m concerned about your safety, and I want to stay calm with you while we figure out the next step.”</p>
+              </div>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/02-de-escalation-approach.png" alt="Editorial collage of a calm de-escalation conversation in a safe space">
+              </div>
+              <p class="media-caption">The first goal is regulation, not persuasion. Calm tone, space, and respectful pacing give the person more room to regain control.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety-risk-actions" class="wide-heading-slide" data-title="Safety Risk Actions">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Protection actions
+          </div>
+
+          <h2>When Safety Is at Risk, Move From Support to Protection</h2>
+          <p class="subtitle">Crisis support becomes a safety operation when danger is imminent. In those moments, the priority is protection, not a perfect conversation.</p>
+
+          <div class="boundary-spectrum">
+            <div class="spectrum-card danger fragment fade-up">
+              <h3>Call immediately</h3>
+              <p>If someone is in imminent danger, unresponsive, actively suicidal, or medically unstable, call emergency services right away.</p>
+            </div>
+
+            <div class="spectrum-card watch fragment fade-up">
+              <h3>Stay if safe</h3>
+              <p>Do not leave the person alone when risk is acute if staying is safe and appropriate within your role.</p>
+            </div>
+
+            <div class="spectrum-card watch fragment fade-up">
+              <h3>Reduce lethal means</h3>
+              <p>Remove or increase distance from weapons, medications, sharp objects, or other hazards only if you can do that safely.</p>
+            </div>
+
+            <div class="spectrum-card safe fragment fade-up">
+              <h3>Bring in support</h3>
+              <p>Loop in coworkers, supervisors, security, EAP, or a crisis team early instead of managing a dangerous situation by yourself.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="crisis-presentation-guide" class="wide-heading-slide" data-title="Crisis Presentation Guide">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Fast recognition
+          </div>
+
+          <h2>Different Crisis Presentations Need Different First Aid</h2>
+          <p class="subtitle">The common thread is safety, but panic, aggression, and severe psychosis do not look or respond the same way.</p>
+
+          <div class="compact-grid">
+            <div class="card fragment fade-up">
+              <h3>Panic attack</h3>
+              <p><strong>Look for:</strong> rapid breathing, trembling, chest pain, dizziness, intense fear.</p>
+              <p><strong>Do first:</strong> move to a quieter space, speak slowly, offer grounding, and avoid forcing breathing techniques that increase distress.</p>
+            </div>
+
+            <div class="card fragment fade-up">
+              <h3>Aggression or violence risk</h3>
+              <p><strong>Look for:</strong> escalating volume, clenched posture, threats, pacing, or property-focused agitation.</p>
+              <p><strong>Do first:</strong> keep distance, reduce stimulation, avoid physical intervention unless trained, and call for help if harm risk continues.</p>
+            </div>
+
+            <div class="card fragment fade-up">
+              <h3>Severe psychotic state</h3>
+              <p><strong>Look for:</strong> intense paranoia, hallucinations, or severe disconnection from reality that is disrupting safe behavior.</p>
+              <p><strong>Do first:</strong> stay nonconfrontational, do not argue about what is real, and escalate to emergency or crisis services when safety is at stake.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="other-crisis-situations" class="safe-frame-slide" data-title="Other Crisis Situations">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Tailored support
+          </div>
+
+          <div class="two-column">
+            <div class="left">
+              <h2>Trauma, Self-Injury, and Overdose Need Tailored Support</h2>
+              <p class="subtitle">Some crises are quieter than open aggression, but they still require immediate structure, medical thinking, and dignified care.</p>
+
+              <div class="micro-card-stack">
+                <div class="mini-card fragment fade-up">
+                  <h3>Traumatic event</h3>
+                  <p>First secure the environment, identify urgent needs like medical care or shelter, and create a calm, low-pressure space before asking for more detail.</p>
+                </div>
+
+                <div class="mini-card fragment fade-up">
+                  <h3>Nonsuicidal self-injury</h3>
+                  <p>Address what you notice directly and without shame, assess for medical need, and help the person connect to professional support.</p>
+                </div>
+
+                <div class="mini-card fragment fade-up">
+                  <h3>Medical emergency or overdose</h3>
+                  <p>Slow breathing, unresponsiveness, or severe bleeding are emergency cues. Call 911, use trained first-aid steps, and do not delay emergency support.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/03-trauma-and-stabilization-support.png" alt="Editorial collage of a calm stabilization scene after a traumatic or medical crisis">
+              </div>
+              <p class="media-caption">Stabilization means lowering chaos, identifying urgent needs, and choosing the safest route to care without pressuring the person to explain everything.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="suicide-warning-signs" class="wide-heading-slide" data-title="Suicide Warning Signs">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Suicide safety
+          </div>
+
+          <h2>Notice Warning Signs of Suicide Early</h2>
+          <p class="subtitle">Warning signs often show up in language, behavior, and urgency cues together. The presence of several signs raises the need for a direct safety question.</p>
+
+          <div class="card-grid">
+            <div class="card fragment fade-up">
+              <h3>What you may hear</h3>
+              <p>Talking about wanting to die, hopelessness, unbearable pain, or feeling like a burden.</p>
+            </div>
+
+            <div class="card fragment fade-up">
+              <h3>What you may see</h3>
+              <p>Withdrawal, giving away possessions, increased substance use, sudden mood shifts, or preparing for death.</p>
+            </div>
+
+            <div class="card fragment fade-up">
+              <h3>What raises urgency</h3>
+              <p>A clear plan, access to means, recent loss, intense agitation, or a rapid change from distress into eerie calm.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask-directly" data-title="Ask Directly">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            A in ALGEE
+          </div>
+
+          <div class="two-column">
+            <div class="left">
+              <h2>Ask Directly and Assess Immediate Risk</h2>
+              <p class="subtitle">A direct suicide question does not create the idea. It helps you understand the danger level and decide whether urgent protection is needed.</p>
+
+              <div class="quote-box fragment fade-up">
+                <p>Use clear, nonjudgmental language.</p>
+                <span class="prompt-line">“Are you thinking about ending your life?”</span>
+              </div>
+
+              <ul class="checklist">
+                <li class="fragment fade-up">If the answer is yes, ask about plan, timing, intent, and access to means.</li>
+                <li class="fragment fade-up">If risk feels imminent, do not leave the person alone and contact emergency services immediately.</li>
+                <li class="fragment fade-up">If risk is present but not clearly imminent, stay engaged and move quickly into support, professional help, and follow-through.</li>
+              </ul>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/04-direct-suicide-risk-conversation.png" alt="Editorial collage of a calm direct safety check-in conversation between two adults">
+              </div>
+              <p class="media-caption">Direct questions can feel serious and compassionate at the same time. The goal is clarity, not alarm.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="listen-and-reassure" class="wide-heading-slide" data-title="Listen and Reassure">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            L and G in ALGEE
+          </div>
+
+          <h2>Listen, Reassure, and Keep the Next Step Concrete</h2>
+          <p class="subtitle">Once immediate danger is clearer, your job is to lower shame, communicate steadiness, and make the next support step feel doable.</p>
+
+          <div class="support-columns">
+            <div class="card fragment fade-up">
+              <h3>What helps</h3>
+              <ul class="bullet-list">
+                <li>Reflect back what you are hearing without minimizing it.</li>
+                <li>Allow pauses instead of filling silence with quick solutions.</li>
+                <li>Use factual hope: “I’m glad you told me. We can get support with this.”</li>
+              </ul>
+            </div>
+
+            <div class="card fragment fade-up">
+              <h3>What to avoid</h3>
+              <ul class="bullet-list">
+                <li>Do not argue, guilt, challenge, or demand gratitude.</li>
+                <li>Do not promise secrecy when safety action may be required.</li>
+                <li>Do not jump into vague reassurance without a concrete next step.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="script-box fragment fade-up">
+            <p><strong>Supportive line:</strong> “I’m sorry you’re hurting this much. I’m here with you, and I want us to bring in the right support right now.”</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="encourage-help" class="wide-heading-slide" data-title="Encourage Help">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Finish ALGEE
+          </div>
+
+          <h2>Finish ALGEE by Connecting People to Real Support</h2>
+          <p class="subtitle">The final two steps are about moving from the crisis moment into the right handoff, then identifying immediate supports that help the person stay safer afterward.</p>
+
+          <div class="support-columns">
+            <div class="card fragment fade-up">
+              <h3>Encourage professional help</h3>
+              <p>Offer specific options such as emergency services, mobile crisis teams, EAP, primary care, therapists, psychiatrists, or organization-specific crisis resources.</p>
+              <div class="note-strip">
+                <span class="material-symbols-outlined">phone_in_talk</span>
+                Make the call together when possible.
+              </div>
+            </div>
+
+            <div class="card fragment fade-up">
+              <h3>Encourage self-help and supports</h3>
+              <p>Identify grounding skills, trusted people, peer support, transportation, medication safety, food, rest, and a specific follow-up check-in after the acute moment passes.</p>
+              <div class="note-strip">
+                <span class="material-symbols-outlined">group</span>
+                Support plans work better when they are concrete.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="practice-scenario" class="safe-frame-slide" data-title="Practice Scenario" data-transition="fade">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Applied practice
+          </div>
+
+          <div class="two-column">
+            <div class="scenario">
+              <div class="scenario-label">Scenario</div>
+              <h2>A Neighbor Is Banging on Doors and Seems Disoriented</h2>
+              <p class="subtitle">Use the source scenario to practice a structured response instead of reacting only to the noise or pressure of the moment.</p>
+
+              <div class="scenario-prompt">
+                <div class="mini-card fragment fade-up">
+                  <h3>Notice the risk</h3>
+                  <p>The person appears confused, loud, and increasingly agitated. The first question is whether anyone is in immediate danger.</p>
+                </div>
+
+                <div class="mini-card fragment fade-up">
+                  <h3>Choose your first move</h3>
+                  <p>Approach only if safe, keep distance, use a calm introduction, and prepare to involve additional support early.</p>
+                </div>
+
+                <div class="mini-card fragment fade-up">
+                  <h3>Plan the handoff</h3>
+                  <p>If the person remains disoriented or threatening, move toward emergency or crisis-team involvement instead of trying to manage alone.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-panel">
+              <div class="media-frame">
+                <img src="assets/05-neighbor-crisis-scenario.png" alt="Editorial collage of a building hallway crisis scenario with a calm responder keeping safe distance">
+              </div>
+              <p class="media-caption">Scenarios help you rehearse the order of operations: protect safety, de-escalate, assess, and hand off support without losing calm.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="apply-algee" class="wide-heading-slide" data-title="Apply ALGEE">
+        <div class="slide-shell">
+          <div class="brand-kicker">
+            <span class="brand-dot"></span>
+            Workflow summary
+          </div>
+
+          <h2>Apply ALGEE in Order When Crisis Skills Need Structure</h2>
+          <p class="subtitle">The model works best when the steps stay connected. Each step prepares the next one, and safety judgment shapes how quickly you move.</p>
+
+          <div class="algee-grid">
+            <div class="algee-step fragment fade-up">
+              <div class="step-kicker">A</div>
+              <h3>Assess risk</h3>
+              <p>Look for danger, ask directly when suicide is possible, and decide whether emergency protection is needed.</p>
+            </div>
+
+            <div class="algee-step fragment fade-up">
+              <div class="step-kicker">L</div>
+              <h3>Listen</h3>
+              <p>Use nonjudgmental attention, steady pacing, and enough silence for the person to stay engaged.</p>
+            </div>
+
+            <div class="algee-step fragment fade-up">
+              <div class="step-kicker">G</div>
+              <h3>Give reassurance</h3>
+              <p>Offer factual hope, validate the distress, and explain that help is available.</p>
+            </div>
+
+            <div class="algee-step fragment fade-up">
+              <div class="step-kicker">E</div>
+              <h3>Encourage professional help</h3>
+              <p>Move toward emergency, crisis, clinical, workplace, or policy-based supports that fit the level of risk.</p>
+            </div>
+
+            <div class="algee-step fragment fade-up">
+              <div class="step-kicker">E</div>
+              <h3>Encourage self-help</h3>
+              <p>Ground the person in immediate coping, trusted supports, and a follow-up plan after the acute moment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="emergency-resources" class="wide-heading-slide" data-title="Emergency Resources">
+        <div class="slide-shell center">
+          <div class="centered-kicker">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Emergency contacts
+            </div>
+          </div>
+
+          <h2 class="clean-title">Emergency Contacts and Local Handoffs Should Be Easy to Find</h2>
+          <p class="subtitle">Use current official crisis resources and pair them with your organization’s own policy, supervisor, security, EAP, and local mobile-crisis contacts.</p>
+
+          <div class="resource-grid">
+            <div class="resource-card fragment fade-up">
+              <h3>988 Suicide &amp; Crisis Lifeline</h3>
+              <p>Call or text <strong>988</strong> for free crisis support in the U.S. and use chat when that is the safest option.</p>
+              <p><a href="https://988lifeline.org/get-help/" target="_blank" rel="noopener">988lifeline.org/get-help</a></p>
+            </div>
+
+            <div class="resource-card fragment fade-up">
+              <h3>Crisis Text Line</h3>
+              <p>Text <strong>HOME</strong> to <strong>741741</strong> in the U.S. to connect with a live Crisis Counselor.</p>
+              <p><a href="https://www.crisistextline.org/support/" target="_blank" rel="noopener">crisistextline.org/support</a></p>
+            </div>
+
+            <div class="resource-card fragment fade-up">
+              <h3>Local emergency pathway</h3>
+              <p>For imminent danger, medical emergency, or overdose, follow local policy and call <strong>911</strong> or the organization’s emergency/security pathway.</p>
+            </div>
+
+            <div class="resource-card fragment fade-up">
+              <h3>MHFA learning reference</h3>
+              <p>Use the Mental Health First Aid adults page for official course context and training follow-up.</p>
+              <p><a href="https://www.mentalhealthfirstaid.org/population-focused-modules/adults/" target="_blank" rel="noopener">mentalhealthfirstaid.org/population-focused-modules/adults</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="practice-and-reflection"
+        class="reflection-slide wide-heading-slide"
+        data-title="Practice and Reflection"
+        data-transition="fade"
+      >
+        <div class="slide-shell center">
+          <div class="reflection-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Next practice step
+            </div>
+
+            <h2 class="reflection-title">What will you say first when safety may be at risk?</h2>
+
+            <div class="goal-grid">
+              <div class="goal-card fragment fade-up">
+                <h3>Name the concern</h3>
+                <p>Practice one calm opener that communicates concern without blame or panic.</p>
+              </div>
+
+              <div class="goal-card fragment fade-up">
+                <h3>Ask directly when needed</h3>
+                <p>Rehearse a direct suicide-risk question so it is available under pressure.</p>
+              </div>
+
+              <div class="goal-card fragment fade-up">
+                <h3>Know the handoff</h3>
+                <p>Identify which numbers, people, or policies you need close at hand in your setting.</p>
+              </div>
+
+              <div class="goal-card fragment fade-up">
+                <h3>Keep practicing</h3>
+                <p>Use the scenario and text simulation activities to build fluency before a real crisis tests it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="key-takeaways"
+        class="dark-slide key-takeaways-slide"
+        data-title="Key Takeaways"
+        data-background-gradient="linear-gradient(135deg, #073f46 0%, #0b6f78 100%)"
+      >
+        <div class="slide-shell">
+          <div class="takeaway-content">
+            <div class="brand-kicker">
+              <span class="brand-dot"></span>
+              Key takeaways
+            </div>
+
+            <h2>Mental Health First Aid in a Crisis Is About Safety, Calm, and the Right Next Help</h2>
+
+            <ul class="takeaway-list">
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">priority_high</span>
+                <span>Start with safety. Scan the environment, know your role, and treat imminent danger, overdose, and severe disorientation as urgent protection problems.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">forum</span>
+                <span>Use calm contact and de-escalation before you try to solve anything. Steady presence lowers pressure and keeps options open.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">health_and_safety</span>
+                <span>Ask directly about suicide when warning signs are present, then assess plan, intent, timing, and access to means so you can choose the right level of response.</span>
+              </li>
+              <li class="fragment fade-up">
+                <span class="material-symbols-outlined">connect_without_contact</span>
+                <span>Finish strong with real supports: emergency pathways, crisis resources, professional help, self-help strategies, and a concrete follow-up plan.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script id="openrecovery-voiceover-manifest" type="application/json">
+    {
+      "version": 1,
+      "provider": "elevenlabs",
+      "lesson_title": "Mental Health First Aid for Crisis Situations",
+      "description": "Slide-enter narration for the crisis-situations lesson, written to follow the visible slide content and major reveal order.",
+      "default_profile_id": "female",
+      "voice": {
+        "model_id": "eleven_multilingual_v2",
+        "output_format": "mp3_44100_128",
+        "language_code": "en",
+        "seed": 42,
+        "enable_logging": false,
+        "include_context_text": true,
+        "voice_settings": {
+          "stability": 0.45,
+          "similarity_boost": 0.8,
+          "style": 0.15,
+          "use_speaker_boost": true
+        }
+      },
+      "profiles": [
+        {
+          "id": "female",
+          "label": "Female Voice",
+          "voice_id_env": "ELEVENLABS_VOICE_ID_FEMALE"
+        },
+        {
+          "id": "male",
+          "label": "Male Voice",
+          "voice_id_env": "ELEVENLABS_VOICE_ID_MALE"
+        }
+      ],
+      "segments": [
+        {
+          "slide_id": "lesson-title",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/01-lesson-title.mp3",
+          "text": "Welcome to lesson two of Mental Health First Aid. In this lesson, we focus on crisis situations, including de-escalation, suicide-safety response, and how to connect someone to the right next support."
+        },
+        {
+          "slide_id": "learning-goals",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/02-learning-goals.mp3",
+          "text": "By the end of this lesson, you should be able to recognize what makes a situation a crisis, respond calmly, assess urgent risk, and finish ALGEE by connecting the person to real support."
+        },
+        {
+          "slide_id": "what-counts-as-crisis",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/03-what-counts-as-crisis.mp3",
+          "text": "A crisis is more than a hard moment. It is a situation where safety or basic functioning may be in immediate danger. That can include suicidal intent, overdose, severe aggression, panic that is spiraling, or a psychotic state that is disrupting safe behavior. The goal is not diagnosis. The goal is to protect life, reduce harm, and choose the right next help quickly."
+        },
+        {
+          "slide_id": "before-you-reach-out",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/04-before-you-reach-out.mp3",
+          "text": "Before you reach out, slow down and scan. First, check your own safety and the environment. Next, consider privacy, culture, likely triggers, and how your role may affect the interaction. Finally, prepare your supports by knowing the policy, emergency contacts, and coworkers or supervisors you may need to involve."
+        },
+        {
+          "slide_id": "approach-and-de-escalate",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/05-approach-and-de-escalate.mp3",
+          "text": "Approach calmly and de-escalate before you solve. Use a nonthreatening angle, short sentences, and open body language. Avoid commands, arguments, or power struggles. Offer choices when you can, reduce nearby hazards if it is safe to do so, and remember that your first goal is regulation. A steady opening might sound like this: I’m concerned about your safety, and I want to stay calm with you while we figure out the next step."
+        },
+        {
+          "slide_id": "safety-risk-actions",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/06-safety-risk-actions.mp3",
+          "text": "When safety is at risk, move from support to protection. Call emergency services right away for imminent danger, medical instability, or active suicidal risk. Stay with the person if that is safe, reduce access to lethal means only when you can do so safely, and bring in coworkers, supervisors, security, or crisis responders early instead of handling danger alone."
+        },
+        {
+          "slide_id": "crisis-presentation-guide",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/07-crisis-presentation-guide.mp3",
+          "text": "Different crisis presentations need different first aid. With a panic attack, lower stimulation and offer grounding. With aggression or violence risk, keep distance and avoid physical intervention unless you are trained and it is truly necessary. With a severe psychotic state, do not argue about what is real. Stay nonconfrontational and escalate when safety is being affected."
+        },
+        {
+          "slide_id": "other-crisis-situations",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/08-other-crisis-situations.mp3",
+          "text": "Some crises are quieter but still urgent. After a traumatic event, first create safety and identify immediate needs like medical care or shelter. With nonsuicidal self-injury, address what you notice directly and without shame, assess for medical need, and help connect the person to care. With overdose or another medical emergency, call 911, use trained first-aid steps, and do not delay emergency support."
+        },
+        {
+          "slide_id": "suicide-warning-signs",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/09-suicide-warning-signs.mp3",
+          "text": "Warning signs of suicide can show up in what a person says, what you observe, and what raises urgency. You may hear hopelessness or wanting to die. You may see withdrawal, giving away possessions, or increased substance use. Urgency rises when there is a plan, access to means, recent loss, intense agitation, or a sudden shift into eerie calm."
+        },
+        {
+          "slide_id": "ask-directly",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/10-ask-directly.mp3",
+          "text": "When warning signs are present, ask directly. A clear question like, are you thinking about ending your life, helps you understand the danger level. If the answer is yes, ask about plan, timing, intent, and access to means. If risk feels imminent, do not leave the person alone and contact emergency services immediately. If risk is present but not clearly imminent, stay engaged and move quickly into the rest of ALGEE."
+        },
+        {
+          "slide_id": "listen-and-reassure",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/11-listen-and-reassure.mp3",
+          "text": "After the immediate risk picture is clearer, listen nonjudgmentally and give reassurance that stays concrete. Reflect back what you are hearing, allow silence, and offer factual hope. Avoid arguing, guilt, or empty platitudes. A grounded line might sound like this: I’m sorry you’re hurting this much. I’m here with you, and I want us to bring in the right support right now."
+        },
+        {
+          "slide_id": "encourage-help",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/12-encourage-help.mp3",
+          "text": "Finish ALGEE by connecting the person to real support. Encourage professional help through emergency services, crisis teams, E A P, primary care, therapists, or other setting-specific resources. Then encourage self-help and support by identifying grounding skills, trusted people, transportation, rest, and a concrete follow-up plan after the acute moment passes."
+        },
+        {
+          "slide_id": "practice-scenario",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/13-practice-scenario.mp3",
+          "text": "Use this scenario to rehearse the order of operations. A neighbor is banging on doors and seems disoriented. First, notice the safety risk. Next, decide whether it is safe to approach and how much distance you need. Then use a calm introduction, prepare to involve additional support early, and shift toward emergency or crisis-team help if the person remains disoriented or threatening."
+        },
+        {
+          "slide_id": "apply-algee",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/14-apply-algee.mp3",
+          "text": "ALGEE works best when the steps stay connected. Assess risk first. Listen nonjudgmentally. Give reassurance and information. Encourage professional help. And encourage self-help and support. In a crisis, your safety judgment determines how quickly you move, but the model keeps the response structured."
+        },
+        {
+          "slide_id": "emergency-resources",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/15-emergency-resources.mp3",
+          "text": "Keep current crisis resources easy to find. In the United States, call or text 988 for the 988 Suicide and Crisis Lifeline. Crisis Text Line can be reached by texting HOME to 741741. For imminent danger, medical emergency, or overdose, follow local policy and call 911 or your organization’s emergency pathway. Pair those external resources with your own local mobile-crisis, security, supervisor, and E A P contacts."
+        },
+        {
+          "slide_id": "practice-and-reflection",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/16-practice-and-reflection.mp3",
+          "text": "Before you move on, decide what you want your first words to sound like when safety may be at risk. Practice naming the concern, asking directly when needed, and recalling the local handoff pathway you would use. The more fluently you can say those first lines, the easier it is to stay grounded under pressure."
+        },
+        {
+          "slide_id": "key-takeaways",
+          "trigger": "slide-enter",
+          "file_template": "voiceover/{profile_id}/17-key-takeaways.mp3",
+          "text": "The core takeaway is simple. Start with safety. Use calm contact and de-escalation. Ask directly about suicide when warning signs are present. And finish by connecting the person to the right emergency, professional, and follow-up supports. That is how Mental Health First Aid turns concern into a structured crisis response."
+        }
+      ]
+    }
+  </script>
+
+  <script src="../../../core-assets/dist/reveal.js"></script>
+  <script src="../../../core-assets/dist/plugin/notes.js"></script>
+  <script src="../../../core-assets/dist/plugin/search.js"></script>
+  <script src="../../../core-assets/dist/plugin/zoom.js"></script>
+  <script src="../../../shared-runtime/lesson-runtime.js"></script>
+  <script>
+    window.OpenRecoveryLessonRuntime.init();
+  </script>
+</body>
+</html>

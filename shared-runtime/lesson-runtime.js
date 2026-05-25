@@ -388,6 +388,44 @@
       setVoiceoverProfile(initialProfileId);
     }
 
+    function getInlineVoiceoverManifest() {
+      const inlineManifestNode = document.getElementById("openrecovery-voiceover-manifest");
+      if (!inlineManifestNode) {
+        return null;
+      }
+
+      const rawManifest = inlineManifestNode.textContent.trim();
+      if (!rawManifest) {
+        return null;
+      }
+
+      try {
+        return JSON.parse(rawManifest);
+      } catch (error) {
+        throw new Error(`Invalid inline voiceover manifest JSON: ${error.message}`);
+      }
+    }
+
+    function loadVoiceoverManifest() {
+      try {
+        const inlineManifest = getInlineVoiceoverManifest();
+        if (inlineManifest) {
+          return Promise.resolve(inlineManifest);
+        }
+      } catch (error) {
+        return Promise.reject(error);
+      }
+
+      return fetch(voiceoverManifestPath)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Failed to load ${voiceoverManifestPath} (${response.status})`);
+          }
+
+          return response.json();
+        });
+    }
+
     function getFragmentIndex(fragment) {
       if (!fragment) {
         return -1;
@@ -653,14 +691,7 @@
       advanceToNextSlideFromVoiceover();
     });
 
-    fetch(voiceoverManifestPath)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Failed to load ${voiceoverManifestPath} (${response.status})`);
-        }
-
-        return response.json();
-      })
+    loadVoiceoverManifest()
       .then((manifest) => {
         initializeVoiceoverProfiles(manifest);
 
@@ -676,7 +707,9 @@
       })
       .catch((error) => {
         console.warn("Narration manifest unavailable.", error);
-        voiceoverLabel.textContent = "Narration unavailable";
+        voiceoverLabel.textContent = window.location.protocol === "file:"
+          ? "Narration unavailable in file preview"
+          : "Narration unavailable";
       });
 
     voiceoverProfile.addEventListener("change", () => {
